@@ -1,0 +1,28 @@
+.menu {
+    display: block;
+    position: absolute;
+    width: 75vw;
+    height: 88vh;
+    background-color: #fff;
+    z-index: 10;
+    right: -75%;
+    transition: right .5s ease;
+}
+.showMenu {
+    right: 0;
+}
+.menu ul {
+    list-style: none;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    line-height: 1.5;
+    margin-top: 40%;
+    transition: .5s ease;
+}
+.menu.showMenu ul {
+    margin-top: 0;
+}
