@@ -18,6 +18,7 @@ class Carousel extends Component {
             <div className='project brown'>10</div>
         ], 
         currentProject: 0,
+        isCapturing: false
     }
     componentDidUpdate( _, prevState ) {
         if( this.state.currentProject !== prevState.currentProject ){
@@ -25,31 +26,48 @@ class Carousel extends Component {
             setTimeout(() => this.refs.info.classList.remove('wink'), 300)
         }
     }
+    scrollInterval = null
+    prevTimeStamp = 0
     currentProjectHandler = ( event, action ) => {
         let current = this.state.currentProject
+
         if( event ){
-            if( event.deltaY > 0 ) current++
-            else if ( event.deltaY < 0 ) current--
+            const treshold = 42
+            const delta = event.timeStamp - this.prevTimeStamp
+
+            this.prevTimeStamp = event.timeStamp
+            
+            if( delta < treshold )    return
+            if( this.scrollInterval ) return
+            if( event.deltaY > 0 )    current++
+            if( event.deltaY < 0 )    current--
         }
         else if ( action ) {
-            if( action === '+' ) current++
+            if( action === '+' )      current++
             else if( action === '-' ) current--
         }
         if( current >= this.state.projects.length ) current=0
         if( current < 0 ) current = this.state.projects.length-1
-        this.setState({ currentProject: current })
+        if( !this.state.isCapturing ) {
+            this.setState({ isCapturing: true }, () => {
+              this.setState( state => ({ currentProject: current }));
+            })
+          }
+      
+        this.scrollInterval = setTimeout(() => {
+            this.setState({ isCapturing: false })
+            this.scrollInterval = null
+        }, 500 )
     }
     render(){
         return (
             <Swipe 
-                onSwipeUp={() => this.currentProjectHandler( undefined, '+' )}
-                onSwipeLeft={() => this.currentProjectHandler( undefined, '+' )}
-                onSwipeRight={() => this.currentProjectHandler( undefined, '-' )}
-                onSwipeDown={() => this.currentProjectHandler( undefined, '-' )}
-                >
+            onSwipeUp={() => this.currentProjectHandler( undefined, '+' )}
+            onSwipeLeft={() => this.currentProjectHandler( undefined, '+' )}
+            onSwipeRight={() => this.currentProjectHandler( undefined, '-' )}
+            onSwipeDown={() => this.currentProjectHandler( undefined, '-' )} >
                 <div className='carousel' onWheel={ e => this.currentProjectHandler(e) }>
-                    {
-                        this.state.projects.map(( el, i ) => {
+                    {   this.state.projects.map(( el, i ) => {
                         const current = this.state.currentProject
                         const size = this.state.projects.length
                         let style='hide'

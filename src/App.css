@@ -1,8 +1,9 @@
+:root {
+  font-size: 12px;
+}
 .App {
   position: relative;
   overflow: hidden;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-.Button{ 
-  display: inline-block;
+  font-family: 'Poppins', sans-serif;;
+  height: 100vh;
 }

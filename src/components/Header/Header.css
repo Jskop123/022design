@@ -1,4 +1,6 @@
 header {
+    position: absolute;
+    width: 100vw;
     height: 12vh;
     display: flex;
     justify-content: space-between;
@@ -6,8 +8,8 @@ header {
     z-index: 10;
 }
 .logo{
-    font-size: 30px;
-    margin-left: 5%;
+    font-size: 2rem;
+    margin-left: 5vw;
 }
 .burgerIcon {
     height: 60%;
@@ -33,4 +35,8 @@ header {
 }
 .burgerIcon.active .bar:nth-child(3){
     transform: translateY(-225%) rotate(45deg);
+}
+@media (orientation: landscape) {
+    header { height: 100vh; width: 15vw; left: 0; flex-direction: column; justify-content: space-around; }
+    .burgerIcon { display: none; }
 }

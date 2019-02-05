@@ -2,10 +2,11 @@
     display: block;
     position: absolute;
     width: 75vw;
-    height: 88vh;
+    height: 89vh;
     background-color: #fff;
     z-index: 10;
     right: -75%;
+    top: 11vh;
     transition: right .5s ease;
 }
 .showMenu {
@@ -18,11 +19,14 @@
     top: 50%;
     left: 10%;
     transform: translateY(-50%);
-    font-size: 20px;
     line-height: 1.5;
     margin-top: 40%;
     transition: .5s ease;
+    font-size: 1.3rem;
 }
 .menu.showMenu ul {
     margin-top: 0;
+}
+@media (orientation: landscape) {
+    .menu {width: 15vh; height: 20vh; position: static;}
 }

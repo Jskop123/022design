@@ -2,6 +2,8 @@ import React from 'react';
 
 import './Header.css'
 
+import Menu from '../Menu/Menu'
+
 const Header = (props) => (
     <header>
         <div className='logo'>022design</div>
@@ -11,6 +13,7 @@ const Header = (props) => (
             <div className='bar'></div>
             <div className='bar'></div>
         </div>
+       <Menu active={ props.active }/>
     </header>
 )
 export default Header

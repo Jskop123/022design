@@ -6,10 +6,9 @@ const Menu = (props) => (
     <div className={ props.active ? 'menu showMenu' : 'menu' }>
         <ul>
             <li>Home</li>
-            <li>Druga zakładka</li>
-            <li>Trzecia zakładka</li>
-            <li>Czwarta zakładka</li>
-            <li>Piąta zakładka</li>
+            <li>Oferta</li>
+            <li>Portfolio</li>
+            <li>Contact</li>
         </ul>
     </div>
 )
