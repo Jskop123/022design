@@ -71,6 +71,7 @@
 }
 @media (orientation: landscape) {
   .carousel { height: 100vh; width: 85vw; left: 15vw; top: 0; }
+  .previous {top: -100%; left: 5%;}
   .projectInfo { width: 35%; padding: 2% 2%; }
 }
 

@@ -1,9 +1,12 @@
 :root {
   font-size: 12px;
 }
+html {
+  overflow: hidden;
+  height: 100vh;
+}
 .App {
   position: relative;
-  overflow: hidden;
-  font-family: 'Poppins', sans-serif;;
   height: 100vh;
+  font-family: 'Poppins', sans-serif;
 }

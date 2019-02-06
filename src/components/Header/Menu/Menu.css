@@ -28,5 +28,5 @@
     margin-top: 0;
 }
 @media (orientation: landscape) {
-    .menu {width: 15vh; height: 20vh; position: static;}
+    .menu {width: 15vw; height: 20vh; position: static;}
 }

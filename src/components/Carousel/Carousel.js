@@ -18,7 +18,6 @@ class Carousel extends Component {
             <div className='project brown'>10</div>
         ], 
         currentProject: 0,
-        isCapturing: false
     }
     componentDidUpdate( _, prevState ) {
         if( this.state.currentProject !== prevState.currentProject ){
@@ -32,7 +31,7 @@ class Carousel extends Component {
         let current = this.state.currentProject
 
         if( event ){
-            const treshold = 42
+            const treshold = 50
             const delta = event.timeStamp - this.prevTimeStamp
 
             this.prevTimeStamp = event.timeStamp
@@ -46,27 +45,25 @@ class Carousel extends Component {
             if( action === '+' )      current++
             else if( action === '-' ) current--
         }
-        if( current >= this.state.projects.length ) current=0
-        if( current < 0 ) current = this.state.projects.length-1
-        if( !this.state.isCapturing ) {
-            this.setState({ isCapturing: true }, () => {
-              this.setState( state => ({ currentProject: current }));
-            })
-          }
+        if( current >= this.state.projects.length ) current = 0
+        if( current < 0 ) current = this.state.projects.length - 1
+
+        this.setState({ currentProject: current })
       
         this.scrollInterval = setTimeout(() => {
-            this.setState({ isCapturing: false })
             this.scrollInterval = null
         }, 500 )
+        return true
     }
     render(){
         return (
             <Swipe 
             onSwipeUp={() => this.currentProjectHandler( undefined, '+' )}
+            onSwipeDown={() => this.currentProjectHandler( undefined, '-' )} 
             onSwipeLeft={() => this.currentProjectHandler( undefined, '+' )}
             onSwipeRight={() => this.currentProjectHandler( undefined, '-' )}
-            onSwipeDown={() => this.currentProjectHandler( undefined, '-' )} >
-                <div className='carousel' onWheel={ e => this.currentProjectHandler(e) }>
+            >
+                <div className='carousel' onWheel={ this.currentProjectHandler }>
                     {   this.state.projects.map(( el, i ) => {
                         const current = this.state.currentProject
                         const size = this.state.projects.length
@@ -78,7 +75,9 @@ class Carousel extends Component {
                         if ( current >= 3 && size - current + i <= 3 )  style = `next${ size - current + i }`
             
                         return <div key={ i } className={ `tile ${ style }` } 
-                                onClick={ style === 'next1' ? () => this.currentProjectHandler( undefined, '+' ) : null }
+                                onClick={ 
+                                    style === 'next1' || style === 'current' ? 
+                                    () => this.currentProjectHandler( undefined, '+' ) : null }
                                 >{ el }</div>
                         })
                     }
@@ -86,7 +85,6 @@ class Carousel extends Component {
                         <h2>Tytuł projektu</h2>
                         <p>Dodadkowy opis projektu</p>
                     </div>
-                    <div className='scroll'></div>
                 </div>
             </Swipe>
         )
