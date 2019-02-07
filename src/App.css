@@ -8,5 +8,12 @@ html {
 .App {
   position: relative;
   height: 100vh;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Lato', sans-serif;
+}
+a {
+  color: black;
+  text-decoration: none;
+}
+.active {
+  text-decoration: underline;
 }

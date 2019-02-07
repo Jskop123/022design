@@ -29,7 +29,6 @@ class Carousel extends Component {
     prevTimeStamp = 0
     currentProjectHandler = ( event, action ) => {
         let current = this.state.currentProject
-
         if( event ){
             const treshold = 50
             const delta = event.timeStamp - this.prevTimeStamp

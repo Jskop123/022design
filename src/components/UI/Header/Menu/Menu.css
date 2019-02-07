@@ -18,6 +18,7 @@
     position: absolute;
     top: 50%;
     left: 10%;
+    width: 100%;
     transform: translateY(-50%);
     line-height: 1.5;
     margin-top: 40%;
@@ -28,5 +29,10 @@
     margin-top: 0;
 }
 @media (orientation: landscape) {
-    .menu {width: 15vw; height: 20vh; position: static;}
+    .menu { width: 15vw; height: 20vh; position: static; }
+    .menu ul { text-align: right; left: -10%; }
+}
+@media (orientation: portrait) and (min-height: 1024px){
+    .menu { width: 15vw; height: 20vh; position: static; }
+    .menu ul { text-align: right; left: -10%; }
 }
