@@ -6,6 +6,7 @@ header {
     justify-content: space-between;
     align-items: center;
     z-index: 10;
+    background-color: #fff;
 }
 .logo{
     font-size: 2rem;
@@ -37,7 +38,7 @@ header {
     transform: translateY(-225%) rotate(45deg);
 }
 @media (orientation: landscape) {
-    header { height: 100vh; width: 15vw; left: 0; flex-direction: column; justify-content: space-around; }
+    header { height: 100vh; width: 15vw; left: 0; flex-direction: column; justify-content: space-around; z-index: 12;}
     .burgerIcon { display: none; }
 }
 @media (orientation: portrait) and (min-height: 1024px){

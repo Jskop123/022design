@@ -1,0 +1,31 @@
+.projectInfo {
+  position: absolute;
+  top: 42%;
+  left: 0;
+  width: 35vh;
+  height: 35vh;
+  z-index: 8;
+  background-color: #000;
+  border: 3px solid white;
+  color: white;
+  padding: 10% 5%;
+  font-size: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: .3s ease;
+}
+.wink {
+  opacity: 0;
+  margin-left: -50%;
+}
+@media (orientation: landscape) {
+  .projectInfo { width: 50vh; height: 50vh; padding: 2% 2%; top: 35%; left: 15vw; }
+  /* .wink { left: 0; top: -100%;   transition: .5s ease; } */
+}
+@media (orientation: portrait) and (min-height: 800px){
+  .projectInfo { height: 25vh; width: 25vh; }
+}
+@media (orientation: portrait) and (min-height: 1024px){
+  .projectInfo { height: 25vh; width: 25vh; left: 15vw; }
+}

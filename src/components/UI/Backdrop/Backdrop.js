@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 
-import './Backdrop.css'
+import styles from './Backdrop.module.css'
 
 class Backdrop extends Component {
-    componentDidMount = () => setTimeout(() => this.refs.backdrop.classList.remove('trans'), 50)
+    componentDidMount = () => setTimeout(() => this.refs.backdrop.classList.remove( styles.trans ), 50 )
     render(){
         return(
-            <div className='backdrop trans' ref='backdrop' onClick={ this.props.click }></div>
+            <div className={ `${styles.backdrop} ${styles.trans}` } ref='backdrop' onClick={ this.props.click }></div>
         )
     }
 }
