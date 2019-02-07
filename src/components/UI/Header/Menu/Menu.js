@@ -7,10 +7,10 @@ import styles from './Menu.module.css'
 const Menu = (props) => (
     <nav className={ props.active ? `${styles.menu} ${styles.showMenu}` : styles.menu }>
         <ul>
-            <NavLink to='/' exact ><li>Home</li></NavLink>
-            <NavLink to='/oferta'><li>Oferta</li></NavLink>
-            <NavLink to='/portfolio'><li>Portfolio</li></NavLink>
-            <NavLink to='/contact'><li>Contact</li></NavLink>
+            <li><NavLink to='/' exact onClick={ props.showMenu }>Home</NavLink></li>
+            <li><NavLink to='/oferta' onClick={ props.showMenu }>Oferta</NavLink></li>
+            <li><NavLink to='/portfolio' onClick={ props.showMenu }>Portfolio</NavLink></li>
+            <li><NavLink to='/kontakt' onClick={ props.showMenu }>Kontakt</NavLink></li>
         </ul>
     </nav>
 )

@@ -6,8 +6,11 @@
     background-color: #00000088;
     z-index: 9;
     opacity: 1;
-    transition: .3s ease;
 }
 .trans {
     opacity: 0;
+    display: none;
+}
+@media (orientation: portrait) and (min-height: 1024px), (orientation: landscape) {
+    .backdrop { display: none }
 }

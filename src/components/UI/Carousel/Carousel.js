@@ -5,7 +5,11 @@ import styles from './Carousel.module.css'
 
 class Carousel extends Component {
     state = {
+        firstLoad: true,
         currentProject: 0
+    }
+    componentDidMount() {
+        setTimeout(() => this.setState({ firstLoad: false }), 50 )
     }
     scrollInterval = null
     prevTimeStamp = 0
@@ -19,6 +23,7 @@ class Carousel extends Component {
             
             if( delta < treshold )    return
             if( this.scrollInterval ) return
+            if( event.deltaY === 0 )  return
             if( event.deltaY > 0 )    current++
             if( event.deltaY < 0 )    current--
         }
@@ -45,7 +50,7 @@ class Carousel extends Component {
             onSwipeRight={() => this.currentProjectHandler( '-' )}
             >
                 <div className={`page ${styles.carousel}`} onWheel={ this.currentProjectHandler }>
-                    {   this.props.items.map(( el, i ) => {
+                    { this.props.items.map(( el, i ) => {
                         const current = this.state.currentProject
                         const size = this.props.items.length
                         let selector = styles.hide
@@ -55,7 +60,9 @@ class Carousel extends Component {
                         if ( i === size -1 && current === 0 )           selector = styles.previous
                         if ( current >= 3 && size - current + i <= 3 )  selector = styles[`next${size - current + i}`]
             
-                        return <div key={ i } className={ `${styles.tile} ${selector}` } 
+                        return <div key={ i } 
+                                className={ `${styles.tile} ${selector}` } 
+                                style={ this.state.firstLoad && selector !== styles.previous ? { zIndex: -i , left: '5%', top: 0 } : null}
                                 onClick={ 
                                     selector === styles.next1 || selector === styles.current ? 
                                     () => this.currentProjectHandler( '+' ) : null }

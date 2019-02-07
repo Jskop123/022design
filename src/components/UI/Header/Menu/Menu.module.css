@@ -31,6 +31,7 @@
 @media (orientation: landscape) {
     .menu { width: 15vw; height: 20vh; position: static; }
     .menu ul { text-align: right; left: -10%; }
+    .menu.showMenu ul { margin-top: 40%; }
 }
 @media (orientation: portrait) and (min-height: 1024px){
     .menu { width: 15vw; height: 20vh; position: static; }
