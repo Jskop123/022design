@@ -37,11 +37,7 @@ header {
 .burgerIcon.active .bar:nth-child(3){
     transform: translateY(-225%) rotate(45deg);
 }
-@media (orientation: landscape) {
-    header { height: 100vh; width: 15vw; left: 0; flex-direction: column; justify-content: space-around; z-index: 12;}
-    .burgerIcon { display: none; }
-}
-@media (orientation: portrait) and (min-height: 1024px){
-    header { height: 100vh; width: 15vw; left: 0; flex-direction: column; }
+@media (orientation: landscape), (orientation: portrait) and (min-height: 1024px) {
+    header { height: 100vh; width: 17vw; left: 0; flex-direction: column; justify-content: space-between; z-index: 12; box-shadow: 3px 0px 10px 0px #00000033; }
     .burgerIcon { display: none; }
 }

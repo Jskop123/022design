@@ -35,21 +35,25 @@ class Carousel extends Component {
         if( current < 0 ) current = this.props.items.length - 1
 
         this.setState({ currentProject: current })
-        this.props.changeItem()
+        if (this.props.description) this.projectInfoWinkHandler()
         this.scrollInterval = setTimeout(() => {
             this.scrollInterval = null
         }, 500 )
         return true
     }
+    projectInfoWinkHandler = () => {
+        this.refs.info.classList.add( styles.wink )
+        setTimeout(() => this.refs.info.classList.remove( styles.wink ), 300)
+    }
     render(){
         return (
-            <Swipe 
-            onSwipeUp={() => this.currentProjectHandler( '+' )}
-            onSwipeDown={() => this.currentProjectHandler( '-' )} 
-            onSwipeLeft={() => this.currentProjectHandler( '+' )}
-            onSwipeRight={() => this.currentProjectHandler( '-' )}
-            >
-                <div className={`page ${styles.carousel}`} onWheel={ this.currentProjectHandler }>
+            <div className={styles.carousel} onWheel={ this.currentProjectHandler }>
+                <Swipe 
+                onSwipeUp={() => this.currentProjectHandler( '+' )}
+                onSwipeDown={() => this.currentProjectHandler( '-' )} 
+                onSwipeLeft={() => this.currentProjectHandler( '+' )}
+                onSwipeRight={() => this.currentProjectHandler( '-' )}
+                >
                     { this.props.items.map(( el, i ) => {
                         const current = this.state.currentProject
                         const size = this.props.items.length
@@ -69,8 +73,15 @@ class Carousel extends Component {
                                 >{ el }</div>
                         })
                     }
-                </div>
-            </Swipe>
+                    { this.props.description ? 
+                        <div className={ styles.projectInfo } ref='info'>
+                            <h2>Tytuł projektu</h2>
+                            <p>Dodadkowy opis projektu</p>
+                        </div>
+                        : null
+                    }
+                </Swipe>
+            </div>
         )
     }
 }

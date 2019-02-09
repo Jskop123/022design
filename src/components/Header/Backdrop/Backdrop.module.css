@@ -5,10 +5,8 @@
     margin-top: 12vh;
     background-color: #00000088;
     z-index: 9;
-    opacity: 1;
 }
-.trans {
-    opacity: 0;
+.exit {
     display: none;
 }
 @media (orientation: portrait) and (min-height: 1024px), (orientation: landscape) {

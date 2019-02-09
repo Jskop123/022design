@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 
-import styles from './Home.module.css'
-
-import Carousel from '../UI/Carousel/Carousel'
+import Carousel from '../../components/Carousel/Carousel'
 
 class Home extends Component {
     state = { 
@@ -19,20 +17,12 @@ class Home extends Component {
             <div className='project brown'>10</div>
         ]
     }
-    projectInfoWinkHandler = () => {
-        this.refs.info.classList.add( styles.wink )
-        setTimeout(() => this.refs.info.classList.remove( styles.wink ), 300)
-    }
     render() {
-        return(
-            <>
-                <Carousel items={ this.state.projects } changeItem={ this.projectInfoWinkHandler }/>
-                <div className={ styles.projectInfo } ref='info'>
-                    <h2>Tytuł projektu</h2>
-                    <p>Dodadkowy opis projektu</p>
-                </div>
-            </>
-        )
+        return (
+            <div className='page'>
+                <Carousel items={ this.state.projects } description={ true }/>
+            </div>
+        ) 
     }
 } 
 export default Home

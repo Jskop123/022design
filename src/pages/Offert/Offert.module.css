@@ -1,0 +1,76 @@
+.offer {
+    padding: 0 3%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.item {
+    width: 100%;
+    height: 33%;
+    display: flex;
+    animation-name: show;
+    opacity: 0;
+    animation-duration: .3s;
+    animation-delay: .3s;
+    animation-fill-mode: forwards;
+}
+.item:nth-child(2) {
+    animation-delay: .7s;
+}
+.item:nth-child(3) {
+    animation-delay: 1.1s;
+}
+.graph{
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.graph img {
+    object-fit: contain;
+    height: 60%;
+}
+.item:nth-child(2) .graph img {
+    height: 65%;
+}
+.text {
+    display: flex;
+    justify-content: center;    
+    flex-direction: column;
+    line-height: 1.4;
+    width: 50%;
+    text-align: right;
+    padding: 0 3%;
+}
+.text:nth-child(2) {
+    text-align: left;
+}
+@keyframes show {
+    0% { opacity: 0; }
+    25% {opacity: .2;}
+    50% {opacity: .5;}
+    75% {opacity: .8;}
+    100% { opacity: 1; }
+}
+@media (max-width: 350px) {
+    .text h2 { font-size: 80% }
+    .text p { font-size: 75% }
+}
+@media (orientation: portrait) and (min-width: 600px) {
+    .offer { height: 80%; transform: translateY(10%)}
+}
+@media (orientation: portrait) and (min-height: 800px) {
+    .graph img { height: 50%; }
+    .item:nth-child(2) .graph img { height: 60%; }
+}
+@media (orientation: landscape) {
+    .offer { padding: 0 8%; }
+    .text { width: 80%; }
+    .item {animation-delay: .1s; }
+    .item:nth-child(2) { animation-delay: .5s; }
+    .item:nth-child(3) { animation-delay: .9s; }
+}
+@media (orientation: landscape) and (min-width: 950px){
+    .offer { padding: 5% 10%; }
+}
