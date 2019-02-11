@@ -9,6 +9,7 @@
   width: 75%;
   height: 90%;
   transition: left .5s ease, right .5s ease, top .7s ease, bottom .7s ease;
+  overflow: hidden;
 }
 .previous{
   z-index: 7;
@@ -59,6 +60,9 @@
 .wink {
   opacity: 0;
   transform: translateX(-100%);
+}
+.image {
+  height: 100%;
 }
 @media (orientation: landscape) {
   .previous {top: -100%; left: 5%;}

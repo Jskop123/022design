@@ -1,0 +1,34 @@
+.contact {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.form {
+    width: 100%;
+    text-align: center;
+}
+.data {
+    width: 100%;
+}
+.form input, .form textarea, .form select {
+    position: relative;
+    background-color: #000;
+    display: block;
+    margin: 0 auto 7px auto;
+    height: 30px;
+    width: 250px;
+    border: none;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+.form select::after {
+    height: 20px;
+    position: absolute;
+    color: blue;
+    content: '';
+    width: 20px;
+}
+.form textarea {
+    height: 120px;
+}

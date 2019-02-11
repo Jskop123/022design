@@ -70,13 +70,15 @@ class Carousel extends Component {
                                 onClick={ 
                                     selector === styles.next1 || selector === styles.current ? 
                                     () => this.currentProjectHandler( '+' ) : null }
-                                >{ el }</div>
+                                >
+                                <img  className={ styles.image } src={ el.acf.Zdjecie.url } alt='zjdecie normalnie'/>
+                                </div>
                         })
                     }
                     { this.props.description ? 
                         <div className={ styles.projectInfo } ref='info'>
-                            <h2>Tytuł projektu</h2>
-                            <p>Dodadkowy opis projektu</p>
+                            <h2>{ this.props.items[ this.state.currentProject ].acf.Tytuł }</h2>
+                            <p>{ this.props.items[ this.state.currentProject ].acf.Opis }</p>
                         </div>
                         : null
                     }

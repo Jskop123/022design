@@ -8,6 +8,7 @@ import Header from './components/Header/Header'
 import Home from './pages/Home/Home'
 import Offert from './pages/Offert/Offert'
 import Portfolio from './pages/Portfolio/Portfolio'
+import Contact from './pages/Contact/Contact';
 
 class App extends Component {
   state = {
@@ -21,7 +22,7 @@ class App extends Component {
         <Switch>
           <Route path='/oferta' component={ Offert } ></Route>
           <Route path='/portfolio' component={ Portfolio } ></Route>
-          <Route path='/kontakt' component={ Portfolio } ></Route>
+          <Route path='/kontakt' component={ Contact } ></Route>
           <Route path='/' component={ Home } ></Route>
         </Switch>
       </div>
