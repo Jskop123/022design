@@ -1,14 +1,15 @@
 .loader {
     font-size: 10px;
-    margin: auto;
     text-indent: -9999em;
     width: 11em;
     height: 11em;
     border-radius: 50%;
     background: linear-gradient(to right, #000000 10%, rgba(0,0,0, 0) 42%);
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     animation: load3 1.4s infinite linear;
-    transform: translateZ(0);
 }
 .loader:before {
     width: 50%;
@@ -35,17 +36,17 @@
 }
 @-webkit-keyframes load3 {
     0% {
-        transform: rotate(0deg);
+        transform: translate(-50%, -50%) rotate(0deg);
     }
     100% {
-        transform: rotate(360deg);
+        transform: translate(-50%, -50%) rotate(360deg);
     }
     }
     @keyframes load3 {
     0% {
-        transform: rotate(0deg);
+        transform: translate(-50%, -50%) rotate(0deg);
     }
     100% {
-        transform: rotate(360deg);
+        transform: translate(-50%, -50%) rotate(360deg);
     }
 }

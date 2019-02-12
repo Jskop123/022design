@@ -14,10 +14,7 @@ class Home extends Component {
     componentDidMount(){
         axios.get('/karuzela')
             .then( response => {
-                console.log(response.data)
-                this.setState({ loading: false, projects: response.data })
-            }).catch( error => {
-                console.log(error)
+                this.setState({ projects: response.data, loading: false })
             })
     }
     render() {
@@ -25,7 +22,7 @@ class Home extends Component {
             <div className='page'>
                 { this.state.loading ? 
                     <Spinner/> :
-                    <Carousel items={ this.state.projects } description={ true }/>
+                    <Carousel items={ this.state.projects } description/>
                 }
             </div>
         ) 

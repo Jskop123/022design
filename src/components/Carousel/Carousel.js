@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import Swipe from 'react-easy-swipe'
 
+import Spinner from '../Spinner/Spinner'
+
 import styles from './Carousel.module.css'
 
 class Carousel extends Component {
     state = {
         firstLoad: true,
+        imagesLoaded: 0,
         currentProject: 0
-    }
-    componentDidMount() {
-        setTimeout(() => this.setState({ firstLoad: false }), 50 )
     }
     scrollInterval = null
     prevTimeStamp = 0
@@ -45,9 +45,17 @@ class Carousel extends Component {
         this.refs.info.classList.add( styles.wink )
         setTimeout(() => this.refs.info.classList.remove( styles.wink ), 300)
     }
+    imagesLoaded = () => {
+        this.setState({ imagesLoaded: this.state.imagesLoaded + 1 })
+        if( this.state.imagesLoaded === this.props.items.length - 1 ) {
+            this.setState({ firstLoad: false })
+            this.refs.carousel.classList.remove(styles.hide)
+        }
+    }
     render(){
         return (
-            <div className={styles.carousel} onWheel={ this.currentProjectHandler }>
+        <>
+            <div className={`${styles.hide} ${styles.carousel}`} ref='carousel' onWheel={ this.currentProjectHandler }>
                 <Swipe 
                 onSwipeUp={() => this.currentProjectHandler( '+' )}
                 onSwipeDown={() => this.currentProjectHandler( '-' )} 
@@ -71,7 +79,9 @@ class Carousel extends Component {
                                     selector === styles.next1 || selector === styles.current ? 
                                     () => this.currentProjectHandler( '+' ) : null }
                                 >
-                                <img  className={ styles.image } src={ el.acf.Zdjecie.url } alt='zjdecie normalnie'/>
+                                    <img    src={ el.acf.Zdjecie.url }
+                                            onLoad={this.imagesLoaded}
+                                            alt='jakiś tam alt'/>
                                 </div>
                         })
                     }
@@ -84,6 +94,8 @@ class Carousel extends Component {
                     }
                 </Swipe>
             </div>
+        { this.state.firstLoad ? <Spinner/> : null }
+        </>
         )
     }
 }

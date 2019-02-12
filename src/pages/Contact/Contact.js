@@ -14,7 +14,7 @@ const Contact = () => {
                 <label htmlFor='telephone'>Twój numer telefonu</label>
                 <input type='number' id='telephone' placeholder='np. 510532011'></input>
                 <label htmlFor='service'>Usługa</label>
-                <select id='service' value='Pełny projekt'>
+                <select id='service' defaultValue='Pełny projekt'>
                     <option value='Pełny projekt'>Pełny projekt</option>
                     <option value='Wizualizacja'>Wizualizacja</option>
                     <option value='Zdjęcia'>Zdjęcia</option>

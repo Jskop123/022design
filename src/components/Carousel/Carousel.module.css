@@ -2,43 +2,42 @@
   position: relative;
   height: 100%;
   width: 100%;
+  transition: opacity .3s ease;
 }
 .tile {
   position: absolute;
   border: 3px solid white;
   width: 75%;
   height: 90%;
-  transition: left .5s ease, right .5s ease, top .7s ease, bottom .7s ease;
+  transition: transform .5s ease;
   overflow: hidden;
+  bottom: 0;
+  right: 0;
+}
+.tile img {
+  height: 100%;
 }
 .previous{
   z-index: 7;
-  top: 0;
-  left: -75%;
+  transform: translate(-150%, -10%);
 }
 .current{ 
   z-index: 6;
-  left: 5%;
-  top: 0;
+  transform: translate(-25%, -10%);
 }
 .next1{
   z-index: 5;
-  left: 15%;
-  top: 5%;
+  transform: translate(-12.5%, -5%);
   transition-delay: .1s;
 }
 .next2{
   z-index: 4;
-  left: 25%;
-  top: 10%;
 }
 .next3{
   z-index: 3;
-  left: 25%;
-  top: 10%;
 }
 .hide {
-  display: none;
+  opacity: 0;
 }
 .projectInfo {
   position: absolute;
@@ -60,9 +59,6 @@
 .wink {
   opacity: 0;
   transform: translateX(-100%);
-}
-.image {
-  height: 100%;
 }
 @media (orientation: landscape) {
   .previous {top: -100%; left: 5%;}
