@@ -1,31 +1,31 @@
 import React, { Component } from 'react'
 
+import { connect } from 'react-redux'
+import { getHomeItems } from '../../store/actions/homeActions'
+
 import Carousel from '../../components/Carousel/Carousel'
-import Spinner from '../../components/Spinner/Spinner';
-import axios from '../../axios';
-
-
+import Spinner from '../../components/Spinner/Spinner'
 
 class Home extends Component {
-    state = { 
-        loading: true,
-        projects: []
-    }
     componentDidMount(){
-        axios.get('/karuzela')
-            .then( response => {
-                this.setState({ projects: response.data, loading: false })
-            })
+        if( this.props.loading ) this.props.getHomeItems()
     }
     render() {
         return (
             <div className='page'>
-                { this.state.loading ? 
+                { this.props.loading ? 
                     <Spinner/> :
-                    <Carousel items={ this.state.projects } description/>
+                    <Carousel items={ this.props.items } description/>
                 }
             </div>
         ) 
     }
-} 
-export default Home
+}
+const mapStateToProps = state => ({
+    loading: state.home.loading,
+    items: state.home.carouselItems
+})
+const mapDispatchToProps = dispatch => ({
+    getHomeItems: () => dispatch( getHomeItems() )
+})
+export default connect( mapStateToProps, mapDispatchToProps )( Home )

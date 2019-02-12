@@ -1,0 +1,1 @@
+export const SET_HOME_ITEMS = 'SET_HOME_ITEMS'

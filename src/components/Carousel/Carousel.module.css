@@ -6,6 +6,7 @@
 }
 .tile {
   position: absolute;
+  background-color: #ccc;
   border: 3px solid white;
   width: 75%;
   height: 90%;
@@ -19,7 +20,7 @@
 }
 .previous{
   z-index: 7;
-  transform: translate(-150%, -10%);
+  transform: translate(-135%, -10%);
 }
 .current{ 
   z-index: 6;
@@ -61,7 +62,6 @@
   transform: translateX(-100%);
 }
 @media (orientation: landscape) {
-  .previous {top: -100%; left: 5%;}
   .projectInfo { width: 50vh; height: 50vh; padding: 2% 2%; top: 35%; left: 1%; }
   /* .projectInfo.wink { left: 0; top: -100%;   transition: .5s ease; } */
 }
