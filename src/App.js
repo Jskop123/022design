@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 
 import './App.css'
+import './assets/fontello/css/fontello.css'
 
 import Header from './components/Header/Header'
 
@@ -21,7 +22,7 @@ class App extends Component {
         <Header burger={ this.showMenuHandler } active={ this.state.showMenu }/>
         <Switch>
           <Route path='/oferta' component={ Offert } ></Route>
-          <Route path='/portfolio' component={ Portfolio } ></Route>
+          <Route path='/portfolio' exact component={ Portfolio } ></Route>
           <Route path='/kontakt' component={ Contact } ></Route>
           <Route path='/' component={ Home } ></Route>
         </Switch>

@@ -1,34 +1,55 @@
 .contact {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
-}
-.form {
-    width: 100%;
+    font-size: 1.2rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
     text-align: center;
 }
-.data {
-    width: 100%;
+.contact h2{
+    margin-bottom: 10px;
 }
 .form input, .form textarea, .form select {
     position: relative;
-    background-color: #000;
+    background-color: #dbdbdb;
     display: block;
-    margin: 0 auto 7px auto;
+    margin: 3px auto 7px auto;
     height: 30px;
-    width: 250px;
-    border: none;
-    color: white;
-    padding: 5px;
-    border-radius: 5px;
+    width: 230px;
+    border: 2px solid black;
+    padding: 0 5px;
+    border-radius: 0px;
 }
-.form select::after {
-    height: 20px;
-    position: absolute;
-    color: blue;
-    content: '';
-    width: 20px;
+.form input[type='submit'] {
+    width: 70px;
 }
 .form textarea {
-    height: 120px;
+    height: 80px;
+}
+.data {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+.data a, .data div {
+    display: block;
+    margin: 5px 20px;
+}
+.data i {
+    font-size: 40px;
+    display: inline-block;
+}
+.mail_phone {
+    width: 100%;
+}
+.location {
+    display: block;
+}
+@media (orientation: landscape) and (min-width: 500px){
+    .form, .data { width: 50%; }
 }

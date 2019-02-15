@@ -17,14 +17,16 @@ export const getHomeItems = () => dispatch => {
                     counter++
                     if ( counter === response.data.length -1 ) {
                         const homeItems = response.data.map(( item, i ) => ({
-                            title: item.acf.Tytuł,
-                            desc: item.acf.Opis,
+                            titlePl: item.acf.titlePl,
+                            titleEn: item.acf.titleEn,
+                            link: item.acf.id,
                             image: images[i]
                         }))
                         dispatch( setHomeItems( homeItems ))
+                        console.log(homeItems)
                     }
                 }
-                images[i].src = el.acf.Zdjecie.url
+                images[i].src = el.acf.photo
             })
         })
 }

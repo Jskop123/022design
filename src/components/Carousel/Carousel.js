@@ -1,12 +1,18 @@
 import React, { Component } from 'react'
 import Swipe from 'react-easy-swipe'
+import { Link } from 'react-router-dom'
 
 import styles from './Carousel.module.css'
 
 class Carousel extends Component {
     state = {
         firstLoad: true,
-        currentProject: 0
+        currentProject: 0,
+        title: this.props.items[ 0 ].titlePl,
+        link: this.props.items[ 0 ].link
+    }
+    componentWillUnmount() {
+        clearTimeout( this.winkTimeout )
     }
     scrollInterval = null
     prevTimeStamp = 0
@@ -40,7 +46,13 @@ class Carousel extends Component {
     }
     projectInfoWinkHandler = () => {
         this.refs.info.classList.add( styles.wink )
-        setTimeout(() => this.refs.info.classList.remove( styles.wink ), 300)
+        this.winkTimeout = setTimeout(() => {
+            this.setState(() => ({ 
+                title: this.props.items[ this.state.currentProject ].titlePl, 
+                link: this.props.items[ this.state.currentProject ].link
+            }))
+            this.refs.info.classList.remove( styles.wink )
+        }, 300 )
     }
     render(){
         return (
@@ -74,10 +86,12 @@ class Carousel extends Component {
                             })
                     }
                     { this.props.description ? 
-                        <div className={ styles.projectInfo } ref='info'>
-                            <h2>{ this.props.items[ this.state.currentProject ].title }</h2>
-                            <p>{ this.props.items[ this.state.currentProject ].desc }</p>
-                        </div>
+                        <Link to={`/portfolio/${this.state.link}`}>
+                            <div className={ styles.projectInfo } ref='info'>
+                                <h2>{ this.state.title }</h2>
+                                <p>Zobacz więcej <i className='icon-right-big'></i></p>
+                            </div>
+                        </Link>
                         : null
                     }
                 </Swipe>
