@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import styles from './Offert.module.css'
 
@@ -35,6 +36,7 @@ const Offert = () => (
                 <p>Chcesz wynająć lokal i potrzebujesz zdjęć? A może po prostu chcesz pochwalić się znajomym swoim wnętrzem? Zrobimy profesjonalną sesje!</p>
             </div>
         </div>
+        <Link to='/kontakt'>Kontakt<i className='icon-right-big'/></Link>
     </div>
 )
 export default Offert

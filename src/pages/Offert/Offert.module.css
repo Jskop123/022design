@@ -5,9 +5,16 @@
     justify-content: space-between;
     align-items: center;
 }
+.offer a {
+    display: block;
+    text-align: center;
+    width: 100%;
+    font-size: 2rem;
+    font-weight: 700;
+}
 .item {
     width: 100%;
-    height: 33%;
+    height: 28%;
     display: flex;
     animation-name: show;
     opacity: 0;
@@ -72,5 +79,5 @@
     .item:nth-child(3) { animation-delay: .9s; }
 }
 @media (orientation: landscape) and (min-width: 950px){
-    .offer { padding: 5% 10%; }
+    .offer { padding: 3% 10%; }
 }

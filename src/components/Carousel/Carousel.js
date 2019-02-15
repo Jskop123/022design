@@ -89,7 +89,7 @@ class Carousel extends Component {
                         <Link to={`/portfolio/${this.state.link}`}>
                             <div className={ styles.projectInfo } ref='info'>
                                 <h2>{ this.state.title }</h2>
-                                <p>Zobacz więcej <i className='icon-right-big'></i></p>
+                                <p>Zobacz więcej <i className='icon-right-big'/></p>
                             </div>
                         </Link>
                         : null

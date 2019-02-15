@@ -21,6 +21,7 @@
     border: 2px solid black;
     padding: 0 5px;
     border-radius: 0px;
+    font-size: 0.8em;
 }
 .form input[type='submit'] {
     width: 70px;
@@ -33,7 +34,6 @@
     justify-content: center;
     flex-wrap: wrap;
     flex-shrink: 0;
-    font-size: 1.3rem;
     margin-bottom: 20px;
 }
 .data a, .data div {
@@ -52,4 +52,11 @@
 }
 @media (orientation: landscape) and (min-width: 500px){
     .form, .data { width: 50%; }
+}
+@media (orientation: portrait) and (min-width: 600px), (orientation: landscape) and (min-width: 1024px) {
+    .contact { font-size: 1.8rem }
+    .form input, .form textarea, .form select { width: 380px; height: 40px; }
+    .form textarea { height: 150px; }
+    .form input[type='submit'] { width: 150px; }
+    .data a, data div { margin: 15px 20px; }
 }
