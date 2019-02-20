@@ -1,0 +1,30 @@
+.potrfolioNav {
+    position: relative;
+    font-size: 1.6em;
+}
+.potrfolioNav h2 {
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+    cursor: pointer;
+}
+.potrfolioNav::after {
+    content: '';
+    position: absolute;
+    background-color: #000;
+    bottom: -6px;
+    height: 4px;
+    width: 46%;
+    left: 26%;
+    /* width: 90%;
+    left: 5%; */
+    transition: .3s ease;
+}
+.potrfolioNav.left::after {
+    left: 2%;
+    /* width: 46%; */
+}
+.potrfolioNav.right::after {
+    left: 52%;
+    /* width: 46%; */
+}

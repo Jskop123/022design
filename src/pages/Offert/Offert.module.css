@@ -12,6 +12,9 @@
     font-size: 2rem;
     font-weight: 700;
 }
+.offer h2 {
+    font-size: 1.7em;
+}
 .item {
     width: 100%;
     height: 28%;
@@ -61,8 +64,8 @@
     100% { opacity: 1; }
 }
 @media (max-width: 350px) {
-    .text h2 { font-size: 80% }
-    .text p { font-size: 75% }
+    .text h2 { font-size: 1.3em; }
+    .text p { font-size: 75%; }
 }
 @media (orientation: portrait) and (min-width: 600px) {
     .offer { height: 80%; transform: translateY(10%)}

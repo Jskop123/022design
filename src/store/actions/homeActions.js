@@ -23,7 +23,6 @@ export const getHomeItems = () => dispatch => {
                             image: images[i]
                         }))
                         dispatch( setHomeItems( homeItems ))
-                        console.log(homeItems)
                     }
                 }
                 images[i].src = el.acf.photo

@@ -21,7 +21,6 @@
     border: 2px solid black;
     padding: 0 5px;
     border-radius: 0px;
-    font-size: 0.8em;
 }
 .form input[type='submit'] {
     width: 70px;
@@ -39,6 +38,7 @@
 .data a, .data div {
     display: block;
     margin: 5px 20px;
+    cursor: pointer;
 }
 .data i {
     font-size: 40px;
@@ -58,5 +58,5 @@
     .form input, .form textarea, .form select { width: 380px; height: 40px; }
     .form textarea { height: 150px; }
     .form input[type='submit'] { width: 150px; }
-    .data a, data div { margin: 15px 20px; }
+    .data a, .data div { margin: 15px 20px; }
 }

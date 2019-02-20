@@ -50,8 +50,7 @@ class Carousel extends Component {
             this.setState(() => ({ 
                 title: this.props.items[ this.state.currentProject ].titlePl, 
                 link: this.props.items[ this.state.currentProject ].link
-            }))
-            this.refs.info.classList.remove( styles.wink )
+            }), () => this.refs.info.classList.remove( styles.wink ))
         }, 300 )
     }
     render(){
@@ -86,7 +85,7 @@ class Carousel extends Component {
                             })
                     }
                     { this.props.description ? 
-                        <Link to={`/portfolio/${this.state.link}`}>
+                        <Link to={`/portfolio/projekt/${this.state.link}`}>
                             <div className={ styles.projectInfo } ref='info'>
                                 <h2>{ this.state.title }</h2>
                                 <p>Zobacz więcej <i className='icon-right-big'/></p>

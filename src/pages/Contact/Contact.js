@@ -9,24 +9,24 @@ const Contact = () => {
                 <h2>Dane kontaktowe</h2>
                 <a className={styles.mail_phone} href='tel:321654876'>
                     <i className={`icon-phone`}/>
-                    +48  321 312 532
+                    +48&nbsp; 737 427 188
                 </a>
-                <a className={styles.mail_phone} href='mailto:email@email.com'>
+                <a className={styles.mail_phone} href='mailto:biuro@022design.com'>
                     <i className={`icon-mail`}/>
-                    twójMail@gmail.com
+                    biuro@022design.com
                 </a>
-                <a href='https://www.instagram.com/022design/'>
+                <a href='https://www.instagram.com/022design/' target='_blank' rel="noopener noreferrer">
                     <i className='icon-instagram'/>
                     <span className={styles.location}>Instagram</span>
+                </a>
+                <a href='https://www.facebook.com/' target='_blank' rel="noopener noreferrer">
+                    <i className="icon-facebook-official"/>
+                    <span className={styles.location}>Facebook</span>
                 </a>
                 <div>
                     <i className='icon-location'/>
                     <span className={styles.location}>Warszawa</span>
                 </div>
-                <a href='https://www.facebook.com/'>
-                    <i className="icon-facebook-official"/>
-                    <span className={styles.location}>Facebook</span>
-                </a>
             </div>
             <form className={styles.form}>
                 <h2>Formularz kontaktowy</h2>
