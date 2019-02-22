@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import Swipe from 'react-easy-swipe'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import Swipe from 'react-easy-swipe'
 
 import styles from './Carousel.module.css'
 
@@ -8,8 +9,14 @@ class Carousel extends Component {
     state = {
         firstLoad: true,
         currentProject: 0,
-        title: this.props.items[ 0 ].titlePl,
+        title: this.props.items[ 0 ]['title'+this.props.lang],
         link: this.props.items[ 0 ].link
+    }
+    componentDidUpdate ( prevProps ) {
+        if ( this.props.lang !== prevProps.lang ) {
+            if( this.props.lang === 'Pl' ) this.setState({ title: this.props.items[ this.state.currentProject ].titlePl })
+            else this.setState({ title: this.props.items[ this.state.currentProject ].titleEn })
+        }
     }
     componentWillUnmount() {
         clearTimeout( this.winkTimeout )
@@ -48,7 +55,7 @@ class Carousel extends Component {
         this.refs.info.classList.add( styles.wink )
         this.winkTimeout = setTimeout(() => {
             this.setState(() => ({ 
-                title: this.props.items[ this.state.currentProject ].titlePl, 
+                title: this.props.items[ this.state.currentProject ][ 'title'+this.props.lang ], 
                 link: this.props.items[ this.state.currentProject ].link
             }), () => this.refs.info.classList.remove( styles.wink ))
         }, 300 )
@@ -88,7 +95,7 @@ class Carousel extends Component {
                         <Link to={`/portfolio/projekt/${this.state.link}`}>
                             <div className={ styles.projectInfo } ref='info'>
                                 <h2>{ this.state.title }</h2>
-                                <p>Zobacz więcej <i className='icon-right-big'/></p>
+                                <p>{ this.props.text } <i className='icon-right-big'/></p>
                             </div>
                         </Link>
                         : null
@@ -98,4 +105,8 @@ class Carousel extends Component {
         )
     }
 }
-export default Carousel
+const mapStateToProps = state => ({
+    lang: state.language.lang,
+    text: state.language.text.carousel
+})
+export default connect( mapStateToProps )( Carousel )

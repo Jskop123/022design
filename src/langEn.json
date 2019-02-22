@@ -1,0 +1,37 @@
+{
+    "routes": {
+        "offert": "/offert",
+        "contact": "/contact"
+    },
+
+    "menu": [ "Offert", "Contact" ],
+    "carousel": "See more",
+    "offert": [
+        { 
+            "heading": "Project", 
+            "content": "engtext" 
+        },
+        { 
+            "heading": "Vizualization", 
+            "content": "engtext" 
+        },
+        { 
+            "heading": "Photo session", 
+            "content": "engtext" 
+        }
+    ],
+    "portfolio": [ "Realizations", "Vizualizations" ],
+    "contact": {
+        "contactData": [ "Contact data", "Warsaw" ],
+        "form": [
+            "Contact form", 
+            "Your Name and Surname", 
+            "Your email adress", 
+            "Your phone number", 
+            "Service",
+            [ "Chose service type", "Full project", "Vizualization", "Photos", "Other" ],
+            [ "Comment", "Additional informations" ],
+            "Submit"
+        ]
+    }
+}

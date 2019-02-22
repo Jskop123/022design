@@ -11,7 +11,8 @@
 .contact h2{
     margin-bottom: 10px;
 }
-.form input, .form textarea, .form select {
+.form input, .form textarea, .form select, 
+.submit {
     position: relative;
     background-color: #dbdbdb;
     display: block;
@@ -22,7 +23,7 @@
     padding: 0 5px;
     border-radius: 0px;
 }
-.form input[type='submit'] {
+.submit {
     width: 70px;
 }
 .form textarea {

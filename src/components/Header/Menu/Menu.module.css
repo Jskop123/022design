@@ -25,6 +25,27 @@
     transition: .4s ease;
     font-size: 1.5rem;
 }
+.lang {
+    position: relative;
+    display: inline-block;
+    margin-top: 30px;
+    color: #858383;
+    font-size: 70%;
+    cursor: pointer;
+}
+.lang::after {
+    position: absolute;
+    content: '';
+    width: 30%;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    background-color: #858383;
+    transition: .2s ease;
+}
+.lang.langToggle::after {
+    left: 65%;
+}
 .menu.showMenu ul {
     transform: translateY(-50%)
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 import styles from './Portfolio.module.css'
 
@@ -13,11 +14,14 @@ class Portfolio extends Component {
         return (
             <div className='page'>
                 <nav className={navStyle}>
-                    <h2 onClick={() => this.setState({ filter: 'projects' }) }>Realizacje</h2>
-                    <h2 onClick={() => this.setState({ filter: 'wizualizations' }) }>Wizualizacje</h2>
+                    <h2 onClick={() => this.setState({ filter: 'projects' }) }>{ this.props.text[0] }</h2>
+                    <h2 onClick={() => this.setState({ filter: 'wizualizations' }) }>{ this.props.text[1] }</h2>
                 </nav>
             </div>
         )
     }
 }
-export default Portfolio
+const mapStateToProps = state => ({
+    text: state.language.text.portfolio
+})
+export default connect( mapStateToProps )( Portfolio )

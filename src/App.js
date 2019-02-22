@@ -24,9 +24,9 @@ class App extends Component {
       <div className="App">
         <Header burger={ this.menuHandler } active={ this.state.showMenu }/>
         <Switch>
-          <Route path='/oferta' component={ Offert }/>
+          <Route path='/(oferta|offert)/' component={ Offert }/>
           <Route path='/portfolio' exact component={ Portfolio }/>
-          <Route path='/kontakt' component={ Contact }/>
+          <Route path='/(kontakt|contact)/' component={ Contact }/>
           <Route path='/' component={ Home }/>
         </Switch>
       </div>

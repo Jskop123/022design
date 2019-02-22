@@ -10,10 +10,12 @@ import App from './App';
 import * as serviceWorker from './serviceWorker'
 
 import homeReducer from './store/reducers/homeReducer'
+import langReducer from './store/reducers/langReducer'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
+    language: langReducer,
     home: homeReducer
 })
 

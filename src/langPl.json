@@ -1,0 +1,37 @@
+{   
+    "routes": {
+        "offert": "/oferta",
+        "contact": "/kontakt"
+    },
+
+    "menu": [ "Oferta", "Kontakt" ],
+    "carousel": "Zobacz więcej",
+    "offert": [
+        { 
+            "heading": "Projekt", 
+            "content": "To lubimy robić najbardziej. Pełny kompleksowy projekt wnętrz na który składa się inwentaryzajcja, aranżacje, wizualizacje, rysunki techniczne i lista zakupów." 
+        },
+        { 
+            "heading": "Wizualizacja", 
+            "content": "Możemy stworzyć same wizualizacje jeśli masz już gotowy projekt. Tworzymy zarówno ujęcia statyczne jak i panoramy 3D" 
+        },
+        { 
+            "heading": "Sesja fotograficzna", 
+            "content": "Chcesz wynająć lokal i potrzebujesz zdjęć? A może po prostu chcesz pochwalić się znajomym swoim wnętrzem? Zrobimy profesjonalną sesje!" 
+        }
+    ],
+    "portfolio": [ "Realizacje", "Wizualizacje" ],
+    "contact": {
+        "contactData": [ "Dane kontaktowe", "Warszawa" ],
+        "form": [
+            "Formularz konatkowy", 
+            "Twoje Imie i Nazwisko", 
+            "Twój adres email", 
+            "Twój numer telefonu", 
+            "Usługa",
+            [ "Wybierz rodzaj usługi", "Pełny projekt", "Wizualizacja", "Zdjęcia", "Inne" ],
+            [ "Komentarz", "Dodatkowe informacje" ],
+            "Prześlij"
+        ]
+    }
+}
