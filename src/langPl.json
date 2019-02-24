@@ -1,6 +1,6 @@
 {   
     "routes": {
-        "offert": "/oferta",
+        "services": "/oferta",
         "contact": "/kontakt"
     },
 

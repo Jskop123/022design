@@ -39,13 +39,17 @@ class Offert extends Component {
                         <p>{ this.props.text[2].content }</p>
                     </div>
                 </div>
-                <Link to='/kontakt'>{ this.props.contactLink }<i className='icon-right-big'/></Link>
+                <Link to={{
+                    pathname: this.props.contactLink,
+                    id: 'contact'
+                }}>{ this.props.contact }<i className='icon-right-big'/></Link>
             </div>
         )
     }
 }
 const mapStateToProps = state => ({
     text: state.language.text.offert,
-    contactLink: state.language.text.menu[1]
+    contact: state.language.text.menu[1],
+    contactLink: state.language.text.routes.contact
 })
 export default connect( mapStateToProps )( Offert )
