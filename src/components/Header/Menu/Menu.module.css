@@ -22,8 +22,11 @@
     width: 100%;
     line-height: 1.5;
     transform: translateY(50%);
-    transition: .4s ease;
+    transition: transform .4s ease;
     font-size: 1.5rem;
+}
+.menu li {
+    text-transform: capitalize;
 }
 .lang {
     position: relative;
@@ -49,15 +52,9 @@
 .menu.showMenu ul {
     transform: translateY(-50%)
 }
-@media (orientation: landscape) {
+@media (orientation: landscape), (orientation: portrait) and (min-height: 1024px) {
     .menu { width: 15vw; height: 20vh; position: static; }
-    .showMenu { transform: none }
-    .menu ul { text-align: right; left: -10%;  margin-top: -50%; }
-    .menu.showMenu ul { transform: translateY(50%); }
-}
-@media (orientation: portrait) and (min-height: 1024px){
-    .menu { width: 15vw; height: 20vh; position: static; }
-    .showMenu { transform: none }
-    .menu ul { text-align: right; left: -10%;  margin-top: -50%; }
+    .showMenu { transform: none; }
+    .menu ul { text-align: right; left: -10%;  margin-top: -50%; transition: none; }
     .menu.showMenu ul { transform: translateY(50%); }
 }

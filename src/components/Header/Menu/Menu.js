@@ -7,7 +7,7 @@ import styles from './Menu.module.css'
 import { changeLang } from '../../../store/actions/langAction'
 
 class Menu extends Component {
-    componentDidUpdate(prevProps) {
+    componentDidUpdate( prevProps ) {
         if( this.props.lang !== prevProps.lang ){
             this.props.history.push({
                 pathname: this.props.routes[ this.props.history.location.id ],
@@ -19,26 +19,17 @@ class Menu extends Component {
         return(
             <nav className={ this.props.active ? `${styles.menu} ${styles.showMenu}` : styles.menu }>
                 <ul>
-                    <li>
-                        <NavLink to='/' exact onClick={() => this.props.showMenu( 'close' )}> Home </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to={{
-                                pathname: this.props.routes.services,
-                                id: 'services'
-                            }} 
-                        onClick={() => this.props.showMenu( 'close' )}>{ this.props.text[0] }</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='/portfolio' onClick={() => this.props.showMenu( 'close' )}> Portfolio </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to={{
-                                pathname: this.props.routes.contact,
-                                id: 'contact'
-                            }}  
-                        onClick={() => this.props.showMenu( 'close' )}>{ this.props.text[1] }</NavLink>
-                    </li>
+                    { Object.values( this.props.routes ).map(( route, i ) => (
+                        <li key={ route }>
+                            <NavLink to={{
+                                    pathname: route,
+                                    id: Object.keys( this.props.routes )[ i ]
+                                }}
+                                onClick={() => this.props.showMenu( 'close' )}
+                                exact
+                            >{ route === '/' ? 'home' : route.slice(1) }</NavLink>
+                        </li>
+                    ))}
                     <li className={ this.props.lang === 'Pl' ? styles.lang : `${styles.lang} ${styles.langToggle}` }
                         onClick={() => this.props.changeLang( this.props.lang )}
                     >PL &nbsp;/&nbsp; EN</li>
@@ -49,7 +40,6 @@ class Menu extends Component {
 }
 const mapStateToProps = state => ({
     lang: state.language.lang,
-    text: state.language.text.menu,
     routes: state.language.text.routes
 })
 const mapDispatchToProps = dispatch => ({

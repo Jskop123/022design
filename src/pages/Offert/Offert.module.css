@@ -11,6 +11,7 @@
     width: 100%;
     font-size: 2rem;
     font-weight: 700;
+    text-transform: capitalize;
 }
 .offer h2 {
     font-size: 1.7em;

@@ -1,10 +1,10 @@
 {
     "routes": {
+        "home": "/",
         "services": "/services",
+        "portfolio": "/portfolio",
         "contact": "/contact"
     },
-
-    "menu": [ "Services", "Contact" ],
     "carousel": "See more",
     "offert": [
         { 
