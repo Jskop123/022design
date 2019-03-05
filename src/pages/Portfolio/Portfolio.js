@@ -10,12 +10,12 @@ class Portfolio extends Component {
     render(){
         let navStyle = styles.potrfolioNav
         if( this.state.filter === 'projects' ) navStyle = `${styles.potrfolioNav} ${styles.left}`
-        else if( this.state.filter === 'wizualizations' ) navStyle = `${styles.potrfolioNav} ${styles.right}`
+        else if( this.state.filter === 'vizualizations' ) navStyle = `${styles.potrfolioNav} ${styles.right}`
         return (
             <div className='page'>
                 <nav className={navStyle}>
                     <h2 onClick={() => this.setState({ filter: 'projects' }) }>{ this.props.text[0] }</h2>
-                    <h2 onClick={() => this.setState({ filter: 'wizualizations' }) }>{ this.props.text[1] }</h2>
+                    <h2 onClick={() => this.setState({ filter: 'vizualizations' }) }>{ this.props.text[1] }</h2>
                 </nav>
             </div>
         )

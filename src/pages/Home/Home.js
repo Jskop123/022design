@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 
 import { connect } from 'react-redux'
-import { getHomeItems } from '../../store/actions/homeActions'
+import { getSiteData } from '../../store/actions/initialActions'
 
 import Carousel from '../../components/Carousel/Carousel'
 import Spinner from '../../components/Spinner/Spinner'
 
 class Home extends Component {
     componentDidMount(){
-        if( this.props.loading ) this.props.getHomeItems()
+        if( this.props.loading ) this.props.getSiteData()
     }
     render() {
         return (
@@ -26,6 +26,6 @@ const mapStateToProps = state => ({
     items: state.home.carouselItems
 })
 const mapDispatchToProps = dispatch => ({
-    getHomeItems: () => dispatch( getHomeItems() )
+    getSiteData: () => dispatch( getSiteData() )
 })
 export default connect( mapStateToProps, mapDispatchToProps )( Home )

@@ -9,7 +9,7 @@ import Header from './components/Header/Header'
 import Home from './pages/Home/Home'
 import Offert from './pages/Offert/Offert'
 import Portfolio from './pages/Portfolio/Portfolio'
-import Contact from './pages/Contact/Contact';
+import Contact from './pages/Contact/Contact'
 
 class App extends Component {
   state = {
