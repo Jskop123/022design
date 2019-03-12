@@ -1,7 +1,7 @@
 import * as actionTypes from '../actions/actionTypes'
 
 import langPl from '../../langPl.json'
-import langEn from '../../langEn.json';
+import langEng from '../../langEng.json';
 
 const initialState = {
     lang: 'Pl',
@@ -10,7 +10,7 @@ const initialState = {
 const reducer = ( state = initialState, action ) => {
     switch( action.type ) {
         case actionTypes.CHANGE_LANGUAGE: return { lang: action.lang, 
-                                                    text: action.lang === 'Pl' ?  langPl : langEn }
+                                                    text: action.lang === 'Pl' ?  langPl : langEng }
         default: return state
     }
 }

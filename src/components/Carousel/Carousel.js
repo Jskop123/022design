@@ -15,7 +15,7 @@ class Carousel extends Component {
     componentDidUpdate ( prevProps ) {
         if ( this.props.lang !== prevProps.lang ) {
             if( this.props.lang === 'Pl' ) this.setState({ title: this.props.items[ this.state.currentProject ].titlePl })
-            else this.setState({ title: this.props.items[ this.state.currentProject ].titleEn })
+            else this.setState({ title: this.props.items[ this.state.currentProject ].titleEng })
         }
     }
     componentWillUnmount() {

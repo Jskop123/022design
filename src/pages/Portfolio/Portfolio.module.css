@@ -1,6 +1,15 @@
+.portfolio {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-wrap: wrap;
+}
 .potrfolioNav {
     position: relative;
-    font-size: 1.6em;
+    font-size: 1.5em;
+    margin-bottom: 3%;
+    width: 100%;
+    height: 6%;
 }
 .potrfolioNav h2 {
     display: inline-block;
@@ -23,4 +32,21 @@
 }
 .potrfolioNav.right::after {
     left: 52%;
+}
+.project {
+    width: 95%;
+    margin: 3% auto;
+    height: 45%;
+}
+.project img {
+    width: 100%;
+    height: 90%;
+}
+.project h3 {
+    display: block;
+    font-size: 1.8rem;
+}
+@media (orientation: landscape) {
+    .potrfolioNav { height: 8.5%; }
+    .project { width: 45%; }
 }

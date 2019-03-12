@@ -57,11 +57,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: .3s ease;
+  transition: .2s ease;
 }
 .wink {
   opacity: 0;
-  transform: translateX(-100%);
+  transform: translateX(-10%);
 }
 @media (orientation: landscape) {
   .projectInfo { width: 50vh; height: 50vh; padding: 2% 2%; top: 35%; left: 1%; }
