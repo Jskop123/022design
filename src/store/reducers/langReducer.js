@@ -1,11 +1,15 @@
 import * as actionTypes from '../actions/actionTypes'
 
 import langPl from '../../langPl.json'
-import langEng from '../../langEng.json';
+import langEng from '../../langEng.json'
 
+const languages = {
+    langPl,
+    langEng
+}
 const initialState = {
-    lang: 'Pl',
-    text: langPl
+    lang: localStorage.lang,
+    text: languages[ 'lang' + localStorage.lang ]
 }
 const reducer = ( state = initialState, action ) => {
     switch( action.type ) {

@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import Spinner from '../../components/Spinner/Spinner'
 
-import { getSiteData } from '../../store/actions/initialActions'
+import { getSiteData } from '../../store/actions/asyncActions'
 
 import styles from './Portfolio.module.css'
 
@@ -34,8 +34,9 @@ class Portfolio extends Component {
                             <div className={styles.project} key={ el.id }>
                                 <Link to={'/portfolio/projekt/' + el.titleEng.split(' ').join('')}>
                                         <div className={styles.projectImage}>
-                                            <img src={ el.photo } alt='jakiś alt'/>
+                                            <img src={ el.mainPhoto } alt='jakiś alt'/>
                                         </div>
+                                        <div className={styles.projectBackground}/>
                                         <h3>{ el['title'+ this.props.lang ] }</h3>
                                 </Link>
                             </div>

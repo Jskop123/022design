@@ -8,14 +8,14 @@ import thunk from 'redux-thunk'
 
 import App from './App'
 
-import initialReducer from './store/reducers/initialReducer'
+import asyncReducer from './store/reducers/asyncReducer'
 import langReducer from './store/reducers/langReducer'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 const rootReducer = combineReducers({
     language: langReducer,
-    home: initialReducer
+    home: asyncReducer
 })
 
 const store = createStore( rootReducer, composeEnhancers( applyMiddleware( thunk )))

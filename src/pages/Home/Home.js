@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import { connect } from 'react-redux'
-import { getSiteData } from '../../store/actions/initialActions'
+import { getSiteData } from '../../store/actions/asyncActions'
 
 import Carousel from '../../components/Carousel/Carousel'
 import Spinner from '../../components/Spinner/Spinner'
@@ -26,6 +26,6 @@ const mapStateToProps = state => ({
     items: state.home.carouselItems
 })
 const mapDispatchToProps = dispatch => ({
-    getSiteData: () => dispatch( getSiteData() )
+    getSiteData: () => dispatch( getSiteData('home') )
 })
 export default connect( mapStateToProps, mapDispatchToProps )( Home )

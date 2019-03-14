@@ -37,8 +37,10 @@
     width: 95%;
     margin: 3% auto;
     height: 40vh;
+    position: relative;
 }
 .projectImage {
+    background-color: #fff;
     height: 90%;
     overflow: hidden;
     position: relative;
@@ -50,6 +52,9 @@
     top: 50%;
     transform: translateY(-50%);
 }
+.projectBackground {
+    display: none;
+}
 .project h3 {
     display: block;
     font-size: 1.4rem;
@@ -57,4 +62,17 @@
 @media (orientation: landscape) {
     .potrfolioNav { height: 8.5%; }
     .project { width: 45%; }
+}
+@media (hover: hover) {
+    .projectImage { border: 3px solid white; transition: .3s ease; }
+    .projectImage:hover { transform: translate(-2vh, -2vh); }
+    .projectBackground {
+        display: block;
+        background-color: #000;
+        width: 100%;
+        height: 90%;
+        position: absolute;
+        top: 0;
+        z-index: -1;
+    }
 }
