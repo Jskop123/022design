@@ -83,7 +83,7 @@
     .item:nth-child(3) { animation-delay: .9s; }
 }
 @media (orientation: landscape) and (min-width: 950px){
-    .offer { padding: 7% 15%; }
+    .offer { padding: 7% 18%; }
     .text { font-size: 0.8em; }
     .graph img { height: 40%; }
     .item:nth-child(2) .graph img { height: 50%; }
