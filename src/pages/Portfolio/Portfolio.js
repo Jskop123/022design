@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import Spinner from '../../components/Spinner/Spinner'
@@ -11,31 +12,32 @@ class Portfolio extends Component {
     state = {
         filter: null
     }
-    render(){
+    componentDidMount() {
         if( !this.props.allProjects ) this.props.getSiteData()
-        if( this.props.allProjects )         console.log(this.props.allProjects[0].acf['title'+this.props.lang])
-
+    }
+    render(){
         let navStyle = styles.potrfolioNav
-        if( this.state.filter === 'projects' ) navStyle = `${styles.potrfolioNav} ${styles.left}`
-        else if( this.state.filter === 'vizualizations' ) navStyle = `${styles.potrfolioNav} ${styles.right}`
+        if( this.state.filter === 'rel' ) navStyle = `${styles.potrfolioNav} ${styles.left}`
+        else if( this.state.filter === 'viz' ) navStyle = `${styles.potrfolioNav} ${styles.right}`
         return (
             <div className={`page ${styles.portfolio}`}>
                 <nav className={navStyle}>
-                    <h2 onClick={() => this.setState({ filter: 'projects' }) }>{ this.props.text[0] }</h2>
-                    <h2 onClick={() => this.setState({ filter: 'vizualizations' }) }>{ this.props.text[1] }</h2>
+                    <h2 onClick={() => this.setState({ filter: 'rel' }) }>{ this.props.text[0] }</h2>
+                    <h2 onClick={() => this.setState({ filter: 'viz' }) }>{ this.props.text[1] }</h2>
                 </nav>
                 { this.props.allProjects ? 
                     this.props.allProjects.filter( el => { 
-                        if( this.state.filter === 'vizualizations' )
-                            return el.acf.rel_viz === 'realizacja' ? el : null
-                        else if( this.state.filter === 'projects' )
-                            return el.acf.rel_viz === 'wizualizacja' ? el : null
-                        return el
-                        }).map(( el, i ) => {
+                        if( this.state.filter ) return el.type === this.state.filter ? el : null
+                        else return el
+                        }).map( el => {
                         return (
                             <div className={styles.project} key={ el.id }>
-                                <img src={ el.acf.photo } alt='jakiś alt'/>
-                                <h3>{ el.acf['title'+ this.props.lang ] }</h3>
+                                <Link to={'/portfolio/projekt/' + el.titleEng.split(' ').join('')}>
+                                        <div className={styles.projectImage}>
+                                            <img src={ el.photo } alt='jakiś alt'/>
+                                        </div>
+                                        <h3>{ el['title'+ this.props.lang ] }</h3>
+                                </Link>
                             </div>
                         )
                     })  :
