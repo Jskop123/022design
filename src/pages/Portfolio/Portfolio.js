@@ -34,7 +34,7 @@ class Portfolio extends Component {
                             <div className={styles.project} key={ el.id }>
                                 <Link to={'/portfolio/projekt/' + el.titleEng.split(' ').join('')}>
                                         <div className={styles.projectImage}>
-                                            <img src={ el.mainPhoto.src ? el.mainPhoto.src : el.mainPhoto } alt={ el.mainPhoto.alt }/>
+                                            <img src={ el.mainPhoto.src } alt={ el.mainPhoto.alt }/>
                                         </div>
                                         <div className={styles.projectBackground}/>
                                         <h3>{ el['title'+ this.props.lang ] }</h3>

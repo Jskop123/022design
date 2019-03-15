@@ -68,7 +68,7 @@
   .tile img { margin-left: 0; }
 }
 @media (orientation: portrait) and (min-height: 800px){
-  .carousel {height: 70vh; top: 20vh; }
+  .carousel {height: 70vh; top: 10vh; }
   .projectInfo { height: 25vh; width: 25vh; }
 }
 @media (orientation: portrait) and (min-height: 1024px){

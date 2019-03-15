@@ -1,6 +1,7 @@
 import * as actionTypes from './actionTypes'
 
 import axios from '../../axios'
+
 const setLoading = () => ({
     type: actionTypes.LOADING
 })
@@ -19,10 +20,9 @@ const setPortfolioItems = portfolioItems => ({
 const loadImages = ( data, page, quantity = data.length ) => dispatch => {
     let counter = 0
     const images = []
-    
     data.forEach(( el, i ) => {
         if( i >= quantity ) {
-            images[i] = data[i].mainPhoto.link
+            images[i] = { src: data[i].mainPhoto.url }
         }
         else {
             images[i] = new Image()
@@ -31,15 +31,13 @@ const loadImages = ( data, page, quantity = data.length ) => dispatch => {
                 if ( counter === quantity ) {
                     const items = data.map(( item, i ) => ({
                         ...item,
-                        mainPhoto: images[i],
+                        mainPhoto: { src: images[i].src, alt: item.mainPhoto.alt },
                     }))
-                    items.forEach( el => delete el.titPl)
                     if( page === 'home' ) dispatch( setHomeItems( items ) )
                     if( page === 'portfolio' ) dispatch( setPortfolioItems( items ) )
                 }
             }
-            images[i].src = el.mainPhoto.link
-            images[i].alt = el.mainPhoto.alt
+            images[i].src = el.mainPhoto.url
         }
     })
 }
@@ -61,6 +59,8 @@ export const getSiteData = page => ( dispatch, getState ) => {
         axios.get('/Projekty?_embed')
             .then( response => {
                 const siteData = response.data.map( el => ({ id: el.id, ...el.acf, titlePl: el.acf.titPl }))
+                siteData.forEach( el => delete el.titPl)
+
                 dispatch( setSideData( siteData ) )
                 sourcePageHandler( page, siteData )
             })
