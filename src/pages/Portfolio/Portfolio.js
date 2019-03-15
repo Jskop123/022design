@@ -13,7 +13,7 @@ class Portfolio extends Component {
         filter: null
     }
     componentDidMount() {
-        if( !this.props.allProjects ) this.props.getSiteData()
+        if( !this.props.portfolioItems.length ) this.props.getSiteData('portfolio')
     }
     render(){
         let navStyle = styles.potrfolioNav
@@ -25,8 +25,8 @@ class Portfolio extends Component {
                     <h2 onClick={() => this.setState({ filter: 'rel' }) }>{ this.props.text[0] }</h2>
                     <h2 onClick={() => this.setState({ filter: 'viz' }) }>{ this.props.text[1] }</h2>
                 </nav>
-                { this.props.allProjects ? 
-                    this.props.allProjects.filter( el => { 
+                { this.props.portfolioItems.length ? 
+                    this.props.portfolioItems.filter( el => { 
                         if( this.state.filter ) return el.type === this.state.filter ? el : null
                         else return el
                         }).map( el => {
@@ -34,7 +34,7 @@ class Portfolio extends Component {
                             <div className={styles.project} key={ el.id }>
                                 <Link to={'/portfolio/projekt/' + el.titleEng.split(' ').join('')}>
                                         <div className={styles.projectImage}>
-                                            <img src={ el.mainPhoto } alt='jakiś alt'/>
+                                            <img src={ el.mainPhoto.src ? el.mainPhoto.src : el.mainPhoto } alt={ el.mainPhoto.alt }/>
                                         </div>
                                         <div className={styles.projectBackground}/>
                                         <h3>{ el['title'+ this.props.lang ] }</h3>
@@ -51,9 +51,9 @@ class Portfolio extends Component {
 const mapStateToProps = state => ({
     lang: state.language.lang,
     text: state.language.text.portfolio,
-    allProjects: state.home.siteData
+    portfolioItems: state.home.portfolioItems
 })
 const mapDispatchToProps = dispatch => ({
-    getSiteData: () => dispatch( getSiteData() )
+    getSiteData: () => dispatch( getSiteData('portfolio') )
 })
 export default connect( mapStateToProps, mapDispatchToProps )( Portfolio )

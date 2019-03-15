@@ -7,13 +7,13 @@ import Carousel from '../../components/Carousel/Carousel'
 import Spinner from '../../components/Spinner/Spinner'
 
 class Home extends Component {
-    componentDidMount(){
-        if( this.props.loading ) this.props.getSiteData()
+    componentWillMount(){
+        if( !this.props.items.length ) this.props.getSiteData()
     }
     render() {
         return (
             <div className='page'>
-                { this.props.loading ? 
+                { !this.props.items.length ? 
                     <Spinner/> :
                     <Carousel items={ this.props.items } description/>
                 }

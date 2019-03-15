@@ -1,46 +1,66 @@
 import * as actionTypes from './actionTypes'
 
 import axios from '../../axios'
-
+const setLoading = () => ({
+    type: actionTypes.LOADING
+})
+const setSideData = siteData => ({
+    type: actionTypes.SITE_DATA,
+    siteData
+})
 const setHomeItems = items => ({
-    type: actionTypes.SET_HOME_ITEMS,
+    type: actionTypes.HOME_ITEMS,
     items
 })
-const setSideData = response => ({
-    type: actionTypes.SET_SITE_DATA,
-    data: response
+const setPortfolioItems = portfolioItems => ({
+    type: actionTypes.PORTFOLIO_ITEMS,
+    portfolioItems
 })
-const getHomeItems = siteData => dispatch => {
+const loadImages = ( data, page, quantity = data.length ) => dispatch => {
     let counter = 0
     const images = []
-    const homeItemsQuery = siteData.filter( el => el.homepage === true ? el : null )
-    homeItemsQuery.forEach(( el, i ) => {
-        images[i] = new Image()
-        images[i].onload = () => {
-            counter++
-            if ( counter === homeItemsQuery.length -1 ) {
-                const homeItems = homeItemsQuery.map(( item, i ) => ({
-                    titlePl: item.titPl,
-                    titleEng: item.titleEng,
-                    link: item.titleEng.split(' ').join(''),
-                    image: images[i]
-                }))
-                dispatch( setHomeItems( homeItems ))
-            }
+    data.forEach(( el, i ) => {
+        if( i >= quantity ) {
+            images[i] = data[i].mainPhoto
         }
-        images[i].src = el.mainPhoto
+        else {
+            images[i] = new Image()
+            images[i].onload = () => {
+                counter++
+                if ( counter === quantity ) {
+                    const items = data.map(( item, i ) => ({
+                        ...item,
+                        mainPhoto: images[i],
+                    }))
+                    items.forEach( el => delete el.titPl)
+                    if( page === 'home' ) dispatch( setHomeItems( items ) )
+                    if( page === 'portfolio' ) dispatch( setPortfolioItems( items ) )
+                }
+            }
+            images[i].src = el.mainPhoto
+        }
     })
 }
-const getPortfolioItems = siteData => {
-    
-}
-export const getSiteData = witchData => dispatch => {
-    axios.get('/Projekty?_embed')
-        .then( response => {
-            const siteData = response.data.map( el => ({ id: el.id, ...el.acf, titlePl: el.acf.titPl }))
-            dispatch( setSideData( siteData ) )
-            
-            if( witchData === 'home' )   dispatch( getHomeItems( siteData ) )
-            else if ( witchData === 'portfolio' ) dispatch( getPortfolioItems( siteData ) )
+export const getSiteData = page => ( dispatch, getState ) => {
+    dispatch( setLoading() )
+    const sourcePageHandler = ( page, data ) => {
+        if( page === 'home' ){
+            const homeItems = data.filter( el => el.homepage === true ? el : null )
+            dispatch( loadImages( homeItems, page ) )
+        }
+        else if ( page === 'portfolio' ) {
+            dispatch( loadImages( data, page, 6 ) )
+        }
+    }
+    if( getState().home.siteData ) {
+        sourcePageHandler( page, getState().home.siteData )
+    }
+    else {
+        axios.get('/Projekty?_embed')
+            .then( response => {
+                const siteData = response.data.map( el => ({ id: el.id, ...el.acf, titlePl: el.acf.titPl }))
+                dispatch( setSideData( siteData ) )
+                sourcePageHandler( page, siteData )
             })
+    }
 }
