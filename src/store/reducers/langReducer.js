@@ -18,4 +18,7 @@ const reducer = ( state = initialState, action ) => {
         default: return state
     }
 }
+if(!localStorage.lang){
+    initialState.lang = 'Pl'
+}
 export default reducer
