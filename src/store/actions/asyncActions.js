@@ -19,9 +19,10 @@ const setPortfolioItems = portfolioItems => ({
 const loadImages = ( data, page, quantity = data.length ) => dispatch => {
     let counter = 0
     const images = []
+    
     data.forEach(( el, i ) => {
         if( i >= quantity ) {
-            images[i] = data[i].mainPhoto
+            images[i] = data[i].mainPhoto.link
         }
         else {
             images[i] = new Image()
@@ -37,7 +38,8 @@ const loadImages = ( data, page, quantity = data.length ) => dispatch => {
                     if( page === 'portfolio' ) dispatch( setPortfolioItems( items ) )
                 }
             }
-            images[i].src = el.mainPhoto
+            images[i].src = el.mainPhoto.link
+            images[i].alt = el.mainPhoto.alt
         }
     })
 }
