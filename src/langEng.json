@@ -9,20 +9,20 @@
     "offert": [
         { 
             "heading": "Project", 
-            "content": "engtext" 
+            "content": "Let us create complete project of your dream interior. We will do the inventory, then you will recieve graphics and at the end project book. It is vademecum for your performer." 
         },
         { 
-            "heading": "Vizualization", 
-            "content": "engtext" 
+            "heading": "Vizualizations", 
+            "content": "You alredy have project but the only need are visualizations? You come to ther right place. 3D grapics is our passion so we manage quest with no debouts" 
         },
         { 
             "heading": "Photo session", 
-            "content": "engtext" 
+            "content": "You want to rent flat and you need well done photos? Hit in the button bellow!" 
         }
     ],
     "portfolio": [ "Realizations", "Vizualizations" ],
     "contact": {
-        "contactData": [ "Contact data", "Warsaw" ],
+        "contactData": "Warsaw",
         "form": [
             "Contact form", 
             "Your Name and Surname", 

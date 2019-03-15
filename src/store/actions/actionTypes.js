@@ -1,3 +1,5 @@
-export const SET_SITE_DATA = 'SET_SITE_DATA'
-export const SET_HOME_ITEMS = 'SET_HOME_ITEMS'
+export const LOADING = 'LOADING'
+export const SITE_DATA = 'SITE_DATA'
+export const HOME_ITEMS = 'HOME_ITEMS'
 export const CHANGE_LANGUAGE = 'CHANGE_LANGUAGE'
+export const PORTFOLIO_ITEMS = 'PORTFOLIO_ITEMS'

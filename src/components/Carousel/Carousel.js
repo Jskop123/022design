@@ -10,12 +10,12 @@ class Carousel extends Component {
         firstLoad: true,
         currentProject: 0,
         title: this.props.items[ 0 ]['title'+this.props.lang],
-        link: this.props.items[ 0 ].link
+        link: this.props.items[ 0 ].titleEng.split(' ').join('')
     }
     componentDidUpdate ( prevProps ) {
         if ( this.props.lang !== prevProps.lang ) {
             if( this.props.lang === 'Pl' ) this.setState({ title: this.props.items[ this.state.currentProject ].titlePl })
-            else this.setState({ title: this.props.items[ this.state.currentProject ].titleEn })
+            else this.setState({ title: this.props.items[ this.state.currentProject ].titleEng })
         }
     }
     componentWillUnmount() {
@@ -56,7 +56,7 @@ class Carousel extends Component {
         this.winkTimeout = setTimeout(() => {
             this.setState(() => ({ 
                 title: this.props.items[ this.state.currentProject ][ 'title'+this.props.lang ], 
-                link: this.props.items[ this.state.currentProject ].link
+                link: this.props.items[ this.state.currentProject ].titleEng.split(' ').join('')
             }), () => this.refs.info.classList.remove( styles.wink ))
         }, 300 )
     }
@@ -87,7 +87,8 @@ class Carousel extends Component {
                                         style={ this.state.firstLoad && selector !== styles.previous ? 
                                                 { zIndex: -i , transform: 'translate(-25%, -10%)' } : null 
                                         }>
-                                        <img src={ el.image.src } alt='jakiś tam alt' />
+                                        <img src={ el.mainPhoto.src } 
+                                                alt={ el.mainPhoto.alt } />
                                     </div>
                             })
                     }

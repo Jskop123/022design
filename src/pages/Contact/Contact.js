@@ -8,7 +8,6 @@ class Contact extends Component {
         return (
             <div className={`page ${styles.contact}`}>
                 <div className={styles.data}>
-                    <h2>{ this.props.text.contactData[0] }</h2>
                     <a className={styles.mail_phone} href='tel:321654876'>
                         <i className={`icon-phone`}/>
                         +48&nbsp; 737 427 188
@@ -27,7 +26,7 @@ class Contact extends Component {
                     </a>
                     <div>
                         <i className='icon-location'/>
-                        <span className={styles.location}>{ this.props.text.contactData[1] }</span>
+                        <span className={styles.location}>{ this.props.text.contactData }</span>
                     </div>
                 </div>
                 <form className={styles.form}>
