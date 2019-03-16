@@ -15,7 +15,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 const rootReducer = combineReducers({
     language: langReducer,
-    home: asyncReducer
+    async: asyncReducer
 })
 
 const store = createStore( rootReducer, composeEnhancers( applyMiddleware( thunk )))

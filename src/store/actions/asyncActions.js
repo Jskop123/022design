@@ -52,15 +52,21 @@ export const getSiteData = page => ( dispatch, getState ) => {
             dispatch( loadImages( data, page, 6 ) )
         }
     }
-    if( getState().home.siteData ) {
-        sourcePageHandler( page, getState().home.siteData )
+    const siteData = getState().async.siteData
+    if( siteData ) {
+        sourcePageHandler( page, siteData )
     }
     else {
         axios.get('/Projekty?_embed')
             .then( response => {
-                const siteData = response.data.map( el => ({ id: el.id, ...el.acf, titlePl: el.acf.titPl }))
+                const siteData = response.data.map( el => ({ 
+                                                            id: el.id, 
+                                                            ...el.acf, 
+                                                            titlePl: el.acf.titPl, 
+                                                            link: el.acf.titleEng.replace(/\b\w/g, l => l.toUpperCase()).split(' ').join('') 
+                                                        }))
                 siteData.forEach( el => delete el.titPl)
-
+                
                 dispatch( setSideData( siteData ) )
                 sourcePageHandler( page, siteData )
             })

@@ -25,10 +25,10 @@ class App extends Component {
       <div className="App">
         <Header burger={ this.menuHandler } active={ this.state.showMenu }/>
         <Switch>
-          <Route path='/(oferta|services)/'   component={ Offert }/>
-          <Route path='/portfolio/projekt'    component={ Project }/>
-          <Route path='/portfolio'            component={ Portfolio }/>
-          <Route path='/(kontakt|contact)/'   component={ Contact }/>
+          <Route path='/(oferta|services)/'           component={ Offert }/>
+          <Route path='/portfolio/(projekt|project)'  component={ Project }/>
+          <Route path='/portfolio'                    component={ Portfolio }/>
+          <Route path='/(kontakt|contact)/'           component={ Contact }/>
           <Route path='/' component={ Home }/>
         </Switch>
       </div>

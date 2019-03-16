@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { NavLink, withRouter } from 'react-router-dom'
 
@@ -6,7 +6,7 @@ import styles from './Menu.module.css'
 
 import { changeLang } from '../../../store/actions/langAction'
 
-class Menu extends Component {
+class Menu extends PureComponent {
     componentDidUpdate( prevProps ) {
         if( this.props.lang !== prevProps.lang ){
             this.props.history.push({

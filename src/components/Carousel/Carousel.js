@@ -1,16 +1,16 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Swipe from 'react-easy-swipe'
 
 import styles from './Carousel.module.css'
 
-class Carousel extends Component {
+class Carousel extends PureComponent {
     state = {
         firstLoad: true,
         currentProject: 0,
         title: this.props.items[ 0 ]['title'+this.props.lang],
-        link: this.props.items[ 0 ].titleEng.split(' ').join('')
+        link: this.props.items[ 0 ].link
     }
     componentDidUpdate ( prevProps ) {
         if ( this.props.lang !== prevProps.lang ) {
@@ -56,7 +56,7 @@ class Carousel extends Component {
         this.winkTimeout = setTimeout(() => {
             this.setState(() => ({ 
                 title: this.props.items[ this.state.currentProject ][ 'title'+this.props.lang ], 
-                link: this.props.items[ this.state.currentProject ].titleEng.split(' ').join('')
+                link: this.props.items[ this.state.currentProject ].link
             }), () => this.refs.info.classList.remove( styles.wink ))
         }, 300 )
     }
@@ -93,7 +93,7 @@ class Carousel extends Component {
                             })
                     }
                     { this.props.description ? 
-                        <Link to={`/portfolio/projekt/${this.state.link}`}>
+                        <Link to={`/portfolio/${this.props.lang === 'Pl' ? 'projekt/' : 'project/'}${this.state.link}`}>
                             <div className={ styles.projectInfo } ref='info'>
                                 <h2>{ this.state.title }</h2>
                                 <p>{ this.props.text } <i className='icon-right-big'/></p>

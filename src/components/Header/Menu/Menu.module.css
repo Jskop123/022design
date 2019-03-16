@@ -1,7 +1,6 @@
 .menu {
     display: block;
     position: absolute;
-    font-weight: 700;
     width: 75vw;
     height: 89vh;
     background-color: #fff;
@@ -33,7 +32,7 @@
     display: inline-block;
     margin-top: 25px;
     color: #858383;
-    font-size: 70%;
+    font-size: 65%;
     cursor: pointer;
 }
 .lang::after {
@@ -55,6 +54,6 @@
 @media (orientation: landscape), (orientation: portrait) and (min-height: 1024px) {
     .menu { width: 15vw; height: 20vh; position: static; }
     .showMenu { transform: none; }
-    .menu ul { text-align: right; left: -10%;  margin-top: -50%; transition: none; }
+    .menu ul { text-align: right; left: -10%;  margin-top: -30%; transition: none; font-size: 1.2rem; }
     .menu.showMenu ul { transform: translateY(50%); }
 }

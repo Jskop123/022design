@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
@@ -8,14 +8,14 @@ import project from '../../assets/project.jpg'
 import room from '../../assets/room.jpg'
 import camera from '../../assets/camera.jpg'
 
-class Offert extends Component {
+class Offert extends PureComponent {
+    images = { project, room, camera }
     render(){
-        const images = { project, room, camera }
         return (
             <div className={`page ${styles.offer}`}>
-                { Object.keys( images ).map(( el, i ) => {
+                { Object.keys( this.images ).map(( el, i ) => {
                     const graph = <div className={styles.graph}>
-                                    <img src={ images[ el ] } alt={`${el} icon`}/>
+                                    <img src={ this.images[ el ] } alt={`${el} icon`}/>
                                 </div>
                     const text = <div className={styles.text}>
                                     <h2>{ this.props.text[ i ].heading }</h2>

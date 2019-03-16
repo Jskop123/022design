@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 
 import { connect } from 'react-redux'
 import { getSiteData } from '../../store/actions/asyncActions'
@@ -6,7 +6,7 @@ import { getSiteData } from '../../store/actions/asyncActions'
 import Carousel from '../../components/Carousel/Carousel'
 import Spinner from '../../components/Spinner/Spinner'
 
-class Home extends Component {
+class Home extends PureComponent {
     componentWillMount(){
         if( !this.props.items.length ) this.props.getSiteData()
     }
@@ -14,7 +14,8 @@ class Home extends Component {
         return (
             <div className='page'>
                 { !this.props.items.length ? 
-                    <Spinner/> :
+                    <Spinner/> 
+                    :
                     <Carousel items={ this.props.items } description/>
                 }
             </div>
@@ -22,8 +23,8 @@ class Home extends Component {
     }
 }
 const mapStateToProps = state => ({
-    loading: state.home.loading,
-    items: state.home.carouselItems
+    loading: state.async.loading,
+    items: state.async.carouselItems
 })
 const mapDispatchToProps = dispatch => ({
     getSiteData: () => dispatch( getSiteData('home') )

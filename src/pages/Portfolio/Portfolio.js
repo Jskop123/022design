@@ -32,7 +32,7 @@ class Portfolio extends Component {
                         }).map( el => {
                         return (
                             <div className={styles.project} key={ el.id }>
-                                <Link to={'/portfolio/projekt/' + el.titleEng.split(' ').join('')}>
+                                <Link to={`/portfolio/${this.props.lang === 'Pl' ? 'projekt/' : 'project/'}${el.link}`}>
                                         <div className={styles.projectImage}>
                                             <img src={ el.mainPhoto.src } alt={ el.mainPhoto.alt }/>
                                         </div>
@@ -51,7 +51,7 @@ class Portfolio extends Component {
 const mapStateToProps = state => ({
     lang: state.language.lang,
     text: state.language.text.portfolio,
-    portfolioItems: state.home.portfolioItems
+    portfolioItems: state.async.portfolioItems
 })
 const mapDispatchToProps = dispatch => ({
     getSiteData: () => dispatch( getSiteData('portfolio') )
