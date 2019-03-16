@@ -1,46 +1,47 @@
 .carousel {
-  position: relative;
   height: 100%;
   width: 100%;
-  transition: opacity .3s ease;
 }
 .tile {
   position: absolute;
-  background-color: #858383;
-  border: 3px solid white;
-  width: 75%;
-  height: 90%;
-  transition: transform .5s ease, opacity 0s ease .5s;
-  overflow: hidden;
   bottom: 0;
   right: 0;
+  width: 75%;
+  height: 90%;
+  overflow: hidden;
+  background-color: #858383;
+  border: 3px solid white;
+  opacity: 0;
+  will-change: transform, z-index, opacity;
+  transition: transform .5s ease;
 }
 .tile img {
   height: 100%;
-  margin-left: -50%;
+  transform: translateX(-25%);
 }
-.previous{
+.previous {
+  opacity: 1;
   z-index: 7;
   transform: translate(-135%, -10%);
+  transition: transform .5s ease, opacity 0s .5s;
 }
-.current{ 
+.current { 
+  opacity: 1;
   z-index: 6;
   transform: translate(-25%, -10%);
 }
-.next1{
+.next1 {
+  opacity: 1;
   z-index: 5;
   transform: translate(-12.5%, -5%);
-  transition-delay: .1s;
+  transition-delay: .15s;
 }
-.next2{
+.next2 {
+  opacity: 1;
   z-index: 4;
 }
-.next3{
-  z-index: 3;
-}
-.hide {
-  opacity: 0;
-  transition: none;
+.next3 {
+  opacity: 1;
 }
 .projectInfo {
   position: absolute;
@@ -53,19 +54,21 @@
   border: 3px solid white;
   color: white;
   padding: 10% 5%;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: .2s ease;
+  transition: .25s ease;
 }
 .wink {
   opacity: 0;
-  transform: translateX(-10%);
+  transform: translate(-5%, 0);
 }
 @media (orientation: landscape) {
   .projectInfo { width: 50vh; height: 50vh; padding: 2% 2%; top: 35%; left: 1%; }
-  .tile img { margin-left: 0; }
+  .tile img { transform: none; }
+  .previous { transform: translate(-25%, -120%) }
+  .wink { transform: translate(0, -5%) }
 }
 @media (orientation: portrait) and (min-height: 800px){
   .carousel {height: 70vh; top: 10vh; }

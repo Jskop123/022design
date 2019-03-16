@@ -15,15 +15,19 @@ class Portfolio extends Component {
     componentDidMount() {
         if( !this.props.portfolioItems.length ) this.props.getSiteData('portfolio')
     }
+    changeFilterHandler = (filter) => {
+        this.refs.portfolio.scrollTop = 0
+        this.setState({ filter })
+    }
     render(){
         let navStyle = styles.potrfolioNav
         if( this.state.filter === 'rel' ) navStyle = `${styles.potrfolioNav} ${styles.left}`
         else if( this.state.filter === 'viz' ) navStyle = `${styles.potrfolioNav} ${styles.right}`
         return (
-            <div className={`page ${styles.portfolio}`}>
+            <div className={`page ${styles.portfolio}`} ref='portfolio'>
                 <nav className={navStyle}>
-                    <h2 onClick={() => this.setState({ filter: 'rel' }) }>{ this.props.text[0] }</h2>
-                    <h2 onClick={() => this.setState({ filter: 'viz' }) }>{ this.props.text[1] }</h2>
+                    <h2 onClick={() => this.changeFilterHandler('rel') }>{ this.props.text[0] }</h2>
+                    <h2 onClick={() => this.changeFilterHandler('viz') }>{ this.props.text[1] }</h2>
                 </nav>
                 { this.props.portfolioItems.length ? 
                     this.props.portfolioItems.filter( el => { 
@@ -32,7 +36,9 @@ class Portfolio extends Component {
                         }).map( el => {
                         return (
                             <div className={styles.project} key={ el.id }>
-                                <Link to={`/portfolio/${this.props.lang === 'Pl' ? 'projekt/' : 'project/'}${el.link}`}>
+                                <Link to={{
+                                    pathname:`/portfolio/${this.props.lang === 'Pl' ? 'projekt/' : 'project/'}${el.link}`,
+                                    id: el.id }}>
                                         <div className={styles.projectImage}>
                                             <img src={ el.mainPhoto.src } alt={ el.mainPhoto.alt }/>
                                         </div>
