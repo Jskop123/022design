@@ -1,5 +1,5 @@
 .offer {
-    padding: 0 3%;
+    padding: 0 3% 3% 3%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

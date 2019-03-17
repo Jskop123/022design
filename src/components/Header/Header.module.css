@@ -1,7 +1,7 @@
 header {
     position: absolute;
     width: 100vw;
-    height: 12vh;
+    height: 10%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -20,10 +20,11 @@ header {
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
+    z-index: 20;
 }
 .burgerIcon .bar{
     height: 15%;
-    width: 100%;
+    width: 85%;
     border-radius: 3px;
     background-color: #000;
     transition: .4s ease;

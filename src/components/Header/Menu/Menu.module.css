@@ -2,11 +2,11 @@
     display: block;
     position: absolute;
     width: 75vw;
-    height: 89vh;
+    height: 100vh;
     background-color: #fff;
     z-index: 10;
     right: -75vw;
-    top: 11vh;
+    top: 0;
     transition: transform .4s ease;
 }
 .showMenu {
@@ -16,7 +16,7 @@
     list-style: none;
     display: block;
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 10%;
     width: 100%;
     line-height: 1.5;
@@ -56,4 +56,5 @@
     .showMenu { transform: none; }
     .menu ul { text-align: right; left: -10%;  margin-top: -30%; transition: none; font-size: 1.2rem; }
     .menu.showMenu ul { transform: translateY(50%); }
+    .lang { margin-top: 15%; }
 }

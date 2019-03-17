@@ -1,2 +1,2 @@
 style formularza do poprawy,
-localstorage lang musi być ustawione gdzieś jakoś na samym początku
+problemy z wydajnością karuzeli ale nie na wszystkich urządzeniach
