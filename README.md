@@ -1,2 +1,3 @@
-style formularza do poprawy,
-problemy z wydajnością karuzeli ale nie na wszystkich urządzeniach
+localstorage lang set in html !!!
+kontakt => refaktor, style formularza do poprawy
+oferta => zmiana kolejności obrazka i tekstu może samym css'em

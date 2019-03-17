@@ -14,26 +14,28 @@
   opacity: 0;
   will-change: transform, z-index, opacity;
   transition: transform .5s ease;
+  perspective: 1000;
+  backface-visibility: hidden;
 }
 .tile img {
   height: 100%;
-  transform: translateX(-25%);
+  transform: translate3d(-25%, 0, 0);
 }
 .previous {
   opacity: 1;
   z-index: 7;
-  transform: translate(-135%, -10%);
+  transform: translate3d(-135%, -10%, 0);
   transition: transform .5s ease, opacity 0s .5s;
 }
 .current { 
   opacity: 1;
   z-index: 6;
-  transform: translate(-25%, -10%);
+  transform: translate3d(-25%, -10%, 0);
 }
 .next1 {
   opacity: 1;
   z-index: 5;
-  transform: translate(-12.5%, -5%);
+  transform: translate3d(-12.5%, -5%, 0);
   transition-delay: .15s;
 }
 .next2 {
@@ -62,13 +64,13 @@
 }
 .wink {
   opacity: 0;
-  transform: translate(-5%, 0);
+  transform: translate3d(-5%, 0, 0);
 }
 @media (orientation: landscape) {
   .projectInfo { width: 40vh; height: 40vh; padding: 2% 2%; top: 45%; left: 1%; }
   .tile img { transform: none; }
-  .previous { transform: translate(-25%, -120%) }
-  .wink { transform: translate(0, -5%) }
+  .previous { transform: translate3d(-25%, -120%, 0) }
+  .wink { transform: translate3d(0, -5%, 0) }
 }
 @media (orientation: portrait) and (min-height: 800px){
   .carousel {height: 70vh; top: 10vh; }

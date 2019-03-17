@@ -13,26 +13,17 @@ import Contact from './pages/Contact/Contact'
 import Project from './pages/Project/Project'
 
 class App extends Component {
-  state = {
-    showMenu: false,
-  }
-  menuHandler = handler => {
-    if( handler === 'toggle' ) this.setState({ showMenu: !this.state.showMenu })
-    else if( handler === 'close' ) this.setState({ showMenu: false })
-  }
-  render() {
-    return (
-      <div className="App">
-        <Header burger={ this.menuHandler } active={ this.state.showMenu }/>
-        <Switch>
-          <Route path='/(oferta|services)/'           component={ Offert }/>
-          <Route path='/portfolio/(projekt|project)'  component={ Project }/>
-          <Route path='/portfolio'                    component={ Portfolio }/>
-          <Route path='/(kontakt|contact)/'           component={ Contact }/>
-          <Route path='/' component={ Home }/>
-        </Switch>
-      </div>
-    )
-  }
+  render = () => (
+    <div className="App">
+      <Header/>
+      <Switch>
+        <Route path='/(oferta|services)/'           component={ Offert }/>
+        <Route path='/portfolio/(projekt|project)'  component={ Project }/>
+        <Route path='/portfolio'                    component={ Portfolio }/>
+        <Route path='/(kontakt|contact)/'           component={ Contact }/>
+        <Route path='/'                             component={ Home }/>
+      </Switch>
+    </div>
+  )
 }
 export default App;

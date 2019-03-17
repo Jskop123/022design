@@ -1,6 +1,6 @@
 import * as actionTypes from './actionTypes'
 
-import axios from '../../axios'
+import axios from 'axios'
 
 const setLoading = () => ({
     type: actionTypes.LOADING
@@ -57,7 +57,7 @@ export const getSiteData = page => ( dispatch, getState ) => {
         sourcePageHandler( page, siteData )
     }
     else {
-        axios.get('/Projekty?_embed')
+        axios.get('http://022design.com/wordpress/wp-json/wp/v2/Projekty?_embed')
             .then( response => {
                 const siteData = response.data.map( el => ({ 
                                                             id: el.id, 
