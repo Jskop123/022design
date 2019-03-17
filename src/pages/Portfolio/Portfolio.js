@@ -9,13 +9,11 @@ import { getSiteData } from '../../store/actions/asyncActions'
 import styles from './Portfolio.module.css'
 
 class Portfolio extends Component {
-    state = {
-        filter: null
-    }
-    componentDidMount() {
+    state = { filter: null }
+    componentDidMount = () => {
         if( !this.props.portfolioItems.length ) this.props.getSiteData('portfolio')
     }
-    changeFilterHandler = (filter) => {
+    changeFilterHandler = filter => {
         this.refs.portfolio.scrollTop = 0
         this.setState({ filter })
     }
