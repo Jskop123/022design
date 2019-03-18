@@ -65,6 +65,7 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    image-rendering: optimizeSpeed;
 }
 .projectBackground {
     display: none;
