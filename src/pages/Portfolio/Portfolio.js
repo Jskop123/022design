@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import Spinner from '../../components/Spinner/Spinner'
+import ContactData from '../../components/ContactData/ContactData'
 
 import { getSiteData } from '../../store/actions/asyncActions'
 
@@ -27,8 +28,8 @@ class Portfolio extends Component {
                     <h2 onClick={() => this.changeFilterHandler('rel') }>{ this.props.text[0] }</h2>
                     <h2 onClick={() => this.changeFilterHandler('viz') }>{ this.props.text[1] }</h2>
                 </nav>
-                { this.props.portfolioItems.length ? 
-                    this.props.portfolioItems.filter( el => { 
+                { this.props.portfolioItems.length ? <>
+                    {this.props.portfolioItems.filter( el => { 
                         if( this.state.filter ) return el.type === this.state.filter ? el : null
                         else return el
                         }).map( el => {
@@ -45,7 +46,8 @@ class Portfolio extends Component {
                                 </Link>
                             </div>
                         )
-                    })  :
+                    })}<ContactData lang={this.props.lang}/></>
+                    :
                     <Spinner/>
                 }
             </div>

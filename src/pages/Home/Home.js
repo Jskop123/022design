@@ -15,7 +15,7 @@ class Home extends PureComponent {
             { !this.props.items.length ? 
                 <Spinner/> 
                 :
-                <Carousel items={ this.props.items } description/>
+                <Carousel items={ this.props.items } description animation/>
             }
         </div>
     ) 

@@ -55,22 +55,23 @@ class Carousel extends PureComponent {
                 onSwipeLeft={() => this.currentProjectHandler( '+' )}
                 onSwipeRight={() => this.currentProjectHandler( '-' )}
                 onSwipeMove={() => true } >
-            {  this.props.items.map(( el, i ) => {
-                    const current = this.state.currentProject
-                    const size = this.props.items.length
-                    let selector = styles.tile + ' '
+            { this.props.items.map(( el, i ) => {
+                const current = this.state.currentProject
+                const size = this.props.items.length
+                let selector = styles.tile + ' '
+                if( this.props.animation ) {
                     if ( i === current )                                        selector += styles.current
                     if ( i > current && i <= current +3 )                       selector += styles[`next${i - current}`]
                     if ( current >= 3 && size - current + i <= 3 )              selector += styles[`next${size - current + i}`]
                     if ( i === current -1 || (i === size -1 && current === 0))  selector += styles.previous
-        
-                    return  <div key={ i } 
-                                className={ selector } 
-                                style={ this.state.firstLoad && selector !== `${styles.tile} ${styles.previous}` ? 
-                                        { zIndex: -i , transform: 'translate(-25%, -10%)' } : null }>
-                                <img src={ el.mainPhoto.src } 
-                                        alt={ el.mainPhoto.alt } />
-                            </div>
+                }
+                return  <div key={ i } 
+                            className={selector} 
+                            style={ this.state.firstLoad && selector !== `${styles.tile} ${styles.previous}` ? 
+                                    { zIndex: -i, transform: 'translate(-25%, -10%)' } : null }>
+                            <img src={ el.mainPhoto.src } 
+                                    alt={ el.mainPhoto.alt } />
+                        </div>
             })}
             { this.props.description ? 
                 <Link to={{
@@ -78,7 +79,7 @@ class Carousel extends PureComponent {
                     id: this.state.projectId }}>
                     <div className={ styles.projectInfo } ref='info'>
                         <h2>{ this.state.title }</h2>
-                        <p>{ this.props.text } <i className='icon-right-big'/></p>
+                        <p>{ this.props.lang === 'Pl' ? 'Zobacz więcej' : 'See more' } <i className='icon-right-big'/></p>
                     </div>
                 </Link>
                 : null
@@ -88,6 +89,5 @@ class Carousel extends PureComponent {
 }
 const mapStateToProps = state => ({
     lang: state.language.lang,
-    text: state.language.text.carousel
 })
 export default connect( mapStateToProps )( Carousel )

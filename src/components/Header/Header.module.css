@@ -40,6 +40,6 @@ header {
     transform: translateY(-225%) rotate(45deg);
 }
 @media (orientation: landscape), (orientation: portrait) and (min-height: 1024px) {
-    header { height: 100vh; width: 17vw; left: 0; flex-direction: column; justify-content: space-between; z-index: 12; box-shadow: 3px 0px 10px 0px #00000033; }
+    header { height: 100vh; width: 17vw; left: 0; flex-direction: column; justify-content: space-between; z-index: 12; box-shadow: 5px 0px 8px 0px #0000001f; }
     .burgerIcon { display: none; }
 }

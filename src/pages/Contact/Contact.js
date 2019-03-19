@@ -1,34 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+import ContactData from '../../components/ContactData/ContactData'
+
 import styles from './Contact.module.css'
 
 class Contact extends Component {
     render(){
         return (
             <div className={`page ${styles.contact}`}>
-                <div className={styles.data}>
-                    <a className={styles.mail_phone} href='tel:321654876'>
-                        <i className={`icon-phone`}/>
-                        +48&nbsp; 737 427 188
-                    </a>
-                    <a className={styles.mail_phone} href='mailto:biuro@022design.com'>
-                        <i className={`icon-mail`}/>
-                        biuro@022design.com
-                    </a>
-                    <a href='https://www.instagram.com/022design/' target='_blank' rel="noopener noreferrer">
-                        <i className='icon-instagram'/>
-                        <span className={styles.location}>Instagram</span>
-                    </a>
-                    <a href='https://www.facebook.com/' target='_blank' rel="noopener noreferrer">
-                        <i className="icon-facebook-official"/>
-                        <span className={styles.location}>Facebook</span>
-                    </a>
-                    <div>
-                        <i className='icon-location'/>
-                        <span className={styles.location}>{ this.props.text.contactData }</span>
-                    </div>
-                </div>
+                <ContactData lang={this.props.lang} fullSize/>
                 <form className={styles.form}>
                     <h2>{ this.props.text.form[0] }</h2>
                     <label htmlFor='name'>{ this.props.text.form[1] }</label>
@@ -54,6 +35,7 @@ class Contact extends Component {
     }
 }
 const mapStateToProps = state => ({
-    text: state.language.text.contact
+    text: state.language.text.contact,
+    lang: state.language.lang
 })
 export default connect( mapStateToProps )( Contact )
