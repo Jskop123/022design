@@ -1,23 +1,42 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+import { getSiteData } from '../../store/actions/asyncActions'
+
+import Spinner from '../../components/Spinner/Spinner'
+
 import styles from './Project.module.css'
 
 class Project extends Component {
-    state = { ...this.props.siteData.find( el => el.id === this.props.location.id )}
+    state = { }
+    componentDidMount = () => {
+        if( this.props.location.id ) this.props.getSiteData( this.props.location.id )
+        else this.props.history.goBack()
+    }
+    componentDidUpdate = ( prevProps ) => {
+        if( prevProps.currentProject !== this.props.currentProject ) this.setState({ ...this.props.currentProject })
+    }
     render(){
-        console.log(this.state )
         return(
-            <div className='page'>
-                 <img src={ this.state.mainPhoto.url } alt={ this.state.mainPhoto.alt } className={styles.mainPhoto}/>
+            <div className={`page ${styles.project}`}>
+                { this.state.id && !this.props.loading ? 
+                    <>
+                        <img className={styles.mainPhoto} src={ this.state.mainPhoto.url } alt={ this.state.mainPhoto.alt } />
+                        { this.state.images.map( img => <img key={img.title} className={styles.mainPhoto} src={ img.src } alt={ img.alt }/> )}
+                    </>
+                    :
+                    <Spinner/>
+                }
+                
             </div>
         )
     }
 }
 const mapStateToProps = state => ({
-    siteData: state.async.siteData
+    loading: state.async.loading,
+    currentProject: state.async.currentProject
 })
 const mapDispatchToProps = dispatch => ({
-    
+    getSiteData: ( id ) => dispatch( getSiteData( 'project', id ) )
 })
 export default connect( mapStateToProps, mapDispatchToProps )( Project )

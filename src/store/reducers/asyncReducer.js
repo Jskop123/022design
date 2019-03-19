@@ -4,7 +4,8 @@ const initialState = {
     siteData: null,
     loading: true,
     carouselItems: [],
-    portfolioItems: []
+    portfolioItems: [],
+    currentProject: {}
 }
 const reducer = ( state = initialState, action ) => {
     switch( action.type ) {
@@ -12,6 +13,7 @@ const reducer = ( state = initialState, action ) => {
         case actionTypes.SITE_DATA:         return { ...state, siteData: action.siteData }
         case actionTypes.HOME_ITEMS:        return { ...state, loading: false, carouselItems: action.items }
         case actionTypes.PORTFOLIO_ITEMS:   return { ...state, loading: false, portfolioItems: action.portfolioItems }
+        case actionTypes.PROJECT:           return { ...state, loading: false, currentProject: action.project }
         default: return state
     }
 }

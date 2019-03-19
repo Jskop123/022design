@@ -1,4 +1,7 @@
+.project {
+    overflow-y: scroll;
+}
+
 .mainPhoto {
-    min-width: 100%;
-    max-width: 130%;
+    width: 100%;
 }
