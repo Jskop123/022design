@@ -7,7 +7,7 @@ import Carousel from '../../components/Carousel/Carousel'
 import Spinner from '../../components/Spinner/Spinner'
 
 class Home extends PureComponent {
-    componentWillMount = () => {
+    componentDidMount = () => {
         if( !this.props.items.length ) this.props.getSiteData()
     }
     render = () => (

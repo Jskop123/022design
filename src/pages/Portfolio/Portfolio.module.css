@@ -1,9 +1,13 @@
 .portfolio {
+    padding-top: 10%;
     overflow-y: scroll;
     overflow-x: hidden;
     display: flex;
     flex-wrap: wrap;
-    padding-top: 10%;
+    transition: opacity .2s ease;
+}
+.hide {
+    opacity: 0;
 }
 .potrfolioNav {
     position: fixed;
@@ -13,6 +17,7 @@
     background-color: #fff;
     padding-bottom: 5px;
     top: 10%;
+    opacity: 1 !important;
 }
 .potrfolioNav h2 {
     display: inline-block;
@@ -49,9 +54,6 @@
     margin: 3% auto;
     height: 40vh;
     position: relative;
-}
-.project:first-child {
-    margin-top: 30%;
 }
 .projectImage {
     background-color: #fff;
@@ -92,12 +94,12 @@
 }
 @media (orientation: landscape) {
     .portfolio { padding-top: 5%; }
-    .potrfolioNav { top: 0 }
+    .potrfolioNav { top: 0; left: 17vw; }
     .project { width: 45%; }
     .potrfolioNav { width: 83vw; }
 }
 @media (orientation: portrait) and (min-height: 1024px) {
-    .potrfolioNav { width: 83vw; top: 0 }
+    .potrfolioNav { width: 83vw; top: 0; left: 17vw; }
     .portfolio { height: 100%; top: 0 }
 }
 @media (hover: hover) {
