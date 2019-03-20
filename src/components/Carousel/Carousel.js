@@ -69,7 +69,7 @@ class Carousel extends PureComponent {
                             className={selector} 
                             style={ this.state.firstLoad && selector !== `${styles.tile} ${styles.previous}` ? 
                                     { zIndex: -i, transform: 'translate(-25%, -10%)' } : null }>
-                            <img src={ el.mainPhoto.src } 
+                            <img src={ el.mainPhoto.img.src }
                                     alt={ el.mainPhoto.alt } />
                         </div>
             })}

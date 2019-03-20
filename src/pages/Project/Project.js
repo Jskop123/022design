@@ -22,7 +22,7 @@ class Project extends Component {
                 { this.state.id && !this.props.loading ? 
                     <>
                         <img className={styles.mainPhoto} src={ this.state.mainPhoto.url } alt={ this.state.mainPhoto.alt } />
-                        { this.state.images.map( img => <img key={img.title} className={styles.mainPhoto} src={ img.src } alt={ img.alt }/> )}
+                        { this.state.images.map( image => <img key={image.title} className={styles.mainPhoto} src={ image.img.src } alt={ image.alt }/> )}
                     </>
                     :
                     <Spinner/>
