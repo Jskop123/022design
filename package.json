@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "lodash": "^4.17.11",
+    "npm": "^6.9.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-easy-swipe": "0.0.17",

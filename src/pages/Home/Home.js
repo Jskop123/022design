@@ -7,7 +7,7 @@ import Carousel from '../../components/Carousel/Carousel'
 import Spinner from '../../components/Spinner/Spinner'
 
 class Home extends PureComponent {
-    componentWillMount = () => {
+    componentDidMount = () => {
         if( !this.props.items.length ) this.props.getSiteData()
     }
     render = () => (
@@ -15,7 +15,7 @@ class Home extends PureComponent {
             { !this.props.items.length ? 
                 <Spinner/> 
                 :
-                <Carousel items={ this.props.items } description/>
+                <Carousel items={ this.props.items } description animation/>
             }
         </div>
     ) 

@@ -14,12 +14,11 @@
   opacity: 0;
   will-change: transform, z-index, opacity;
   transition: transform .5s ease;
-  perspective: 1000;
-  backface-visibility: hidden;
 }
 .tile img {
   height: 100%;
   transform: translate3d(-25%, 0, 0);
+  image-rendering: optimizeSpeed;
 }
 .previous {
   opacity: 1;
@@ -47,7 +46,7 @@
 }
 .projectInfo {
   position: absolute;
-  top: 46%;
+  top: 50%;
   left: 0;
   width: 30vh;
   height: 30vh;
@@ -61,6 +60,7 @@
   flex-direction: column;
   justify-content: space-between;
   transition: .25s ease;
+  will-change: transform, opacity;
 }
 .wink {
   opacity: 0;

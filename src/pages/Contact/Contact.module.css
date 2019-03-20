@@ -29,30 +29,9 @@
 .form textarea {
     height: 80px;
 }
-.data {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    flex-shrink: 0;
-    margin-bottom: 40px;
-}
-.data a, .data div {
-    display: block;
-    margin: 5px 10px;
-    cursor: pointer;
-}
-.data i {
-    font-size: 40px;
-    display: inline-block;
-}
-.mail_phone {
-    width: 100%;
-}
-.location {
-    display: block;
-}
+
 @media (orientation: landscape) and (min-width: 500px){
-    .form, .data { width: 40%; }
+    .form { width: 40%; }
 }
 @media (orientation: portrait) and (min-width: 600px), (orientation: landscape) and (min-width: 1024px) {
     .contact { font-size: 1rem }

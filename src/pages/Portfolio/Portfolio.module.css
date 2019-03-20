@@ -1,9 +1,13 @@
 .portfolio {
+    padding-top: 10%;
     overflow-y: scroll;
     overflow-x: hidden;
     display: flex;
     flex-wrap: wrap;
-    padding-top: 10%;
+    transition: opacity .2s ease;
+}
+.hide {
+    opacity: 0;
 }
 .potrfolioNav {
     position: fixed;
@@ -13,6 +17,7 @@
     background-color: #fff;
     padding-bottom: 5px;
     top: 10%;
+    opacity: 1 !important;
 }
 .potrfolioNav h2 {
     display: inline-block;
@@ -50,9 +55,6 @@
     height: 40vh;
     position: relative;
 }
-.project:first-child {
-    margin-top: 30%;
-}
 .projectImage {
     background-color: #fff;
     height: 90%;
@@ -62,30 +64,48 @@
 .projectImage img {
     min-height: 100%;
     width: 100%;
-    position: absolute;
+    position: absolute; 
     top: 50%;
     transform: translateY(-50%);
+    image-rendering: optimizeSpeed;
 }
 .projectBackground {
     display: none;
 }
 .project h3 {
-    display: block;
+    display: inline;
     font-size: 1.4rem;
+    margin-left: .5em;
+    position: relative;
+}
+.project h3::after {
+    position: absolute;
+    content: '';
+    width: 150%;
+    height: 3px;
+    background-color: #000;
+    bottom: -4px;
+    left: -.5em;
+    transform: skewX(-45deg);
+    transition: transform .3s ease;
+}
+.portfolioContact {
+    width: 100%;
 }
 @media (orientation: landscape) {
     .portfolio { padding-top: 5%; }
-    .potrfolioNav { top: 0 }
+    .potrfolioNav { top: 0; left: 17vw; }
     .project { width: 45%; }
     .potrfolioNav { width: 83vw; }
 }
 @media (orientation: portrait) and (min-height: 1024px) {
-    .potrfolioNav { width: 83vw; top: 0 }
+    .potrfolioNav { width: 83vw; top: 0; left: 17vw; }
     .portfolio { height: 100%; top: 0 }
 }
 @media (hover: hover) {
     .projectImage { border: 3px solid white; transition: .3s ease; }
-    .projectImage:hover { transform: translate(-2vh, -2vh); }
+    .project:hover .projectImage { transform: translate(-2vh, -2vh); }
+    .project:hover h3::after { transform: skewX(45deg) }
     .projectBackground {
         display: block;
         background-color: #000;

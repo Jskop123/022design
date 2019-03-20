@@ -17,31 +17,50 @@ const setPortfolioItems = portfolioItems => ({
     type: actionTypes.PORTFOLIO_ITEMS,
     portfolioItems
 })
-const loadImages = ( data, page, quantity = data.length ) => dispatch => {
+const setCurrentProject = project => ({
+    type: actionTypes.PROJECT,
+    project
+})
+const loadImages = ( data, page, quantity ) => dispatch => {
     let counter = 0
     const images = []
-    data.forEach(( el, i ) => {
+    const elements = page !== 'project' ? data : data.images
+    if( !quantity ) quantity = elements.length
+    if( quantity === 0 )  dispatch( setCurrentProject( data ) )
+    elements.forEach(( el, i ) => {
         if( i >= quantity ) {
-            images[i] = { src: data[i].mainPhoto.url }
+            images[i] = { src: data[i].mainPhoto.url, alt: data[i].mainPhoto.alt }
         }
         else {
             images[i] = new Image()
             images[i].onload = () => {
                 counter++
                 if ( counter === quantity ) {
-                    const items = data.map(( item, i ) => ({
-                        ...item,
-                        mainPhoto: { src: images[i].src, alt: item.mainPhoto.alt },
-                    }))
-                    if( page === 'home' ) dispatch( setHomeItems( items ) )
-                    if( page === 'portfolio' ) dispatch( setPortfolioItems( items ) )
+                    if( page === 'portfolio' || page === 'home' ) {
+                        const items = data.map(( item, i ) => ({
+                            ...item,
+                            mainPhoto: { src: images[i].src, alt: item.mainPhoto.alt },
+                        }))
+                        if( page === 'home' ) dispatch( setHomeItems( items ) )
+                        if( page === 'portfolio' ) dispatch( setPortfolioItems( items ) )
+                    }
+                    else if( page === 'project' ) {
+                        const project = {
+                            ...data,
+                            images: [...data.images.map(( img, i ) => ({
+                                ...data.images[i], src: images[i].src
+                            }))]
+                        }
+                        console.log(project)
+                        dispatch( setCurrentProject( project ) )
+                    }
                 }
             }
-            images[i].src = el.mainPhoto.url
+            images[i].src = page !== 'project' ? el.mainPhoto.url : el.url 
         }
     })
 }
-export const getSiteData = page => ( dispatch, getState ) => {
+export const getSiteData = ( page, id ) => ( dispatch, getState ) => {
     dispatch( setLoading() )
     const sourcePageHandler = ( page, data ) => {
         if( page === 'home' ){
@@ -50,6 +69,16 @@ export const getSiteData = page => ( dispatch, getState ) => {
         }
         else if ( page === 'portfolio' ) {
             dispatch( loadImages( data, page, 6 ) )
+        }
+        else if ( page === 'project' ) {
+            const currentProject = data.find( el => el.id === id )
+            const keys = Object.keys( currentProject )
+            const imageKeys = keys.filter( key => key.startsWith('photo') )
+            const imagesToLoad = imageKeys.filter( key => currentProject[ key ] !== false )
+            const images = imagesToLoad.map( key => currentProject[ key ] )
+            imageKeys.forEach( el => delete currentProject[ el ])
+            currentProject.images = images
+            dispatch( loadImages( currentProject, page ) )
         }
     }
     const siteData = getState().async.siteData
