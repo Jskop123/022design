@@ -4,17 +4,18 @@ import { connect } from 'react-redux'
 import { getSiteData } from '../../store/actions/asyncActions'
 
 import Spinner from '../../components/Spinner/Spinner'
+import ContacData from '../../components/ContactData/ContactData'
 
 import styles from './Project.module.css'
 
 class Project extends Component {
-    state = { }
+    state = { ...this.props.currentProject }
     componentDidMount = () => {
-        if( this.props.location.id ) this.props.getSiteData( this.props.location.id )
-        else this.props.history.goBack()
+        if( this.props.location.id !== this.state.id )  this.props.getSiteData( this.props.location.id )
+        else if( !this.props.location.id )              this.props.history.goBack()
     }
     componentDidUpdate = ( prevProps ) => {
-        if( prevProps.currentProject !== this.props.currentProject ) this.setState({ ...this.props.currentProject })
+        if( prevProps.currentProject.id !== this.props.currentProject.id ) this.setState({ ...this.props.currentProject })
     }
     render(){
         return(
@@ -27,7 +28,7 @@ class Project extends Component {
                     :
                     <Spinner/>
                 }
-                
+                <ContacData/>
             </div>
         )
     }
