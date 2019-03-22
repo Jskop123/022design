@@ -42,7 +42,7 @@ class Portfolio extends Component {
                                     pathname:`/portfolio/${this.props.lang === 'Pl' ? 'projekt/' : 'project/'}${el.link}`,
                                     id: el.id }}>
                                         <div className={styles.projectImage}>
-                                            <img src={ el.mainPhoto.src } alt={ el.mainPhoto.alt }/>
+                                            <img src={ el.mainPhoto.img.src } alt={ el.mainPhoto.alt }/>
                                         </div>
                                         <div className={styles.projectBackground}/>
                                         <h3>{ el['title'+ this.props.lang ] }</h3>
