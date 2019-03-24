@@ -1,7 +1,19 @@
 .project {
     overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
-
 .mainPhoto {
     width: 100%;
+}
+.mainPhoto img {
+    width: 100%;
+}
+.paragraph {
+    width: 70%;
+}
+.verticalCarousel {
+    width: 100%;
+    height: 92%;
 }

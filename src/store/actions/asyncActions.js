@@ -81,9 +81,9 @@ export const getSiteData = ( page, id ) => ( dispatch, getState ) => {
                     const imageKeys = Object.keys( acf ).filter( key => key.startsWith('photo') )
                     const images = imageKeys.map( key => acf[ key ] !== false ? acf[ key ] : null ).filter( _=>_ )
 
-                    const descriptions = { pl: [], eng: [] }
+                    const descriptions = { Pl: [], Eng: [] }
                     const descKeys = Object.keys( acf ).filter( desc => desc.includes('Desc')  )
-                    descKeys.forEach( key => key.startsWith('pl') ? descriptions.pl.push( acf[ key ] ) : descriptions.eng.push( acf[ key ] ) )
+                    descKeys.forEach( key => key.startsWith('pl') ? descriptions.Pl.push( acf[ key ] ) : descriptions.Eng.push( acf[ key ] ) )
                     return { 
                         id, 
                         titleEng: acf.titleEng,

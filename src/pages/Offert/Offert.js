@@ -27,7 +27,7 @@ class Offert extends PureComponent {
             <Link to={{
                 pathname: this.props.contactLink,
                 id: 'contact'
-            }}>{ this.props.contactLink.slice(1) }<i className='icon-right-big'/></Link>
+            }}>{ this.props.contactLink.slice(1) }<i className='icon-right-small'/></Link>
         </div>
     )
 }

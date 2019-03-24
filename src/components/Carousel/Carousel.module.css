@@ -1,6 +1,7 @@
 .carousel {
   height: 100%;
   width: 100%;
+  position: relative;
 }
 .tile {
   position: absolute;
@@ -16,8 +17,11 @@
   transition: transform .5s ease;
 }
 .tile img {
+  position: absolute;
   height: 100%;
-  transform: translate3d(-25%, 0, 0);
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
   image-rendering: optimizeSpeed;
 }
 .previous {
@@ -44,37 +48,14 @@
 .next3 {
   opacity: 1;
 }
-.projectInfo {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 30vh;
-  height: 30vh;
-  z-index: 8;
-  background-color: #000;
-  border: 3px solid white;
-  color: white;
-  padding: 8% 5%;
-  font-size: 1.4rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: .25s ease;
-  will-change: transform, opacity;
-}
-.wink {
-  opacity: 0;
-  transform: translate3d(-5%, 0, 0);
+.noTransition * {
+  transition: none;
 }
 @media (orientation: landscape) {
-  .projectInfo { width: 40vh; height: 40vh; padding: 2% 2%; top: 45%; left: 1%; }
-  .tile img { transform: none; }
   .previous { transform: translate3d(-25%, -120%, 0) }
-  .wink { transform: translate3d(0, -5%, 0) }
 }
-@media (orientation: portrait) and (min-height: 800px){
+@media (orientation: portrait) and (min-height: 800px) {
   .carousel {height: 70vh; top: 10vh; }
-  .projectInfo { height: 25vh; width: 25vh; }
 }
 @media (orientation: portrait) and (min-height: 1024px){
   .previous { top: -150%; left: 5%; }

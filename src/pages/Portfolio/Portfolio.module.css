@@ -11,7 +11,7 @@
 }
 .potrfolioNav {
     position: fixed;
-    font-size: 1.3em;
+    font-size: 1.1em;
     width: 100vw;
     z-index: 3;
     background-color: #fff;
@@ -74,7 +74,7 @@
 }
 .project h3 {
     display: inline;
-    font-size: 1.4rem;
+    font-size: 1.2em;
     margin-left: .5em;
     position: relative;
 }
