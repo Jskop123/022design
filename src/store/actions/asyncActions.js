@@ -2,9 +2,6 @@ import * as actionTypes from './actionTypes'
 
 import axios from 'axios'
 
-const setLoading = () => ({
-    type: actionTypes.LOADING
-})
 const setSideData = siteData => ({
     type: actionTypes.SITE_DATA,
     siteData
@@ -20,6 +17,9 @@ const setPortfolioItems = portfolioItems => ({
 const setCurrentProject = project => ({
     type: actionTypes.PROJECT,
     project
+})
+export const clearCurrentProject = () => ({
+    type: actionTypes.CLEAR_PROJECT
 })
 const loadImages = ( data, page, quantity = data.length || data.images.length ) => dispatch => {
     if( quantity === 0 ) { dispatch( setCurrentProject( data ) ); return }
@@ -57,7 +57,6 @@ const loadImages = ( data, page, quantity = data.length || data.images.length ) 
     })
 }
 export const getSiteData = ( page, id ) => ( dispatch, getState ) => {
-    dispatch( setLoading() )
     const sourcePageHandler = ( data ) => {
         switch( page ) {
             case 'portfolio': 

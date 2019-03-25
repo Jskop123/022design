@@ -3,17 +3,59 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
 }
-.mainPhoto {
-    width: 100%;
+.w100 {
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: hidden;
 }
-.mainPhoto img {
+.h100 {
+    position: relative;
     width: 100%;
+    overflow: hidden;
+}
+.w100 img, .h100 img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+}
+.title {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    background-color: #000;
+    border: 3px solid white;
+    color: white;
+    font-size: 1.8rem;
+    line-height: 8vh;
+    padding: 0 5%;
+    z-index: 5;
 }
 .paragraph {
+    margin: 1.5em 5%;
     width: 70%;
+    text-indent: 5%;
 }
 .verticalCarousel {
     width: 100%;
     height: 92%;
+}
+.horizontalCarousel {
+    width: 100%;
+    height: 40%;
+}
+
+@media (orientation: landscape) {
+    .h100 { width: 50%; margin: 1%; }
+    .verticalCarousel { width: 50% }
+    .horizontalCarousel { height: 90%; }
+    .paragraph:first-of-type { width: 30% }
+}
+@media (orientation: portrait) and (min-height: 1024px) {
+    .project { height: 100%; top: 0; }
+    .verticalCarousel { height: 70% }
+    .horizontalCarousel { height: 35%; }
 }

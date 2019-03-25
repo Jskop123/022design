@@ -43,9 +43,7 @@ class Home extends PureComponent {
     }
     render = () => (
         <div className='page'>
-            { !this.props.items.length ? 
-                <Spinner/> 
-                :
+            { this.props.items.length ? 
                 <>
                     <Carousel 
                         items={ this.props.items.map( el => el.mainPhoto ) } 
@@ -59,6 +57,8 @@ class Home extends PureComponent {
                         </div>
                     </Link>
                 </>
+                :
+                <Spinner/> 
             }
         </div>
     ) 

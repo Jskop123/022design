@@ -36,6 +36,7 @@ a {
   :root { font-size: 18px }
 }
 @media (orientation: landscape) {
+  .App { height: 100vh; }
   .page { height: 100vh; width: 83vw; left: 17vw; top: 0; }
 }
 @media (orientation: portrait) and (min-height: 1024px) {
