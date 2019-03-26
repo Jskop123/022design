@@ -2,9 +2,6 @@ import * as actionTypes from './actionTypes'
 
 import axios from 'axios'
 
-const setLoading = () => ({
-    type: actionTypes.LOADING
-})
 const setSideData = siteData => ({
     type: actionTypes.SITE_DATA,
     siteData
@@ -20,6 +17,9 @@ const setPortfolioItems = portfolioItems => ({
 const setCurrentProject = project => ({
     type: actionTypes.PROJECT,
     project
+})
+export const clearCurrentProject = () => ({
+    type: actionTypes.CLEAR_PROJECT
 })
 const loadImages = ( data, page, quantity = data.length || data.images.length ) => dispatch => {
     if( quantity === 0 ) { dispatch( setCurrentProject( data ) ); return }
@@ -57,7 +57,6 @@ const loadImages = ( data, page, quantity = data.length || data.images.length ) 
     })
 }
 export const getSiteData = ( page, id ) => ( dispatch, getState ) => {
-    dispatch( setLoading() )
     const sourcePageHandler = ( data ) => {
         switch( page ) {
             case 'portfolio': 
@@ -81,9 +80,9 @@ export const getSiteData = ( page, id ) => ( dispatch, getState ) => {
                     const imageKeys = Object.keys( acf ).filter( key => key.startsWith('photo') )
                     const images = imageKeys.map( key => acf[ key ] !== false ? acf[ key ] : null ).filter( _=>_ )
 
-                    const descriptions = { pl: [], eng: [] }
+                    const descriptions = { Pl: [], Eng: [] }
                     const descKeys = Object.keys( acf ).filter( desc => desc.includes('Desc')  )
-                    descKeys.forEach( key => key.startsWith('pl') ? descriptions.pl.push( acf[ key ] ) : descriptions.eng.push( acf[ key ] ) )
+                    descKeys.forEach( key => key.startsWith('pl') ? descriptions.Pl.push( acf[ key ] ) : descriptions.Eng.push( acf[ key ] ) )
                     return { 
                         id, 
                         titleEng: acf.titleEng,

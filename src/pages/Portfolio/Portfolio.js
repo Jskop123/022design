@@ -10,30 +10,52 @@ import { getSiteData } from '../../store/actions/asyncActions'
 import styles from './Portfolio.module.css'
 
 class Portfolio extends Component {
-    state = { filter: null }
+    state = { 
+        typeFilter: null,
+        vizFilter: null
+    }
     componentDidMount = () => {
         if( !this.props.portfolioItems.length ) this.props.getSiteData('portfolio')
     }
-    changeFilterHandler = filter => {
+    changeFilter = ( filter, level ) => {
         this.refs.portfolio.classList.add(styles.hide)
-        setTimeout(() => this.setState({ filter }, () => {
+        setTimeout(() => this.setState( level === 'main' ?
+            { typeFilter: filter, vizFilter: null } : { vizFilter: filter },
+            () => {
             this.refs.portfolio.scrollTop = 0
             this.refs.portfolio.classList.remove(styles.hide)})
         , 200)
     }
     render(){
-        let navStyle = styles.potrfolioNav
-        if( this.state.filter === 'rel' ) navStyle = `${styles.potrfolioNav} ${styles.left}`
-        else if( this.state.filter === 'viz' ) navStyle = `${styles.potrfolioNav} ${styles.right}`
+        let mainNav = styles.mainNav
+        if( this.state.typeFilter === 'rel' ) mainNav = `${styles.mainNav} ${styles.left}`
+        else if( this.state.typeFilter === 'viz' ) mainNav = `${styles.mainNav} ${styles.right}`
+        let subNav = styles.subNav
+        if( this.state.vizFilter === '2d' ) subNav = `${styles.subNav} ${styles.left}`
+        else if( this.state.vizFilter === '3d' ) subNav = `${styles.subNav} ${styles.right}`
         return (<>
-            <nav className={navStyle} ref='nav'>
-                <h2 onClick={() => this.changeFilterHandler('rel') }>{ this.props.text[0] }</h2>
-                <h2 onClick={() => this.changeFilterHandler('viz') }>{ this.props.text[1] }</h2>
-            </nav>
+            <div className={styles.filters}>
+                <nav className={mainNav}>
+                    <h2 onClick={() => this.changeFilter('rel', 'main') }>{ this.props.text[0] }</h2>
+                    <h2 onClick={() => this.changeFilter('viz', 'main') }>{ this.props.text[1] }</h2>
+                </nav>
+                { this.state.typeFilter === 'viz' ?
+                    <nav className={subNav}>
+                        <h2 onClick={() => this.changeFilter('2d', 'sub') }>{ this.props.text[2] }</h2>
+                        <h2 onClick={() => this.changeFilter('3d', 'sub') }>360</h2>
+                    </nav>
+                    : null
+                }
+            </div>
             <div className={`page ${styles.portfolio}`} ref='portfolio'>
                 { this.props.portfolioItems.length ? <>
-                    {this.props.portfolioItems.filter( el => { 
-                        if( this.state.filter ) return el.type === this.state.filter ? el : null
+                    {this.props.portfolioItems
+                    .filter( el => { 
+                        if( this.state.typeFilter ) return el.type === this.state.typeFilter ? el : null
+                        else return el
+                    }).filter( el => {
+                        if( this.state.vizFilter === '3d' ) return el.img360 ? el : null
+                        else if( this.state.vizFilter === '2d' ) return !el.img360 ? el : null
                         else return el
                     }).map( el => {
                         return (

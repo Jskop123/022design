@@ -1,4 +1,7 @@
 localstorage lang set in html !!!
-kontakt => refaktor, style formularza do poprawy
-oferta => zmiana kolejności obrazka i tekstu może samym css'em
-portfolio => kontakt na dole
+LOGO,
+WIZUALIZACJE 3D,
+kontakt => refaktor, style formularza do poprawy, json do wysłania,
+oferta => zmiana kolejności obrazka i tekstu może samym css'em???
+
+

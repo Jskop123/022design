@@ -19,7 +19,7 @@
             "content": "You want to rent flat and you need well done photos? Hit in the button bellow!" 
         }
     ],
-    "portfolio": [ "Realizations", "Vizualizations" ],
+    "portfolio": [ "Realizations", "Vizualizations", "Static" ],
     "contact": {
         "contactData": "Warsaw",
         "form": [
@@ -28,7 +28,7 @@
             "Your email adress", 
             "Your phone number", 
             "Service",
-            [ "Chose service type", "Full project", "Vizualization", "Photos", "Other" ],
+            [ "Chose service type", "Full project", "Part project", "Vizualization", "Photos", "Other" ],
             [ "Comment", "Additional informations" ],
             "Submit"
         ]
