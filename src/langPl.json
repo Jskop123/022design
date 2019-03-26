@@ -19,7 +19,7 @@
             "content": "Chcesz wynająć mieszkanie? Odpowiednio wykonane przez nas zdjęcia potrafią szybko zaciekawić potencjalnych odbiorców." 
         }
     ],
-    "portfolio": [ "Realizacje", "Wizualizacje" ],
+    "portfolio": [ "Realizacje", "Wizualizacje", "Statyczne" ],
     "contact": {
         "contactData": "Warszawa",
         "form": [
@@ -28,7 +28,7 @@
             "Twój adres email", 
             "Twój numer telefonu", 
             "Usługa",
-            [ "Wybierz rodzaj usługi", "Pełny projekt", "Wizualizacja", "Zdjęcia", "Inne" ],
+            [ "Wybierz rodzaj usługi", "Pełny projekt", "Częściowy projekt", "Wizualizacja", "Zdjęcia", "Inne" ],
             [ "Komentarz", "Dodatkowe informacje" ],
             "Prześlij"
         ]

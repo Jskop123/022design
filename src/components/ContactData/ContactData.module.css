@@ -1,16 +1,15 @@
 .data {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     flex-shrink: 0;
-    width: 100%;
+    justify-content: space-around;
     position: relative;
     overflow: visible;
+    width: 70%;
 }
 .simpleData {
     width: 100% !important;
     flex-wrap: nowrap;
-    justify-content: space-around;
 }
 .simpleData::after {
     content: '';
@@ -21,20 +20,36 @@
     box-shadow: 0px 5px 8px 0px #0000001f;
 }
 .data a, .data div {
-    display: block;
-    margin: 3px 10px;
+    width: 28%;
+    margin: 0 5%;
+    margin: .5em 0;
     cursor: pointer;
     text-align: center;
+    position: relative;
+    white-space: nowrap;
 }
 .data i {
-    font-size: 2.8em;
+    font-size: 2.5em;
     display: inline-block;
 }
+.data span {
+    position: relative;
+}
 .mail_phone {
-    width: 100%;
+    width: 100% !important;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
 }
 .location {
     display: block;
+}
+@media (orientation: landscape), (orientation: portrait) and (min-height: 1024px) {
+    .data { width: 50%; }
+    .data i { font-size: 2em; }
+    .simpleData { padding: 0 10%;}
+    .simpleData a, .simpleData div { width: auto; }
 }
 @media (orientation: landscape) {
     .data { width: 40%; }

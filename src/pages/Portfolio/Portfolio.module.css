@@ -1,5 +1,5 @@
 .portfolio {
-    padding-top: 10%;
+    padding-top: 15%;
     overflow-y: scroll;
     overflow-x: hidden;
     display: flex;
@@ -9,23 +9,28 @@
 .hide {
     opacity: 0;
 }
-.potrfolioNav {
+.filters {
+    width: 100%;
     position: fixed;
+    top: 9.9%;
+    z-index: 3;
+}
+.mainNav {
+    position: relative;
     font-size: 1.1em;
-    width: 100vw;
+    width: 100%;
     z-index: 3;
     background-color: #fff;
     padding-bottom: 5px;
-    top: 10%;
     opacity: 1 !important;
 }
-.potrfolioNav h2 {
+.mainNav h2, .subNav h2 {
     display: inline-block;
     width: 50%;
     text-align: center;
     cursor: pointer;
 }
-.potrfolioNav::before {
+.mainNav::before {
     content: '';
     position: absolute;
     background-color: #858383;
@@ -33,7 +38,7 @@
     bottom: 0;
     height: 1px;
 }
-.potrfolioNav::after {
+.mainNav::after {
     content: '';
     position: absolute;
     background-color: #000;
@@ -43,11 +48,45 @@
     left: 26%;
     transition: .3s ease;
 }
-.potrfolioNav.left::after {
+.mainNav.left::after {
     left: 2%;
 }
-.potrfolioNav.right::after {
+.mainNav.right::after {
     left: 52%;
+}
+.subNav {
+    position: relative;
+    padding: 1em 20% 0 20%;
+    font-size: .9em;
+    width: 100%;
+    z-index: 2;
+    background-color: #fff;
+    padding-bottom: 5px;
+    top: 13.9%;
+}
+.subNav::after {
+    content: '';
+    position: absolute;
+    background-color: #000;
+    bottom: -1px;
+    height: 3px;
+    width: 23%;
+    left: 39%;
+    transition: .3s ease;
+}
+.subNav::before {
+    content: '';
+    position: absolute;
+    background-color: #858383;
+    width: 60%;
+    bottom: 0;
+    height: 1px;
+}
+.subNav.left::after {
+    left: 23%;
+}
+.subNav.right::after {
+    left: 53%;
 }
 .project {
     width: 95%;
@@ -63,10 +102,12 @@
 }
 .projectImage img {
     min-height: 100%;
-    width: 100%;
+    min-width: 100%;
+    max-width: 125%;
     position: absolute; 
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
     image-rendering: optimizeSpeed;
 }
 .projectBackground {
@@ -78,7 +119,7 @@
     margin-left: .5em;
     position: relative;
 }
-.project h3::after {
+/* .project h3::after {
     position: absolute;
     content: '';
     width: 150%;
@@ -88,24 +129,29 @@
     left: -.5em;
     transform: skewX(-45deg);
     transition: transform .3s ease;
-}
+} */
 .portfolioContact {
     width: 100%;
 }
 @media (orientation: landscape) {
-    .portfolio { padding-top: 5%; }
-    .potrfolioNav { top: 0; left: 17vw; }
+    .portfolio { padding-top: 4em; }
+    .filters { top: 0; left: 17vw; width: 83vw;}
     .project { width: 45%; }
-    .potrfolioNav { width: 83vw; }
+    .subNav { padding: 1em 25% 0 25% }
+    .subNav::after { width: 15% }
+    .subNav::before { width: 50%; }
+    .subNav.left::after { left: 30%; }
+    .subNav.right::after { left: 55%; }
 }
 @media (orientation: portrait) and (min-height: 1024px) {
-    .potrfolioNav { width: 83vw; top: 0; left: 17vw; }
+    .portfolio { padding-top: 5em; }
+    .filters { width: 83vw; top: 0; left: 17vw; }
     .portfolio { height: 100%; top: 0 }
 }
 @media (hover: hover) {
     .projectImage { border: 3px solid white; transition: .3s ease; }
     .project:hover .projectImage { transform: translate(-2vh, -2vh); }
-    .project:hover h3::after { transform: skewX(45deg) }
+    /* .project:hover h3::after { transform: skewX(45deg) } */
     .projectBackground {
         display: block;
         background-color: #000;

@@ -49,7 +49,10 @@ class Project extends Component {
                                 </div> )
                             :null
                         }
-                        <p className={styles.paragraph}>{this.state.descriptions[this.props.lang][1]}</p>
+                        { this.state.descriptions[ this.props.lang ][1] ?
+                            <p className={styles.paragraph}>{this.state.descriptions[this.props.lang][1]}</p>
+                            : null
+                        }
                         { this.state.images.horizontal.length ?
                             ( this.state.images.horizontal.length > 1 ? 
                                 <div className={styles.horizontalCarousel}>
@@ -61,8 +64,14 @@ class Project extends Component {
                                 </div> )
                             :null
                         }
-                        <p className={styles.paragraph}>{this.state.descriptions[this.props.lang][2]}</p>
-                        <div>photo360</div>
+                        { this.state.descriptions[ this.props.lang ][2] ?
+                            <p className={styles.paragraph}>{this.state.descriptions[this.props.lang][2]}</p>
+                            : null
+                        }
+                        { this.state.img360 ? 
+                            <div>{ this.state.img360 }</div> 
+                            : null
+                        }
                         <ContacData/>
                     </>
                     :

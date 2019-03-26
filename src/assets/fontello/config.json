@@ -7,34 +7,34 @@
   "ascent": 850,
   "glyphs": [
     {
-      "uid": "6cc7af3e5b55720bcb6ef68372ce24be",
-      "css": "facebook-official",
-      "code": 62000,
-      "src": "fontawesome"
+      "uid": "w42gjpwdzqeszptpy1xqp8r77o6gcasj",
+      "css": "facebook",
+      "code": 62208,
+      "src": "modernpics"
     },
     {
-      "uid": "4c1ef492f1d2c39a2250ae457cee2a6e",
-      "css": "instagram",
-      "code": 61805,
-      "src": "fontawesome"
-    },
-    {
-      "uid": "9f7e588c66cfd6891f6f507cf6f6596b",
-      "css": "phone",
-      "code": 59394,
-      "src": "fontawesome"
-    },
-    {
-      "uid": "0d08dbb1dd648a43bdea81b7e6c9e036",
-      "css": "location",
+      "uid": "eb2d71e114d99d85b2ae28ab70d981a6",
+      "css": "call",
       "code": 59392,
-      "src": "fontawesome"
+      "src": "zocial"
     },
     {
-      "uid": "wg849ixsobykxshs6efpc6fk4m0fq8bh",
-      "css": "mail",
-      "code": 59395,
-      "src": "typicons"
+      "uid": "a58032f4aafd0eec54803075f5b320d4",
+      "css": "email",
+      "code": 59393,
+      "src": "zocial"
+    },
+    {
+      "uid": "cc20f2a7fa05a475130c406740bbbd26",
+      "css": "instagram-filled",
+      "code": 62239,
+      "src": "brandico"
+    },
+    {
+      "uid": "too2rspp5e6z6m0y6lconmv23uw3qlqo",
+      "css": "location",
+      "code": 59394,
+      "src": "modernpics"
     },
     {
       "uid": "877a233d7fdca8a1d82615b96ed0d7a2",

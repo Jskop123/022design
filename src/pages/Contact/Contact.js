@@ -22,9 +22,10 @@ class Contact extends Component {
                     <select id='service' defaultValue='init'>
                         <option value="init" disabled>{ this.props.text.form[5][0] }</option>
                         <option value='fullProject'>{ this.props.text.form[5][1] }</option>
-                        <option value='visualization'>{ this.props.text.form[5][2] }</option>
-                        <option value='photos'>{ this.props.text.form[5][3] }</option>
-                        <option value='others'>{ this.props.text.form[5][4] }</option>
+                        <option value='partProject'>{ this.props.text.form[5][2] }</option>
+                        <option value='visualization'>{ this.props.text.form[5][3] }</option>
+                        <option value='photos'>{ this.props.text.form[5][4] }</option>
+                        <option value='others'>{ this.props.text.form[5][5] }</option>
                     </select>
                     <label htmlFor='comment'>{ this.props.text.form[6][0] }</label>
                     <textarea id='comment' placeholder={ this.props.text.form[6][1] }></textarea>
