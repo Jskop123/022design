@@ -5,7 +5,7 @@ import styles from './Header.module.css'
 import Menu from './Menu/Menu'
 import Backdrop from '../Backdrop/Backdrop'
 
-class Header extends Component {
+export default class Header extends Component {
     state = { showMenu: false }
     menuHandler = handler => {
         if( handler === 'toggle' ) this.setState({ showMenu: !this.state.showMenu })
@@ -25,4 +25,3 @@ class Header extends Component {
         { this.state.showMenu ? <Backdrop click={ this.menuHandler } /> : null }
     </>)
 }
-export default Header

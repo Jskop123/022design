@@ -119,6 +119,9 @@
     margin-left: .5em;
     position: relative;
 }
+.portfolioContact {
+    width: 100%;
+}
 /* .project h3::after {
     position: absolute;
     content: '';
@@ -130,13 +133,10 @@
     transform: skewX(-45deg);
     transition: transform .3s ease;
 } */
-.portfolioContact {
-    width: 100%;
-}
 @media (orientation: landscape) {
     .portfolio { padding-top: 4em; }
     .filters { top: 0; left: 17vw; width: 83vw;}
-    .project { width: 45%; }
+    .project { width: 45%; height: 22vw; }
     .subNav { padding: 1em 25% 0 25% }
     .subNav::after { width: 15% }
     .subNav::before { width: 50%; }
@@ -151,7 +151,6 @@
 @media (hover: hover) {
     .projectImage { border: 3px solid white; transition: .3s ease; }
     .project:hover .projectImage { transform: translate(-2vh, -2vh); }
-    /* .project:hover h3::after { transform: skewX(45deg) } */
     .projectBackground {
         display: block;
         background-color: #000;
@@ -161,4 +160,5 @@
         top: 0;
         z-index: -1;
     }
+    /* .project:hover h3::after { transform: skewX(45deg) } */
 }

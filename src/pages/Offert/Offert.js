@@ -21,7 +21,7 @@ class Offert extends PureComponent {
                                 <p>{ this.props.text[ i ].content }</p>
                             </div>
                 return <div className={styles.item} key={ el }>
-                        { i === 1 ? <>{text}{graph}</> : <>{graph}{text}</>}
+                        { i === 1 ? <>{text}{graph}</> : <>{graph}{text}</> }
                     </div>
             })}
             <Link to={{

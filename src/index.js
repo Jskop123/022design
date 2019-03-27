@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-
 import { BrowserRouter } from 'react-router-dom'
 import { compose, createStore, combineReducers, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
@@ -27,5 +26,4 @@ const app = (
         </BrowserRouter>
     </Provider>
 )
-
 ReactDOM.render( app , document.getElementById('root'))
