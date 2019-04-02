@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import Spinner from '../../components/Spinner/Spinner'
 import ContactData from '../../components/ContactData/ContactData'
 
-import { getSiteData } from '../../store/actions/asyncActions'
+import { getSiteData } from '../../store/actions/actions'
 
 import styles from './Portfolio.module.css'
 
@@ -17,16 +17,16 @@ class Portfolio extends Component {
     componentDidMount = () => {
         if( !this.props.portfolioItems.length ) this.props.getSiteData('portfolio')
     }
-    changeFilter = ( filter, level ) => {
+    changeFilter = ( filter, tier ) => {
         this.refs.portfolio.classList.add(styles.hide)
-        setTimeout(() => this.setState( level === 'main' ?
+        setTimeout(() => this.setState( tier === 'main' ?
             { typeFilter: filter, vizFilter: null } : { vizFilter: filter },
             () => {
-            this.refs.portfolio.scrollTop = 0
-            this.refs.portfolio.classList.remove(styles.hide)})
+                this.refs.portfolio.scrollTop = 0
+                this.refs.portfolio.classList.remove(styles.hide)})
         , 200)
     }
-    render(){
+    render = () => {
         let mainNav = styles.mainNav
         if( this.state.typeFilter === 'rel' ) mainNav = `${styles.mainNav} ${styles.left}`
         else if( this.state.typeFilter === 'viz' ) mainNav = `${styles.mainNav} ${styles.right}`
@@ -84,7 +84,7 @@ const mapStateToProps = state => ({
     text: state.language.text.portfolio,
     portfolioItems: state.async.portfolioItems
 })
-const mapDispatchToProps = dispatch => ({
-    getSiteData: () => dispatch( getSiteData('portfolio') )
-})
+const mapDispatchToProps = {
+    getSiteData: () => getSiteData('portfolio')
+}
 export default connect( mapStateToProps, mapDispatchToProps )( Portfolio )

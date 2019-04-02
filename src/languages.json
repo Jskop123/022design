@@ -1,0 +1,75 @@
+{
+    "Eng": {
+
+        "routes": {
+            "home": "/",
+            "services": "/services",
+            "portfolio": "/portfolio",
+            "contact": "/contact"
+        },
+        "offert": [
+            { 
+                "heading": "Project", 
+                "content": "Let us create complete project of your dream interior. We will do the inventory, then you will recieve graphics and at the end project book. It is vademecum for your performer." 
+            },
+            { 
+                "heading": "Vizualizations", 
+                "content": "You alredy have project but the only need are visualizations? You come to ther right place. 3D grapics is our passion so we manage quest with no debouts" 
+            },
+            { 
+                "heading": "Photo session", 
+                "content": "You want to rent flat and you need well done photos? Hit in the button bellow!" 
+            }
+        ],
+        "portfolio": [ "Realizations", "Vizualizations", "Static" ],
+        "contact": {
+            "contactData": "Warsaw",
+            "form": [
+                "Contact form", 
+                "Your Name and Surname", 
+                "Your email adress", 
+                "Your phone number", 
+                "Service",
+                [ "Chose service type", "Full project", "Part project", "Vizualization", "Photos", "Other" ],
+                [ "Comment", "Additional informations" ],
+                "Submit"
+            ]
+        }
+    },
+    "Pl": {
+        "routes": {
+            "home": "/",
+            "services": "/oferta",
+            "portfolio": "/portfolio",
+            "contact": "/kontakt"
+        },
+        "offert": [
+            { 
+                "heading": "Projekt", 
+                "content": "Najpierw wykonamy inwentaryzację, potem dostaniesz wizualizacje a na końcu książkę projektową z rysunkami technicznymi dla wykonawców."
+            },
+            { 
+                "heading": "Wizualizacja", 
+                "content": "Masz już gotowy projekt i potrzebujesz tylko wizualizacji? Z pasją wizulizujemy zarówno wnętrza jak i architekturę." 
+            },
+            { 
+                "heading": "Sesja fotograficzna", 
+                "content": "Chcesz wynająć mieszkanie? Odpowiednio wykonane przez nas zdjęcia potrafią szybko zaciekawić potencjalnych odbiorców." 
+            }
+        ],
+        "portfolio": [ "Realizacje", "Wizualizacje", "Statyczne" ],
+        "contact": {
+            "contactData": "Warszawa",
+            "form": [
+                "Formularz konatkowy", 
+                "Twoje Imie i Nazwisko", 
+                "Twój adres email", 
+                "Twój numer telefonu", 
+                "Usługa",
+                [ "Wybierz rodzaj usługi", "Pełny projekt", "Częściowy projekt", "Wizualizacja", "Zdjęcia", "Inne" ],
+                [ "Komentarz", "Dodatkowe informacje" ],
+                "Prześlij"
+            ]
+        }
+    }
+}

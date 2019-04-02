@@ -5,7 +5,7 @@ import { debounce } from 'lodash'
 
 import styles from './Carousel.module.css'
 
-class Carousel extends PureComponent {
+export default class Carousel extends PureComponent {
     state = {
         currentProject: 0,
         firstLoad:      true,
@@ -18,7 +18,8 @@ class Carousel extends PureComponent {
         if( current >= this.props.items.length ) current = 0
         else if( current < 0 ) current = this.props.items.length - 1
         
-        this.setState({ currentProject: current }, this.props.onChange ? () => this.props.onChange( this.state.currentProject ) : null )
+        this.setState({ currentProject: current }, 
+            this.props.onChange ? () => this.props.onChange( this.state.currentProject ) : null )
     }
     debouncedCurrentProjectHandler = debounce( this.currentProjectHandler, 100, { leading: true, trailing: false } )
     render = () => (
@@ -32,7 +33,6 @@ class Carousel extends PureComponent {
                 const current = this.state.currentProject
                 const size = this.props.items.length
                 let selectors = [ styles.tile ]
-
                     if( i === current )                                        selectors.push( styles.current )
                     if( i > current && i <= current +3 )                       selectors.push( styles[`next${i - current}`] )
 
@@ -54,4 +54,3 @@ class Carousel extends PureComponent {
         </Swipe>
     )
 }
-export default Carousel

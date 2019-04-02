@@ -1,21 +1,13 @@
 import * as actionTypes from '../actions/actionTypes'
 
-import langPl from '../../langPl.json'
-import langEng from '../../langEng.json'
+import languages from '../../languages.json'
 
-const languages = {
-    langPl,
-    langEng
-}
 const initialState = {
     lang: localStorage.lang,
-    text: languages[ 'lang' + localStorage.lang ]
+    text: languages[ localStorage.lang ]
 }
-const reducer = ( state = initialState, action ) => {
-    switch( action.type ) {
-        case actionTypes.CHANGE_LANGUAGE: return { lang: action.lang, 
-                                                    text: action.lang === 'Pl' ?  langPl : langEng }
-        default: return state
-    }
-}
+const reducer = ( state = initialState, action ) => 
+    action.type === actionTypes.CHANGE_LANGUAGE ? 
+                                                ({ lang: action.lang, text: languages[ action.lang ] })
+                                                : state
 export default reducer

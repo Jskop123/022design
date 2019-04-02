@@ -12,7 +12,7 @@ import Portfolio from './pages/Portfolio/Portfolio'
 import Contact from './pages/Contact/Contact'
 import Project from './pages/Project/Project'
 
-class App extends Component {
+export default class App extends Component {
   render = () => (
     <div className="App">
       <Header/>
@@ -26,4 +26,3 @@ class App extends Component {
     </div>
   )
 }
-export default App;

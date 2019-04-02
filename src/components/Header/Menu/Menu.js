@@ -4,7 +4,7 @@ import { NavLink, withRouter } from 'react-router-dom'
 
 import styles from './Menu.module.css'
 
-import { changeLang } from '../../../store/actions/langAction'
+import { changeLang } from '../../../store/actions/actions'
 
 class Menu extends PureComponent {
     componentDidUpdate = ( prevProps ) => {
@@ -30,7 +30,7 @@ class Menu extends PureComponent {
                     </li>
                 ))}
                 <li className={ this.props.lang === 'Pl' ? styles.lang : `${styles.lang} ${styles.langToggle}` }
-                    onClick={() => this.props.changeLang( this.props.lang )}
+                    onClick={() => this.props.changeLang( this.props.lang === 'Pl' ? 'Eng' : 'Pl' )}
                 >PL &nbsp;/&nbsp; EN</li>
             </ul>
         </nav>
@@ -40,7 +40,7 @@ const mapStateToProps = state => ({
     lang: state.language.lang,
     routes: state.language.text.routes
 })
-const mapDispatchToProps = dispatch => ({
-    changeLang: lang => dispatch( changeLang( lang ))
-})
+const mapDispatchToProps = {
+    changeLang: lang => changeLang( lang )
+}
 export default withRouter( connect( mapStateToProps, mapDispatchToProps )( Menu ))

@@ -1,7 +1,9 @@
 import * as actionTypes from './actionTypes'
 
 import axios from 'axios'
-
+//lang action
+export const changeLang = lang => ({ type: actionTypes.CHANGE_LANGUAGE, lang })
+//async actions
 const setSideData = siteData => ({
     type: actionTypes.SITE_DATA,
     siteData
