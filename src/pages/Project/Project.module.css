@@ -1,5 +1,6 @@
 .project {
-    overflow-y: scroll;
+    overflow: hidden scroll;
+    -webkit-overflow-scrolling: touch;    
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
