@@ -1,9 +1,8 @@
 import * as actionTypes from './actionTypes'
 
-import axios from 'axios'
-//lang action
+//  LANG_ACTION
 export const changeLang = lang => ({ type: actionTypes.CHANGE_LANGUAGE, lang })
-//async actions
+//  ASYNC_ACTIONS
 const setSideData = siteData => ({
     type: actionTypes.SITE_DATA,
     siteData
@@ -76,9 +75,10 @@ export const getSiteData = ( page, id ) => ( dispatch, getState ) => {
     const siteData = getState().async.siteData
     if( siteData ) sourcePageHandler( siteData )
     else {
-        axios.get('http://022design.com/wordpress/wp-json/wp/v2/Projekty?_embed')
+        fetch('http://022design.com/wordpress/wp-json/wp/v2/Projekty?_embed')
+            .then(response => response.json())
             .then( response => {
-                const data = response.data.map( ({ id, acf }) => {
+                const data = response.map( ({ id, acf }) => {
                     const imageKeys = Object.keys( acf ).filter( key => key.startsWith('photo') )
                     const images = imageKeys.map( key => acf[ key ] !== false ? acf[ key ] : null ).filter( _=>_ )
 
