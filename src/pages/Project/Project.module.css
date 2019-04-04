@@ -41,11 +41,15 @@
 }
 .verticalCarousel {
     width: 100%;
-    height: 92%;
+    height: 100%;
 }
 .horizontalCarousel {
     width: 100%;
     height: 40%;
+}
+.horizontalCarousel iframe {
+    width: 100%;
+    height: 100%;
 }
 
 @media (orientation: landscape) {

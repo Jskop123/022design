@@ -62,7 +62,8 @@ class Project extends Component {
                     <p className={styles.paragraph}>{this.state.descriptions[this.props.lang][2]}</p>
                     : null }
                 { this.state.img360 ? 
-                    <div>{ this.state.img360 }</div> 
+                    <div className={ styles.horizontalCarousel } 
+                        dangerouslySetInnerHTML={{ __html: this.state.img360 }} ></div> 
                     : null }
                 <ContacData/></>
                 :

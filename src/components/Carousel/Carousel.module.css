@@ -65,6 +65,5 @@
   .previous { transform: translate3d(-25%, -120%, 0) }
 }
 @media (orientation: portrait) and (min-height: 1024px){
-  .previous { top: -150%; left: 5%; }
   .projectInfo { height: 25vh; width: 25vh; padding: 5% 5%;}
 }
