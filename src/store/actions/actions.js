@@ -75,7 +75,7 @@ export const getSiteData = ( page, id ) => ( dispatch, getState ) => {
     const siteData = getState().async.siteData
     if( siteData ) sourcePageHandler( siteData )
     else {
-        fetch('http://022design.com/wordpress/wp-json/wp/v2/Projekty?_embed.per_page=100')
+        fetch('http://022design.com/wordpress/wp-json/wp/v2/Projekty?per_page=100')
             .then(response => response.json())
             .then( response => {
                 const data = response.map( ({ id, acf }) => {
