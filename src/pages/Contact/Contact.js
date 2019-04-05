@@ -49,7 +49,6 @@ class Contact extends Component {
             console.log(res)
             console.log("Wysłałem formularz");
         })
-        e.preventDefault()
     }
     render = () => (
         <div className={`page ${styles.contact}`}>
