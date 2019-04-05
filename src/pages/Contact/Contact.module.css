@@ -3,40 +3,46 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    font-size: 1.2rem;
+    font-size: 1.2em;
     overflow-y: scroll;
     overflow-x: hidden;
     text-align: center;
 }
 .contact h2{
-    margin: 20px 0 10px 0;
+    margin: 4% 0;
+}
+.form {
+    width: 70%
 }
 .form input, .form textarea, .form select, 
 .submit {
+    font-size: 1em;
     position: relative;
     background-color: #dbdbdb;
     display: block;
     margin: 3px auto 7px auto;
-    height: 30px;
-    width: 230px;
+    height: 2em;
+    width: 100%;
     border: 2px solid black;
-    padding: 0 5px;
+    padding: 0 3%;
     border-radius: 0px;
 }
+.form textarea {
+    padding: 2% 3%;
+}
 .submit {
-    width: 70px;
+    margin-top: 4%;
+    width: 30%;
+    font-weight: 400;
+    font-size: 110%;
 }
 .form textarea {
-    height: 80px;
+    height: 8em;
 }
 
 @media (orientation: landscape) and (min-width: 500px){
     .form { width: 40%; }
 }
-@media (orientation: portrait) and (min-width: 600px), (orientation: landscape) and (min-width: 1024px) {
-    .contact { font-size: 1rem }
-    .form input, .form textarea, .form select { width: 380px; height: 40px; }
-    .form textarea { height: 150px; }
-    .form input[type='submit'] { width: 150px; }
-    .data a, .data div { margin: 15px 20px; }
+@media (orientation: landscape) and (min-width: 1080px){
+    .form { width: 30%; margin: 0 5%; }
 }

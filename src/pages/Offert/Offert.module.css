@@ -88,3 +88,6 @@
     .graph img { height: 40%; }
     .item:nth-child(2) .graph img { height: 50%; }
 }
+@media (orientation: landscape) and (min-width: 1920px){
+    .offer { padding: 7% 27%; }
+}

@@ -46,11 +46,10 @@
     display: block;
 }
 @media (orientation: landscape), (orientation: portrait) and (min-height: 1024px) {
-    .data { width: 50%; }
     .data i { font-size: 2em; }
     .simpleData { padding: 0 10%;}
     .simpleData a, .simpleData div { width: auto; }
 }
-@media (orientation: landscape) {
-    .data { width: 40%; }
+@media (orientation: landscape) and (min-width: 1024px) {
+    .data { width: 40%; margin: 0 5%; }
 }

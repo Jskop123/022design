@@ -12,6 +12,7 @@ header {
 .logo{
     font-size: 2rem;
     margin-left: 5vw;
+    z-index: 11;
 }
 .burgerIcon {
     height: 60%;

@@ -18,6 +18,7 @@
 }
 .tile img {
   position: absolute;
+  min-height: 100%;
   max-height: 125%;
   min-width: 100%;
   top: 50%;
@@ -63,7 +64,4 @@
 }
 @media (orientation: landscape) {
   .previous { transform: translate3d(-25%, -120%, 0) }
-}
-@media (orientation: portrait) and (min-height: 1024px){
-  .projectInfo { height: 25vh; width: 25vh; padding: 5% 5%;}
 }
