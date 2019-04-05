@@ -20,8 +20,8 @@
     overflow: hidden;
 }
 .w100 img, .h100 img {
-    min-width: 100%;
-    max-height: 100%;
+    max-width: 100%;
+    min-height: 100%;
     width: auto;
     height: auto;
 }
@@ -60,8 +60,13 @@
     .horizontalCarousel { height: 90%; }
     .paragraph:first-of-type { width: 30% }
 }
+@media (orientation: portrait) and (max-width: 800px) and (min-width: 550px) {
+    .verticalCarousel { height: 70%; }
+}
 @media (orientation: portrait) and (min-height: 1024px) {
     .project { height: 100%; top: 0; }
-    .verticalCarousel { height: 70% }
     .horizontalCarousel { height: 35%; }
+}
+@media (min-width: 2048px) {
+    .w100 img, .h100 img { min-width: 100%; }
 }

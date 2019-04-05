@@ -51,13 +51,17 @@
 .menu.showMenu ul {
     transform: translateY(-50%)
 }
+@keyframes menuFade {
+    from { opacity: 0; }
+    to { transform: translateY(35%); opacity: 1; }
+}
 @media (orientation: landscape), (orientation: portrait) and (min-height: 1024px) {
     .menu { width: 17vw; height: 100%; left: 0; }
     .showMenu { transform: none; }
-    .menu ul { text-align: right; transition: none; font-size: 1.2rem; left: -5%; top: 45%; }
+    .menu ul { opacity: 0; text-align: right; transition: none; font-size: 1.2rem; left: -5%; top: 45%; transform: translateY(-35%); animation: menuFade .3s ease 1s forwards; }
     .menu.showMenu ul { transform: translateY(50%); }
     .lang { margin-top: 15%; }
 }
 @media (orientation: portrait) and (min-height: 1024px) {
-    .menu ul { top: 50%; }
+    .menu ul { top: 52%; }
 }
