@@ -37,7 +37,7 @@ class Contact extends Component {
         }
     },  600,    { leading: false, trailing: true } )
     postFormHandler = (e) => {
-        fetch("http://022design.com/mail/index.php", {
+        fetch("https://022design.com/mail/index.php", {
             method: "post",
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
