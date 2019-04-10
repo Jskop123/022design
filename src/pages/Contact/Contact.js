@@ -37,6 +37,7 @@ class Contact extends Component {
         }
     },  600,    { leading: false, trailing: true } )
     postFormHandler = (e) => {
+        e.preventDefault()
         fetch("https://022design.com/mail/index.php", {
             method: "post",
             headers: {
@@ -45,9 +46,6 @@ class Contact extends Component {
             body: JSON.stringify( this.state )
         })
         .then(res => res.json())
-        .then(res => {
-            console.log("Wysłałem formularz");
-        })
     }
     render = () => (
         <div className={`page ${styles.contact}`}>
