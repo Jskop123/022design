@@ -4,6 +4,7 @@ import styles from './Header.module.css'
 
 import Menu from './Menu/Menu'
 import Backdrop from '../Backdrop/Backdrop'
+import Logo from '../../components/Logo/Logo'
 
 export default class Header extends Component {
     state = { showMenu: false }
@@ -13,7 +14,7 @@ export default class Header extends Component {
     }
     render = () => (<>
         <header>
-            <div className={styles.logo}>022design</div>
+            <Logo/>
             <div onClick={() => this.menuHandler( 'toggle' )} 
                 className={ this.state.showMenu ? `${styles.burgerIcon} ${styles.active}` : `${styles.burgerIcon}` }>
                     <div className={styles.bar}></div>
