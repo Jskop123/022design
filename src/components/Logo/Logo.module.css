@@ -5,20 +5,14 @@
   top: 16%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 15vw;
-  height: 15vw;
+  width: 10vw;
+  height: 10vw;
   z-index: 21;
+  border: .2vw solid black;
 }
 
 .logoAnimation {
   box-sizing: border-box;
-  background-repeat: no-repeat;
-  background-image: linear-gradient(to right, #000 100%, #000 100%),
-    linear-gradient(to bottom, #000 100%, #000 100%),
-    linear-gradient(to right, #000 100%, #000 100%),
-    linear-gradient(to bottom, #000 100%, #000 100%);
-  background-size: 100% .4vw, .4vw 100%, 100% .4vw, .4vw 100%;
-  background-position: 0 0, 100% 0, 100% 100%, 0 100%;
   display: flex;
   height: 100%;
   width: 100%;
@@ -30,7 +24,7 @@
   display: flex;
   justify-content: center;
   letter-spacing: -2px;
-  font-size: 6vw;
+  font-size: 4vw;
   font-weight: 200;
   margin-top: 25%;
 }

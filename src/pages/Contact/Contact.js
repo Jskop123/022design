@@ -45,6 +45,18 @@ class Contact extends Component {
             body: JSON.stringify( this.state )
         })
         .then(res => res.json())
+        .then(()=>{
+            this.setState({
+                name: '',
+                email: '',
+                tel: '',
+                service: 'init',
+                comment: '' 
+            })
+        })
+        .catch(()=>{
+            console.log('error')
+        })
     }
     render = () => (
         <div className={`page ${styles.contact}`}>
