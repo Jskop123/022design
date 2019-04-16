@@ -1,34 +1,21 @@
-
 .parentLogo {
-  box-sizing: border-box;
-  position: absolute;
-  top: 16%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 10vw;
-  height: 10vw;
+  position: relative;
+  width: 8vh;
+  height: 8vh;
+  margin-left: 5vw;
   z-index: 21;
-  border: .2vw solid black;
+  border: .13em solid black;
 }
-
 .logoAnimation {
-  box-sizing: border-box;
   display: flex;
   height: 100%;
   width: 100%;
-  flex-direction: row;
   justify-content: center;
+  align-items: center;
 }
-
 .logoAnimation h1 {
-  display: flex;
-  justify-content: center;
-  letter-spacing: -2px;
-  font-size: 4vw;
-  font-weight: 200;
-  margin-top: 25%;
+  font-size: 5vw;
 }
-
 .logoAnimation::after {
   position: absolute;
   top: 50%;
@@ -38,6 +25,10 @@
   width: 90%;
   height: 90%;
 }
-
-
-
+@media (orientation: portrait) and (min-height: 1024px) {
+  .parentLogo { margin: 5vh 0; }
+}
+@media (orientation: landscape) {
+  .parentLogo { width: 10vw; height: 10vw; margin: 4vh 0 0 0; }
+  .logoAnimation h1 { font-size: 4vw }
+}

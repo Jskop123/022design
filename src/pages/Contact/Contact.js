@@ -12,13 +12,14 @@ class Contact extends Component {
         email: '',
         tel: '',
         service: 'init',
-        comment: ''
+        comment: '',
+        errors: []
     }
-    handleChange = ( event ) => {
+    handleChange = event => {
         this.setState({ [event.target.id]: event.target.value })
         this.validate(event.target.id)
     }
-    validate = debounce( ( id ) => {
+    validate = debounce( id => {
         switch( id ) {
             case 'name': 
                 this.state[id].length > 3 ? console.log('NAME_VALID') : console.log('NAME_ERR')
@@ -36,27 +37,30 @@ class Contact extends Component {
             default:
         }
     },  600,    { leading: false, trailing: true } )
-    postFormHandler = (e) => {
-        fetch("https://022design.com/mail/index.php", {
-            method: "post",
-            headers: {
-                "Content-type": "application/json; charset=UTF-8"
-            },
-            body: JSON.stringify( this.state )
-        })
-        .then(res => res.json())
-        .then(()=>{
-            this.setState({
-                name: '',
-                email: '',
-                tel: '',
-                service: 'init',
-                comment: '' 
+    postFormHandler = event => {
+        this.validate( event.target.id )
+        if( !this.state.errors ){
+            fetch("https://022design.com/mail/index.php", {
+                method: "post",
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8"
+                },
+                body: JSON.stringify( this.state )
             })
-        })
-        .catch(()=>{
-            console.log('error')
-        })
+            .then(res => res.json())
+            .then(()=>{
+                this.setState({
+                    name: '',
+                    email: '',
+                    tel: '',
+                    service: 'init',
+                    comment: '' 
+                })
+            })
+            .catch(()=>{
+                console.log('error')
+            })
+        }
     }
     render = () => (
         <div className={`page ${styles.contact}`}>
@@ -65,16 +69,16 @@ class Contact extends Component {
                 <h2>{ this.props.text.form[0] }</h2>
 
                 <label htmlFor='name'>{ this.props.text.form[1] }</label>
-                <input type='text' id='name' onChange={ e => this.handleChange( e )} placeholder='Jan Kowalski'></input>
+                <input type='text' id='name' value={this.state.name} onChange={ e => this.handleChange( e )} placeholder='Jan Kowalski'></input>
 
                 <label htmlFor='email'>{ this.props.text.form[2] }</label>
-                <input type='email' id='email' onChange={ e => this.handleChange( e )} placeholder='example@example.com' ></input>
+                <input type='email' id='email' value={this.state.email} onChange={ e => this.handleChange( e )} placeholder='example@example.com' ></input>
 
                 <label htmlFor='tel'>{ this.props.text.form[3] }</label>
-                <input type='number' id='tel' onChange={ e => this.handleChange( e )} placeholder='737 427 188'></input>
+                <input type='number' id='tel' value={this.state.tel} onChange={ e => this.handleChange( e )} placeholder='737 427 188'></input>
 
                 <label htmlFor='service'>{ this.props.text.form[4] }</label>
-                <select id='service' defaultValue='init'>
+                <select id='service' value={this.state.service} onChange={ e => this.handleChange( e )}>
                     <option value="init" disabled>{ this.props.text.form[5][0] }</option>
                     <option value='fullProject'>{ this.props.text.form[5][1] }</option>
                     <option value='partProject'>{ this.props.text.form[5][2] }</option>
@@ -84,7 +88,7 @@ class Contact extends Component {
                 </select>
                 
                 <label htmlFor='comment'>{ this.props.text.form[6][0] }</label>
-                <textarea id='comment' onChange={ e => this.handleChange( e )} placeholder={ this.props.text.form[6][1] }></textarea>
+                <textarea id='comment' value={this.state.comment} onChange={ e => this.handleChange( e )} placeholder={ this.props.text.form[6][1] }></textarea>
 
                 <button className={styles.submit} onClick={ this.postFormHandler } >{ this.props.text.form[7] }</button>
             </form>

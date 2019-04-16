@@ -20,7 +20,7 @@ html, body {
 .page{
   position: relative;
   height: 90%;
-  top: 10%;
+  top: 10vh;
 }
 a {
   color: black;

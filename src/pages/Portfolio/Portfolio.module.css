@@ -12,7 +12,7 @@
 .filters {
     width: 100%;
     position: fixed;
-    top: 9.9%;
+    top: 10vh;
     z-index: 3;
 }
 .mainNav {
