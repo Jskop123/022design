@@ -56,12 +56,12 @@
 
 @media (orientation: landscape) {
     .h100 { width: 50%; margin: 1%; }
-    .verticalCarousel { width: 50% }
+    .verticalCarousel { width: 50%; height: 60vw; }
     .horizontalCarousel { height: 90%; }
     .paragraph:first-of-type { width: 30% }
 }
 @media (orientation: portrait) and (max-width: 800px) and (min-width: 550px) {
-    .verticalCarousel { height: 70%; }
+    .verticalCarousel { height: 70%; width: 90%; }
 }
 @media (orientation: portrait) and (min-height: 1024px) {
     .project { height: 100%; top: 0; }
@@ -69,4 +69,5 @@
 }
 @media (min-width: 2048px) {
     .w100 img, .h100 img { min-width: 100%; }
+    .verticalCarousel { height: 60vw; }
 }

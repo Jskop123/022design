@@ -65,13 +65,13 @@ class Contact extends Component {
                 <h2>{ this.props.text.form[0] }</h2>
 
                 <label htmlFor='name'>{ this.props.text.form[1] }</label>
-                <input type='text' id='name' onChange={ e => this.handleChange( e, 'name' )} placeholder='Jan Kowalski'></input>
+                <input type='text' id='name' onChange={ e => this.handleChange( e )} placeholder='Jan Kowalski'></input>
 
                 <label htmlFor='email'>{ this.props.text.form[2] }</label>
-                <input type='email' id='email' onChange={ e => this.handleChange( e, 'email' )} placeholder='example@example.com' ></input>
+                <input type='email' id='email' onChange={ e => this.handleChange( e )} placeholder='example@example.com' ></input>
 
                 <label htmlFor='tel'>{ this.props.text.form[3] }</label>
-                <input type='number' id='tel' onChange={ e => this.handleChange( e, 'tel' )} placeholder='737 427 188'></input>
+                <input type='number' id='tel' onChange={ e => this.handleChange( e )} placeholder='737 427 188'></input>
 
                 <label htmlFor='service'>{ this.props.text.form[4] }</label>
                 <select id='service' defaultValue='init'>
@@ -84,7 +84,7 @@ class Contact extends Component {
                 </select>
                 
                 <label htmlFor='comment'>{ this.props.text.form[6][0] }</label>
-                <textarea id='comment' onChange={ e => this.handleChange( e, 'comment' )} placeholder={ this.props.text.form[6][1] }></textarea>
+                <textarea id='comment' onChange={ e => this.handleChange( e )} placeholder={ this.props.text.form[6][1] }></textarea>
 
                 <button className={styles.submit} onClick={ this.postFormHandler } >{ this.props.text.form[7] }</button>
             </form>
