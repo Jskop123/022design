@@ -38,7 +38,7 @@ class Contact extends Component {
         }
     },  600,    { leading: false, trailing: true } )
     postFormHandler = event => {
-        this.validate( event.target.id )
+        this.validate( 'service' )
         if( !this.state.errors ){
             fetch("https://022design.com/mail/index.php", {
                 method: "post",

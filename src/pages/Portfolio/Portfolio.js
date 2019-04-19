@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import Spinner from '../../components/Spinner/Spinner'
+import Logo from '../../components/Logo/Logo'
 import ContactData from '../../components/ContactData/ContactData'
 
 import { getSiteData } from '../../store/actions/actions'
@@ -73,7 +73,7 @@ class Portfolio extends Component {
                         )
                     })}<ContactData lang={this.props.lang}/></>
                     :
-                    <Spinner/>
+                    <Logo spinner/>
                 }
             </div>
         </>)

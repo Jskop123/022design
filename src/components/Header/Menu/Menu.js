@@ -9,7 +9,7 @@ import { changeLang } from '../../../store/actions/actions'
 class Menu extends PureComponent {
     componentDidUpdate = ( prevProps ) => {
         if( this.props.lang !== prevProps.lang ){
-            this.props.history.push({
+            this.props.history.replace({
                 pathname: this.props.routes[ this.props.history.location.id ],
                 id: this.props.history.location.id
             })
@@ -24,7 +24,7 @@ class Menu extends PureComponent {
                                 pathname: route,
                                 id: Object.keys( this.props.routes )[ i ]
                             }}
-                            onClick={() => this.props.showMenu( 'close' )}
+                            onClick={ this.props.closeMenu }
                             exact
                         >{ route === '/' ? 'home' : route.slice(1) }</NavLink>
                     </li>

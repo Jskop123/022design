@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 import { getSiteData, clearCurrentProject } from '../../store/actions/actions'
 
 import Carousel from '../../components/Carousel/Carousel'
-import Spinner from '../../components/Spinner/Spinner'
 import ContacData from '../../components/ContactData/ContactData'
+import Logo from '../../components/Logo/Logo';
 
 import styles from './Project.module.css'
 
@@ -67,7 +67,7 @@ class Project extends Component {
                     : null }
                 <ContacData/></>
                 :
-                <Spinner/>
+                <Logo spinner/>
             }
         </div>
     )

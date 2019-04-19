@@ -1,34 +1,92 @@
-.parentLogo {
+.logoOuter {
   position: relative;
   width: 8vh;
   height: 8vh;
   margin-left: 5vw;
   z-index: 21;
-  border: .13em solid black;
 }
-.logoAnimation {
+.spinner {
+  margin: 30% auto;
+}
+.logoInner {
   display: flex;
   height: 100%;
   width: 100%;
   justify-content: center;
   align-items: center;
 }
-.logoAnimation h1 {
-  font-size: 5vw;
-}
-.logoAnimation::after {
+.logoOuter:before, 
+.logoOuter::after, 
+.logoInner::before, 
+.logoInner::after {
+  content: '';
+  background-color: #000;
   position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translate(0, -50%);
-  content: "";
-  width: 90%;
-  height: 90%;
+}
+.logoOuter:before {
+  height: .13em;
+  top: 0;
+}
+.logoOuter::after {
+  width: .13em;
+  right: 0;
+  top: 0;
+}
+.logoInner::before {
+  height: .13em;
+  bottom: 0;
+  right: 0;
+}
+.logoInner::after {
+  width: .13em;
+  left: 0;
+  bottom: 0;
+}
+.logoOuter.active::before {
+  animation: logo1 .3s ease forwards;
+}
+.logoOuter.active::after {
+  animation: logo2 .3s ease .3s forwards;
+}
+.logoInner.active::before {
+  animation: logo1 .3s ease .6s forwards;
+}
+.logoInner.active::after {
+  animation: logo2 .3s ease .9s forwards;
+}
+.logoInner h1 {
+  font-size: 5vw;
+  opacity: 0;
+}
+@keyframes logo1 {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+@keyframes logo2 {
+  0% { height: 0; }
+  100% { height: 100%; }
+}
+.logo1t.active {
+  animation: logoText .3s ease forwards;
+}
+.logo2t.active {
+  animation: logoText .3s ease .3s forwards;
+}
+.logo3t.active {
+  animation: logoText .3s ease .6s forwards;
+}
+.logo4t.active {
+  animation: logoText .3s ease .9s forwards;
+}
+@keyframes logoText {
+  100% { opacity: 1; }
 }
 @media (orientation: portrait) and (min-height: 1024px) {
-  .parentLogo { margin: 5vh 0; }
+  .logoOuter { margin: 5vh 0; }
+  .logoOuter.spinner {   margin: 30% auto; }
 }
 @media (orientation: landscape) {
-  .parentLogo { width: 10vw; height: 10vw; margin: 4vh 0 0 0; }
-  .logoAnimation h1 { font-size: 4vw }
+  .logoOuter { width: 10vw; height: 10vw; margin: 4vh 0 0 0; }
+  .logoInner h1 { font-size: 4vw }
+  .logoOuter.spinner { margin: 30% auto; }
 }

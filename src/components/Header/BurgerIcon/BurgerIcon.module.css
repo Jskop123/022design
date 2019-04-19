@@ -1,14 +1,3 @@
-header {
-    position: absolute;
-    width: 100vw;
-    height: 10vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 10;
-    background-color: #fff;
-    backface-visibility: hidden;
-}
 .burgerIcon {
     height: 60%;
     margin: 5%;
@@ -36,6 +25,5 @@ header {
     transform: translateY(-225%) rotate(45deg);
 }
 @media (orientation: landscape), (orientation: portrait) and (min-height: 1024px) {
-    header { height: 100vh; width: 17vw; left: 0; flex-direction: column; justify-content: space-between; z-index: 12; box-shadow: 5px 0px 8px 0px #0000001f; }
     .burgerIcon { display: none; }
 }

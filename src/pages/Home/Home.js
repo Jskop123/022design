@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { getSiteData } from '../../store/actions/actions'
 
 import Carousel from '../../components/Carousel/Carousel'
-import Spinner from '../../components/Spinner/Spinner'
+import Logo from '../../components/Logo/Logo';
 
 import styles from './Home.module.css'
 
@@ -56,7 +56,7 @@ class Home extends PureComponent {
                     </div>
                 </Link></>
                 :
-                <Spinner/> 
+                <Logo spinner/> 
             }
         </div>
     ) 
