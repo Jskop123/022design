@@ -14,7 +14,7 @@ export default class Header extends Component {
     
     render = () => (<>
         <header>
-            <Logo />
+            <Logo/>
             <BurgerIcon showMenu={ this.state.showMenu } click={ this.toggleMenuHandler }/>
             <Menu active={ this.state.showMenu } closeMenu={ this.closeMenuHandler }/>
         </header>

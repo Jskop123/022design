@@ -12,7 +12,7 @@ class Logo extends Component {
     if( this.props.spinner ) {
       this.animationInterval = setInterval(() => {
         this.animateLogo()
-      }, 1400)
+      }, this.props.spinner ? 2800 : 1400)
     } 
   }
   componentWillUnmount = () => clearInterval( this.animationInterval )
@@ -23,11 +23,16 @@ class Logo extends Component {
     this.setState({ animation: '' })
     setTimeout(() => {
       this.setState({ animation: styles.active })
+      if( this.props.spinner ) {
+        setTimeout(()=> {
+          this.setState({ animation: styles.reverse })
+        }, 1400)
+      }
     }, 100);
   }
   render = () => (
-    <div className={`${styles.logoOuter} ${ this.props.spinner ? styles.spinner : ''} ${this.state.animation}`} >
-      <div className={`${styles.logoInner} ${this.state.animation}`} >
+    <div className={`${styles.outer} ${ this.props.spinner ? styles.spinner : ''} ${this.state.animation}`} >
+      <div className={`${styles.inner} ${this.state.animation}`} >
         <h1 className={`${styles.logo1t} ${this.state.animation}`} >0</h1>
         <h1 className={`${styles.logo2t} ${this.state.animation}`} >2</h1>
         <h1 className={`${styles.logo3t} ${this.state.animation}`} >2</h1>
