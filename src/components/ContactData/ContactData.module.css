@@ -10,6 +10,7 @@
 .simpleData {
     width: 100% !important;
     flex-wrap: nowrap;
+    padding: 1% 0;
 }
 .simpleData::after {
     content: '';
@@ -17,7 +18,7 @@
     top: -5px;
     width: 100%;
     height: 4px;
-    box-shadow: 0px 5px 8px 0px #0000001f;
+    box-shadow: 0px 7px 8px 0px #0000001f;
 }
 .data a, .data div {
     width: 28%;
@@ -47,9 +48,6 @@
 }
 @media (orientation: landscape), (orientation: portrait) and (min-height: 1024px) {
     .data i { font-size: 2em; }
-    .simpleData { padding: 0 10%;}
+    .simpleData { padding: 0 10%; }
     .simpleData a, .simpleData div { width: auto; }
-}
-@media (orientation: landscape) and (min-width: 1024px) {
-    .data { width: 40%; margin: 0 5%; }
 }

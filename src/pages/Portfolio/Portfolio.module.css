@@ -1,6 +1,7 @@
 .portfolio {
     padding-top: 15%;
-    overflow: hidden scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     display: flex;
     flex-wrap: wrap;

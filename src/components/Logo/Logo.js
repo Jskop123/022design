@@ -4,39 +4,39 @@ import { withRouter } from 'react-router-dom'
 import styles from './Logo.module.css'
 
 class Logo extends Component {
-  state = {
-    animation: ''
-  }
+  state = { animation: '' }
   componentDidMount = () => {
     this.animateLogo()
     if( this.props.spinner ) {
       this.animationInterval = setInterval(() => {
         this.animateLogo()
-      }, this.props.spinner ? 2800 : 1400)
+      }, 2900 )
     } 
   }
-  componentWillUnmount = () => clearInterval( this.animationInterval )
-
   componentDidUpdate = prevProps => this.props.location.id !== prevProps.location.id ? this.animateLogo() : null
-
+  
+  componentWillUnmount = () => {
+    clearInterval( this.animationInterval )
+    clearTimeout( this.animationTimeout )
+  }
   animateLogo = () => {
     this.setState({ animation: '' })
-    setTimeout(() => {
+    this.animationTimeout = setTimeout(() => {
       this.setState({ animation: styles.active })
       if( this.props.spinner ) {
-        setTimeout(()=> {
+        this.animationTimeout = setTimeout(()=> {
           this.setState({ animation: styles.reverse })
         }, 1400)
       }
     }, 100);
   }
   render = () => (
-    <div className={`${styles.outer} ${ this.props.spinner ? styles.spinner : ''} ${this.state.animation}`} >
-      <div className={`${styles.inner} ${this.state.animation}`} >
-        <h1 className={`${styles.logo1t} ${this.state.animation}`} >0</h1>
-        <h1 className={`${styles.logo2t} ${this.state.animation}`} >2</h1>
-        <h1 className={`${styles.logo3t} ${this.state.animation}`} >2</h1>
-        <h1 className={`${styles.logo4t} ${this.state.animation}`} >.</h1>
+    <div className={`${styles.outer} ${this.state.animation} ${ this.props.spinner ? styles.spinner : ''}`}>
+      <div className={styles.inner}>
+        <h1 className={styles.logo1t}>0</h1>
+        <h1 className={styles.logo2t}>2</h1>
+        <h1 className={styles.logo3t}>2</h1>
+        <h1 className={styles.logo4t}>.</h1>
       </div>
     </div>
   )

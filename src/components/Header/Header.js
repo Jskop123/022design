@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 import './Header.css'
 
@@ -14,7 +15,9 @@ export default class Header extends Component {
     
     render = () => (<>
         <header>
-            <Logo/>
+            <Link to='/'>
+                <Logo/>
+            </Link>
             <BurgerIcon showMenu={ this.state.showMenu } click={ this.toggleMenuHandler }/>
             <Menu active={ this.state.showMenu } closeMenu={ this.closeMenuHandler }/>
         </header>

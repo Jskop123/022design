@@ -9,17 +9,6 @@ header {
     background-color: #fff;
     backface-visibility: hidden;
 }
-.headerLogo {
-    position: relative;
-    width: 8vh;
-    height: 8vh;
-    margin-left: 5vw;
-    z-index: 21;
-}
-@media (orientation: portrait) and (min-height: 1024px) {
-    .headerLogo { margin: 5vh 0; }
-}
 @media (orientation: landscape), (orientation: portrait) and (min-height: 1024px) {
     header { height: 100vh; width: 17vw; left: 0; flex-direction: column; justify-content: space-between; z-index: 12; box-shadow: 5px 0px 8px 0px #0000001f; }
-    .headerLogo { width: 10vw; height: 10vw; margin: 4vh 0 0 0; }
 }
