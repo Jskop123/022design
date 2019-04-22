@@ -7,6 +7,7 @@
 }
 .spinner {
   margin: 30% auto;
+  z-index: 9;
 }
 .inner {
   display: flex;
