@@ -13,7 +13,7 @@ class Contact extends Component {
         tel: '',
         service: 'init',
         comment: '',
-        errors: [ ...Array(5) ].map(_=>false)
+        errors: Array(6).map(_=>false)
     }
     handleChange = event => {
         this.setState({ [event.target.id]: event.target.value })
@@ -40,14 +40,15 @@ class Contact extends Component {
         this.setState({ errors })
     }
     debouncedValidate = debounce( this.validate,  600,    { leading: false, trailing: true } )
-    postFormHandler = (e) => {
-        e.preventDefault()
+    postFormHandler = () => {
         let { errors, ...message } = this.state
         Object.keys( message ).forEach( key => this.validate(key))
-        if( errors.every( el => !el )){
+        if( errors.every( el => el === false )){
             fetch("https://022design.com/mail/index.php", {
                 method: "post",
-                headers: { "Content-type": "application/json; charset=UTF-8" },
+                headers: { 
+                    "Accept": "application/json, text/plain, */*",
+                    "Content-type": "application/json; charset=UTF-8" },
                 body: JSON.stringify( message )
             })
             .then(res => res.json())
@@ -58,7 +59,7 @@ class Contact extends Component {
                     tel: '',
                     service: 'init',
                     comment: '',
-                    errors: [ ...Array(5) ].map((_, i) => i === 4 )
+                    errors: [ ...Array(6) ].map((_, i) => i === 4 )
                 })
             })
             .catch(() => {
@@ -73,13 +74,13 @@ class Contact extends Component {
                 <h2>{ this.props.text.form[0] }</h2>
 
                 <label htmlFor='name'>{ this.props.text.form[1] }</label>
-                <input type='text' id='name' value={this.state.name} onChange={ e => this.handleChange( e )} placeholder='Jan Kowalski'></input>
+                <input type='text' id='name' value={this.state.name} onChange={ e => this.handleChange( e )} placeholder='Jan Kowalski'/>
 
                 <label htmlFor='email'>{ this.props.text.form[2] }</label>
-                <input type='email' id='email' value={this.state.email} onChange={ e => this.handleChange( e )} placeholder='example@example.com' ></input>
+                <input type='email' id='email' value={this.state.email} onChange={ e => this.handleChange( e )} placeholder='example@example.com' />
 
                 <label htmlFor='tel'>{ this.props.text.form[3] }</label>
-                <input type='number' id='tel' value={this.state.tel} onChange={ e => this.handleChange( e )} placeholder='737 427 188'></input>
+                <input type='number' id='tel' value={this.state.tel} onChange={ e => this.handleChange( e )} placeholder='737 427 188'/>
 
                 <label htmlFor='service'>{ this.props.text.form[4] }</label>
                 <select id='service' value={this.state.service} onChange={ e => this.handleChange( e )}>
@@ -92,9 +93,15 @@ class Contact extends Component {
                 </select>
                 
                 <label htmlFor='comment'>{ this.props.text.form[6][0] }</label>
-                <textarea id='comment' value={this.state.comment} onChange={ e => this.handleChange( e )} placeholder={ this.props.text.form[6][1] }></textarea>
+                <textarea id='comment' value={this.state.comment} onChange={ e => this.handleChange( e )} placeholder={ this.props.text.form[6][1] }/>
 
-                <button className={styles.submit} onClick={(e) => this.postFormHandler(e)} >{ this.props.text.form[7] }</button>
+                <input type='submit' 
+                        className={styles.submit} 
+                        value={ this.props.text.form[7] }
+                        onClick={ e => {
+                            e.preventDefault()
+                            this.postFormHandler()
+                        }}/>
                 <ul className={styles.errorList}>
                     { this.props.text.errors.map((err, i) => 
                         this.state.errors[i] 

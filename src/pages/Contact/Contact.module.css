@@ -15,8 +15,8 @@
     width: 70%;
     position: relative;
 }
-.form input, .form textarea, .form select, 
-.submit {
+.form input, .form textarea,
+.form select, form .submit {
     font-size: 1em;
     position: relative;
     background-color: #dbdbdb;
@@ -31,10 +31,9 @@
 .form textarea {
     padding: 2% 3%;
 }
-.submit {
+form .submit {
     margin-top: 4%;
     width: 30%;
-    font-weight: 400;
     font-size: 110%;
 }
 .form textarea {
