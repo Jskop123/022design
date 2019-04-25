@@ -12,7 +12,8 @@
     margin: 4% 0;
 }
 .form {
-    width: 70%
+    width: 70%;
+    position: relative;
 }
 .form input, .form textarea, .form select, 
 .submit {
@@ -39,10 +40,24 @@
 .form textarea {
     height: 8em;
 }
-
+.errorList{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding: 3% 0;
+    transform: translateY(105%);
+    color: red;
+    list-style: none;
+}
+.success {
+    color: green;
+}
 @media (orientation: landscape) and (min-width: 500px){
     .form { width: 40%; }
 }
 @media (orientation: landscape) and (min-width: 1080px){
     .form { width: 30%; margin: 0 5%; }
+}
+@media (orientation: portrait) and (min-height: 1024px){
+    .contact { height: 100%; top: 0 }
 }

@@ -32,6 +32,14 @@
                 [ "Chose service type", "Full project", "Part project", "Vizualization", "Photos", "Other" ],
                 [ "Comment", "Additional informations" ],
                 "Submit"
+            ],
+            "errors": [
+               "Invalid name!", 
+               "Invalid mail!", 
+               "Invalid phone!", 
+               "Choose service type!",
+               "Sent successfully",
+               "Failed to send :("
             ]
         }
     },
@@ -68,6 +76,14 @@
                 [ "Wybierz rodzaj usługi", "Pełny projekt", "Częściowy projekt", "Wizualizacja", "Zdjęcia", "Inne" ],
                 [ "Komentarz", "Dodatkowe informacje" ],
                 "Prześlij"
+            ],
+            "errors": [
+               "Nieprawidłowe imie!", 
+               "Nieprawidłowy mail!", 
+               "Nieprawidłowy telefon!", 
+               "Wybierz rodzaj usługi!",
+               "Wysłano pomyślnie!",
+               "Nie udało się wysłać :("
             ]
         }
     }

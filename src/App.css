@@ -42,22 +42,25 @@ a {
   text-decoration: underline;
 }
 @media (max-width: 350px) {
-  :root { font-size: 10px }
+  :root { font-size: 10px; }
 }
 @media (min-width: 600px) and (orientation: portrait) {
   :root { font-size: 15px; }
 }
 @media (min-width: 950px) {
-  :root { font-size: 18px }
+  :root { font-size: 16px; }
+}
+@media (min-width: 1920px) {
+  :root { font-size: 22px; }
 }
 @media (min-width: 2560px) {
-  :root { font-size: 24px }
+  :root { font-size: 26px; }
 }
 @media (min-width: 3440px) {
-  :root { font-size: 28px }
+  :root { font-size: 32px; }
 }
 @media (min-width: 3840px) {
-  :root { font-size: 33px }
+  :root { font-size: 42px; }
 }
 @media (orientation: landscape) {
   .App { height: 100vh; }

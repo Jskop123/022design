@@ -1,7 +1,10 @@
 import * as actionTypes from './actionTypes'
 
 //  LANG_ACTION
-export const changeLang = lang => ({ type: actionTypes.CHANGE_LANGUAGE, lang })
+export const changeLang = lang => {
+    localStorage.lang = lang
+    return { type: actionTypes.CHANGE_LANGUAGE, lang }
+} 
 //  ASYNC_ACTIONS
 const setSideData = siteData => ({
     type: actionTypes.SITE_DATA,

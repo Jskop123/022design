@@ -13,39 +13,42 @@ class Contact extends Component {
         tel: '',
         service: 'init',
         comment: '',
-        errors: []
+        errors: [ ...Array(5) ].map(_=>false)
     }
     handleChange = event => {
         this.setState({ [event.target.id]: event.target.value })
-        this.validate(event.target.id)
+        this.debouncedValidate(event.target.id)
     }
-    validate = debounce( id => {
+    validate =  id => {
+        const errors = this.state.errors
         switch( id ) {
             case 'name': 
-                this.state[id].length > 3 ? console.log('NAME_VALID') : console.log('NAME_ERR')
+                errors[0] = this.state[id].length < 3
                 break
             case 'email': 
-                let regMail = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/
-                regMail.test(this.state[id].toLowerCase()) ? console.log('EMAIL_VALID') : console.log('EMAIL_ERR')
+                let regMail = /^\w.+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/
+                errors[1] = !regMail.test(this.state[id].toLowerCase())
                 break
             case 'tel':
-                this.state[id].length >= 9 ? console.log('TEL VALID') : console.log('TEL_ERR')
+                errors[2] = this.state[id].length < 9
                 break
             case 'service': 
-                this.state[id] !== 'init' ? console.log('SERVICE VALID') : console.log('SERVICE_ERR')
+                errors[3] = this.state[id] === 'init'
                 break
             default:
         }
-    },  600,    { leading: false, trailing: true } )
-    postFormHandler = event => {
-        this.validate( 'service' )
-        if( !this.state.errors ){
+        this.setState({ errors })
+    }
+    debouncedValidate = debounce( this.validate,  600,    { leading: false, trailing: true } )
+    postFormHandler = (e) => {
+        e.preventDefault()
+        let { errors, ...message } = this.state
+        Object.keys( message ).forEach( key => this.validate(key))
+        if( errors.every( el => !el )){
             fetch("https://022design.com/mail/index.php", {
                 method: "post",
-                headers: {
-                    "Content-type": "application/json; charset=UTF-8"
-                },
-                body: JSON.stringify( this.state )
+                headers: { "Content-type": "application/json; charset=UTF-8" },
+                body: JSON.stringify( message )
             })
             .then(res => res.json())
             .then(()=>{
@@ -54,11 +57,12 @@ class Contact extends Component {
                     email: '',
                     tel: '',
                     service: 'init',
-                    comment: '' 
+                    comment: '',
+                    errors: [ ...Array(5) ].map((_, i) => i === 4 )
                 })
             })
-            .catch(()=>{
-                console.log('error')
+            .catch(() => {
+                this.setState({ errors: [ ...Array(6) ].map((_, i) => i === 5 )})
             })
         }
     }
@@ -90,7 +94,13 @@ class Contact extends Component {
                 <label htmlFor='comment'>{ this.props.text.form[6][0] }</label>
                 <textarea id='comment' value={this.state.comment} onChange={ e => this.handleChange( e )} placeholder={ this.props.text.form[6][1] }></textarea>
 
-                <button className={styles.submit} onClick={ this.postFormHandler } >{ this.props.text.form[7] }</button>
+                <button className={styles.submit} onClick={(e) => this.postFormHandler(e)} >{ this.props.text.form[7] }</button>
+                <ul className={styles.errorList}>
+                    { this.props.text.errors.map((err, i) => 
+                        this.state.errors[i] 
+                        ? <li key={i} className={ i === 4 ? styles.success : null }>{err}</li> 
+                        : null ) }
+                </ul>
             </form>
         </div>
     )
