@@ -53,15 +53,15 @@
         "offert": [
             { 
                 "heading": "Projekt", 
-                "content": "Najpierw wykonamy inwentaryzację, potem dostaniesz wizualizacje a na końcu książkę projektową z rysunkami technicznymi dla wykonawców."
+                "content": "Jest to wieloetapowy proces ,który rozpoczynamy od inwentaryzacji lokalu. Następnie tworzymy aranżacje dostosowane do twoich potrzeb. Kolejnym etapem są wizualizacje ,które całościowo obrazują koncepcję. Zwieńczeniem procesu jest książka projektowa z rysunkami technicznymi dla wykonawców i branżystów."
             },
             { 
                 "heading": "Wizualizacja", 
-                "content": "Masz już gotowy projekt i potrzebujesz tylko wizualizacji? Z pasją wizulizujemy zarówno wnętrza jak i architekturę." 
+                "content": "Masz już gotowy projekt i potrzebujesz tylko wizualizacji? Chętnie się tym zajmiemy. Wizualizujemy zarówno wnętrza jak i architekturę." 
             },
             { 
                 "heading": "Sesja fotograficzna", 
-                "content": "Chcesz wynająć mieszkanie? Odpowiednio wykonane przez nas zdjęcia potrafią szybko zaciekawić potencjalnych odbiorców." 
+                "content": "Chcesz wynająć mieszkanie? A może masz ochotę pochwalić się projektem? Odpowiednio przygotowane zdjęcia diametralnie zwiększają zainteresowanie odbiorców." 
             }
         ],
         "portfolio": [ "Realizacje", "Wizualizacje", "Statyczne" ],
