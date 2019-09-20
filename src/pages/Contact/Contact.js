@@ -13,7 +13,7 @@ class Contact extends Component {
         tel: '',
         service: 'init',
         comment: '',
-        errors: Array(6).map(_=>false)
+        errors: Array(6).fill()
     }
     handleChange = event => {
         this.setState({ [event.target.id]: event.target.value })
@@ -51,7 +51,10 @@ class Contact extends Component {
                     "Content-type": "application/json; charset=UTF-8" },
                 body: JSON.stringify( message )
             })
-            .then(res => res.json())
+            .then(res => {
+                let response = res.json()
+                console.log(response)
+            })
             .then(()=>{
                 this.setState({
                     name: '',
@@ -59,11 +62,11 @@ class Contact extends Component {
                     tel: '',
                     service: 'init',
                     comment: '',
-                    errors: [ ...Array(6) ].map((_, i) => i === 4 )
+                    errors: Array(6).fill().map((_, i) => i === 4 )
                 })
             })
             .catch(() => {
-                this.setState({ errors: [ ...Array(6) ].map((_, i) => i === 5 )})
+                this.setState({ errors: Array(6).fill().map((_, i) => i === 5 )})
             })
         }
     }
