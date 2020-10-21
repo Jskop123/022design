@@ -16,7 +16,7 @@ const ContactData = props => (
                 <i className='icon-instagram-filled'/>
                 { props.fullSize ? <span className={styles.location}>Instagram</span> : null }
             </a>
-            <a href='https://www.facebook.com/' target='_blank' rel="noopener noreferrer">
+            <a href='https://www.facebook.com/022-design-109127377164560' target='_blank' rel="noopener noreferrer">
                 <i className="icon-facebook"/>
                 { props.fullSize ? <span className={styles.location}>Facebook</span> : null }
             </a>
