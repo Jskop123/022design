@@ -1,11 +1,12 @@
 .data {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     flex-shrink: 0;
     justify-content: space-around;
     position: relative;
     overflow: visible;
     width: 70%;
+    margin: auto;
 }
 .simpleData {
     width: 100% !important;

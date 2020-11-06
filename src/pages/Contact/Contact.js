@@ -13,7 +13,8 @@ class Contact extends Component {
         tel: '',
         service: 'init',
         comment: '',
-        errors: Array(6).fill()
+        errors: Array(6).fill(),
+        description: ''
     }
     handleChange = event => {
         this.setState({ [event.target.id]: event.target.value })
@@ -51,10 +52,7 @@ class Contact extends Component {
                     "Content-type": "application/json; charset=UTF-8" },
                 body: JSON.stringify( message )
             })
-            .then(res => {
-                let response = res.json()
-                console.log(response)
-            })
+            .then(res => res.json())
             .then(()=>{
                 this.setState({
                     name: '',
@@ -70,9 +68,38 @@ class Contact extends Component {
             })
         }
     }
-    render = () => (
+    componentDidMount(){
+        fetch("https://022design.com/wordpress/wp-json/wp/v2/kontakt")
+        .then(res => res.json())
+        .then(data => this.setState({
+            description: data[0].acf
+        }))
+    }
+    
+    render = () => {    
+        const data = this.state.description
+        return (
         <div className={`page ${styles.contact}`}>
-            <ContactData lang={this.props.lang} fullSize/>
+            <div className={styles.aboutMe}>
+                <img src={data.zdjecie_kontakt} alt="avatar" />
+                {this.props.lang === 'Pl' ? 
+                    <div className={styles.aboutMe_desc}>
+                        <p>{data.akapit_1_pl}</p>
+                        <p>{data.akapit_2_pl}</p>
+                        <p>{data.akapit_3_pl}</p>
+                        <p>{data.akapit_3_pl}</p>
+                    </div>
+                :
+                    <div className={styles.aboutMe_desc}>
+                        <p>{data.akapit_1_eng}</p>
+                        <p>{data.akapit_2_eng}</p>
+                        <p>{data.akapit_3_eng}</p>
+                        <p>{data.akapit_3_eng}</p>
+                    </div>
+                }
+                    
+            </div>
+            
             <form className={styles.form}>
                 <h2>{ this.props.text.form[0] }</h2>
 
@@ -112,8 +139,11 @@ class Contact extends Component {
                         : null ) }
                 </ul>
             </form>
+            <div className={styles.aboutMe_contactData}>
+                <ContactData lang={this.props.lang} />
+            </div>
         </div>
-    )
+    )}
 }
 const mapStateToProps = state => ({
     text: state.language.text.contact,

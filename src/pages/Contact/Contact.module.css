@@ -11,6 +11,29 @@
 .contact h2{
     margin: 4% 0;
 }
+.aboutMe {
+    display: block;
+    margin: auto;
+    width: 60%;
+}   
+.aboutMe img {
+    display: inline-block;
+    margin: 5% auto;
+    width: 25%;
+    border: 2px solid #000;
+}
+.aboutMe_desc {
+    text-align: center;
+    width: 90%;
+}
+.aboutMe_desc p {
+    margin-top: 2%;
+    font-size: 1em;
+}
+.aboutMe_contactData {
+    margin-top: 10%;
+    width: 100%;
+}
 .form {
     width: 70%;
     position: relative;
@@ -53,10 +76,22 @@ form .submit {
 }
 @media (orientation: landscape) and (min-width: 500px){
     .form { width: 40%; }
+    .aboutMe_desc {
+        width: 100%;
+        padding: 0 5%;
+    }
 }
 @media (orientation: landscape) and (min-width: 1080px){
     .form { width: 30%; margin: 0 5%; }
+    .aboutMe_desc {
+        width: 100%;
+        padding: 0 5%;
+    }
 }
 @media (orientation: portrait) and (min-height: 1024px){
-    .contact { height: 100%; top: 0 }
+    .contact { height: 100%; }
+    .aboutMe_desc {
+        width: 100%;
+        padding: 0 5%;
+    }
 }

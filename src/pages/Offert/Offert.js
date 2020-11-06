@@ -13,6 +13,7 @@ class Offert extends PureComponent {
     render = () => (
         <div className={`page ${styles.offer}`}>
             { Object.keys( this.images ).map(( el, i ) => {
+                console.log(this.props)
                 const graph = <div className={styles.graph}>
                                 <img src={ this.images[ el ] } alt={`${el} icon`}/>
                             </div>
