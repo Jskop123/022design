@@ -1,2 +1,1 @@
-odswierzanie przy postform,
 
