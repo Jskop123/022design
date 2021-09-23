@@ -6,7 +6,6 @@
     font-size: 1.2em;
     overflow-y: scroll;
     overflow-x: hidden;
-    text-align: center;
 }
 .contact h2{
     margin: 4% 0;
@@ -17,18 +16,21 @@
     width: 60%;
 }   
 .aboutMe img {
-    display: inline-block;
+    display: block;
     margin: 5% auto;
     width: 25%;
     border: 2px solid #000;
 }
 .aboutMe_desc {
-    text-align: center;
     width: 90%;
 }
 .aboutMe_desc p {
-    margin-top: 2%;
     font-size: 1em;
+}
+.aboutMe_desc p:first-child {
+    margin-bottom: 4%;
+    font-size: 1.1em;
+    font-weight: 700;
 }
 .aboutMe_contactData {
     margin-top: 10%;
@@ -37,6 +39,7 @@
 .form {
     width: 70%;
     position: relative;
+    text-align: center;
 }
 .form input, .form textarea,
 .form select, form .submit {

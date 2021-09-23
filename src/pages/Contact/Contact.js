@@ -87,20 +87,36 @@ class Contact extends Component {
                         <p>{data.akapit_1_pl}</p>
                         <p>{data.akapit_2_pl}</p>
                         <p>{data.akapit_3_pl}</p>
-                        <p>{data.akapit_3_pl}</p>
+                        <p>{data.akapit_4_pl}</p>
+                        <p>{data.akapit_5_pl}</p>
                     </div>
                 :
                     <div className={styles.aboutMe_desc}>
                         <p>{data.akapit_1_eng}</p>
                         <p>{data.akapit_2_eng}</p>
                         <p>{data.akapit_3_eng}</p>
-                        <p>{data.akapit_3_eng}</p>
+                        <p>{data.akapit_4_eng}</p>
+                        <p>{data.akapit_5_eng}</p>
                     </div>
                 }
                     
             </div>
             
-            <form className={styles.form}>
+            
+            <div className={styles.aboutMe_contactData}>
+                <ContactData lang={this.props.lang} />
+            </div>
+        </div>
+    )}
+}
+const mapStateToProps = state => ({
+    text: state.language.text.contact,
+    lang: state.language.lang
+})
+export default connect( mapStateToProps )( Contact )
+
+/*
+    <form className={styles.form}>
                 <h2>{ this.props.text.form[0] }</h2>
 
                 <label htmlFor='name'>{ this.props.text.form[1] }</label>
@@ -139,14 +155,4 @@ class Contact extends Component {
                         : null ) }
                 </ul>
             </form>
-            <div className={styles.aboutMe_contactData}>
-                <ContactData lang={this.props.lang} />
-            </div>
-        </div>
-    )}
-}
-const mapStateToProps = state => ({
-    text: state.language.text.contact,
-    lang: state.language.lang
-})
-export default connect( mapStateToProps )( Contact )
+*/

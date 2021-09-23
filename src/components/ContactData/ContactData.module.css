@@ -3,10 +3,11 @@
     flex-wrap: nowrap;
     flex-shrink: 0;
     justify-content: space-around;
-    position: relative;
+    position: absolute;
     overflow: visible;
     width: 70%;
     margin: auto;
+    bottom: 0;
 }
 .simpleData {
     width: 100% !important;
