@@ -65,7 +65,7 @@ class Project extends Component {
                     <div className={ styles.horizontalCarousel } 
                         dangerouslySetInnerHTML={{ __html: this.state.img360 }} ></div> 
                     : null }
-                <ContacData/></>
+                </>
                 :
                 <Logo spinner/>
             }

@@ -71,7 +71,7 @@ class Portfolio extends Component {
                                 </Link>
                             </div>
                         )
-                    })}<ContactData lang={this.props.lang}/></>
+                    })}</>
                     :
                     <Logo spinner/>
                 }
